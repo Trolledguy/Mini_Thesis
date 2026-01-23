@@ -49,8 +49,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.4f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Ink\InkLibs\InkCompiler\InkStringConversionExtensions.cs" />
     <Compile Include="Assets\Ink\InkLibs\InkRuntime\InkList.cs" />
+    <Compile Include="Assets\Ink\InkLibs\InkCompiler\InkStringConversionExtensions.cs" />
     <Compile Include="Assets\Ink\InkLibs\InkCompiler\InkParser\InkParser_Choices.cs" />
     <Compile Include="Assets\Ink\InkLibs\InkCompiler\ParsedHierarchy\Stitch.cs" />
     <Compile Include="Assets\Ink\InkLibs\InkRuntime\Tag.cs" />
@@ -166,10 +166,6 @@
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.AccessibilityModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AdaptivePerformanceModule">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.AdaptivePerformanceModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
