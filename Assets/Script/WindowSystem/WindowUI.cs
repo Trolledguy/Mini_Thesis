@@ -27,6 +27,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
 
     public virtual void OnDrag(PointerEventData eventData)
     {
+        if(!InputManager.Instance.IsUsingComputer()) { return; }
         Vector3 grolbalMousePos;
         if(RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform.parent as RectTransform, eventData.position, eventData.pressEventCamera, out grolbalMousePos))
         {

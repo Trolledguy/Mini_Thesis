@@ -36,4 +36,9 @@ public class InputManager : MonoBehaviour
             isUsingComputer = !isUsingComputer;
         }
     }
+
+    public bool IsUsingComputer()
+    {
+        return isUsingComputer;
+    }
 }
