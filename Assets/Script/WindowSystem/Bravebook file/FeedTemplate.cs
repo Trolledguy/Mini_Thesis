@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,9 @@ public class FeedTemplate : MonoBehaviour
 {
     [Header("Feed UI Elements")]
     public Image profilePicture;
-    public Text userNameText;
-    public Text postTimeText;
-    public Text postContentText;
+    public TMP_Text userNameText;
+    public TMP_Text postTimeText;
+    public TMP_Text postContentText;
     public Image postImage;
 
 
