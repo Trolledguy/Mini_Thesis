@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635edd08e052bbd4b8695ebcdba56735, type: 3}
   m_Name: New Post Info
   m_EditorClassIdentifier: Assembly-CSharp::PostInfo
-  postAuthor: {fileID: 0}
+  postAuthor: {fileID: 11400000, guid: 839cfb8b072025749ba9ec0e86950e5b, type: 2}
   postID: PO001
   day: 1
-  month: 12
-  year: 2025
+  month: 1
+  year: 2000
   postContent: 
   postImage: {fileID: 0}
