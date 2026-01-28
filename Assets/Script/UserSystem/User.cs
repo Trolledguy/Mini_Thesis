@@ -8,7 +8,7 @@ public class User : ScriptableObject
     public string userName;
     public string userID; // Unique identifier for the user
 
-    public Image profilePicture;
+    public Sprite profilePicture;
     [Header("User Preferences")]
     public bool isLoveAnimals;
 

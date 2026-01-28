@@ -16,7 +16,7 @@ public class PostInfo : ScriptableObject
 
     [Header("Post Content")]
     public string postContent;
-    public Image postImage;
+    public Sprite postImage;
 
     void OnValidate()
     {

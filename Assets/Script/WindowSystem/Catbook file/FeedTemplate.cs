@@ -16,10 +16,10 @@ public class FeedTemplate : MonoBehaviour
 
     public void SetUpTemplate(Post post)
     {
-        profilePicture = post.postInfo.postAuthor.profilePicture;
+        profilePicture.sprite = post.postInfo.postAuthor.profilePicture;
         userNameText.text = post.postInfo.postAuthor.userName;
         postTimeText.text = post.postInfo.postTime.GetFormattedDate();
         postContentText.text = post.postInfo.postContent;
-        postImage = post.postInfo.postImage;
+        postImage.sprite = post.postInfo.postImage;
     }
 }

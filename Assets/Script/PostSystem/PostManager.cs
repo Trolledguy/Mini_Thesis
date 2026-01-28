@@ -43,6 +43,19 @@ public class PostManager : MonoBehaviour
         }
     }
 
+    public Post GetRandomPost()
+    {
+        List<Post> postValues = new List<Post>(posts.Values);
+        if (postValues.Count == 0)
+        {
+            Debug.LogWarning("No posts available to select.");
+            return null;
+        }
+        int randomIndex = Random.Range(0, postValues.Count);
+        return postValues[randomIndex];
+    }
+    
+
     private void Setup()
     {
         if (instance == null)

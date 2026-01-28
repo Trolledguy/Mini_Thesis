@@ -355,12 +355,12 @@ MonoBehaviour:
   closeButton: {fileID: 159392061}
   rectTransform: {fileID: 172550215}
   windowName: Bravebook
-  windowWidth: 1179.9
-  windowHeight: 600
-  contentArea: {fileID: 0}
+  windowWidth: 1
+  windowHeight: 0.58
+  contentArea: {fileID: 1767993648}
   feedsposition:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1090535391}
+  - {fileID: 1196445558}
 --- !u!1001 &186733984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
   m_Content: {fileID: 1767993649}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -2043,8 +2043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 44.7}
-  m_SizeDelta: {x: -0.0009732664, y: 400.8}
+  m_AnchoredPosition: {x: 0, y: -0.00019995414}
+  m_SizeDelta: {x: -0.0009732664, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1781372945
 GameObject:
