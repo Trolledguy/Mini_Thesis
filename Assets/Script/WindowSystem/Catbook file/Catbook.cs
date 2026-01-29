@@ -13,7 +13,7 @@ public class Catbook : WindowUI
     private FeedTemplate feedTemplatePrefab;
 
 
-    void Start()
+    protected override void Start()
     {
         this.SettUp();
     }
