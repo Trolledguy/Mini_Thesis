@@ -17,5 +17,7 @@ MonoBehaviour:
   day: 1
   month: 1
   year: 2000
+  defaultLikeCount: 12
+  likeCount: 12
   postContent: TestttTestttTestttTestttTesttt
   postImage: {fileID: 21300000, guid: 7afdcd037de46d942a3e5b6e2e0fa217, type: 3}

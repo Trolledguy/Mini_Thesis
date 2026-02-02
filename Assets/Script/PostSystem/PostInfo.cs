@@ -13,6 +13,9 @@ public class PostInfo : ScriptableObject
     [SerializeField] private int day;
     [SerializeField] private int month;
     [SerializeField] private int year;
+    [Header("Post Likes")]
+    [SerializeField] private int defaultLikeCount;
+    public int likeCount;
 
     [Header("Post Content")]
     public string postContent;
@@ -30,6 +33,8 @@ public class PostInfo : ScriptableObject
         #endif
 
         postTime = new PostTime(day, month, year);
+        likeCount = defaultLikeCount;
+
         if(postID == ""||postID == null)
         {
             Debug.LogWarning("Post ID is not set." + this.name);
@@ -38,6 +43,14 @@ public class PostInfo : ScriptableObject
         {
             Debug.LogWarning("Post Author is not assigned." + this.name);
         }
+
+        if(defaultLikeCount < 0) 
+        {
+            defaultLikeCount = 0;
+            likeCount = 0;
+        }
+        
     }
+
 }
 

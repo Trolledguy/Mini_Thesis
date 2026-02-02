@@ -12,6 +12,11 @@ public class FeedTemplate : MonoBehaviour
     public TMP_Text postTimeText;
     public TMP_Text postContentText;
     public Image postImage;
+    [Header("Feed Interaction Elements")]
+    public TMP_Text likeCountText;
+    public Button likeButton;
+    
+    private bool isLiked = false;
 
 
     public void SetUpTemplate(Post post)
@@ -21,5 +26,17 @@ public class FeedTemplate : MonoBehaviour
         postTimeText.text = post.postInfo.postTime.GetFormattedDate();
         postContentText.text = post.postInfo.postContent;
         postImage.sprite = post.postInfo.postImage;
+        likeCountText.text = post.postInfo.likeCount.ToString();
+        likeButton.onClick.AddListener(() => HandleLikeButton(post));
     }
+
+    private void HandleLikeButton(Post post)
+    {
+        if(isLiked) return; //prevent multiple likes
+        isLiked = true;
+        post.postInfo.likeCount += 1;
+        likeCountText.text = post.postInfo.likeCount.ToString();
+    }
+
+    
 }

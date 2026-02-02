@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109dc321466b00845a75940066dacf94, type: 3}
+  m_Name: New Cat Info
+  m_EditorClassIdentifier: Assembly-CSharp::CatInfo
+  catName: Test Cat 1
+  breed: Orange
+  age: 1
+  catID: CAT0001
+  catImage: {fileID: 0}
+  description: He's a fit fat orange cat.
+  backgroundStory: He's came from nowhere. And he's fat.
