@@ -29,7 +29,6 @@ public class PlayerCamera : MonoBehaviour
                         isZooming = false;
                         yield break;
                     }
-                    Debug.Log(Quaternion.Angle(playerCamera.transform.rotation, targetYawL));
                     yield return null;
                 }
             case MoveDirection.Right:
@@ -42,7 +41,6 @@ public class PlayerCamera : MonoBehaviour
                         isZooming = false;
                         yield break;
                     }
-                    Debug.Log(Quaternion.Angle(playerCamera.transform.rotation, targetYawR));
                     yield return null;
                 }            
         }

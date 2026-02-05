@@ -7,6 +7,7 @@ public class User : ScriptableObject
     [Header("User Info")]
     public string userName;
     public string userID; // Unique identifier for the user
+    public UserChat userChatInfo;
 
     public Sprite profilePicture;
     [Header("User Preferences")]

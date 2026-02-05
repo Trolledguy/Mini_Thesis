@@ -5,10 +5,9 @@ using NUnit.Framework;
 
 public class Catbook : WindowUI
 {
-    bool isfirstTimeOpen = false;
     [Header("Bravebook Specific Settings")]
-    public GameObject contentArea;
-    public RectTransform[] feedsposition = new RectTransform[2]; //positions to spawn feeds into
+    [SerializeField]
+    private RectTransform[] feedsposition = new RectTransform[2]; //positions to spawn feeds into
     private Feed[] feeds = new Feed[2];
     private FeedTemplate feedTemplatePrefab;
 
@@ -18,17 +17,7 @@ public class Catbook : WindowUI
         this.SettUp();
     }
 
-    public override void ExecuteWindow()
-    {
-        Debug.Log("Bravebook Executed");
-        if(!isfirstTimeOpen)
-        {
-            isfirstTimeOpen = true;
-        }
-        
-        this.gameObject.SetActive(true);
-        
-    }
+
     protected override void SettUp()
     {
         base.SettUp();
@@ -62,9 +51,6 @@ public class Catbook : WindowUI
                 Debug.LogWarning("No available position for new feed.");
             }
         }
-
-        
-        
     }
 
     private void SetFeedPosition(Feed feed, int index)

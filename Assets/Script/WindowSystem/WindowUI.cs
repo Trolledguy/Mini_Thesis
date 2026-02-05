@@ -4,19 +4,23 @@ using UnityEngine.UI;
 
 public abstract class WindowUI : MonoBehaviour , IDragHandler
 {
-    public Button desktopIcon;
-    public Button closeButton;
-    public RectTransform rectTransform;
+    [Header("Window Icon References")]
+    [SerializeField] private Button desktopIcon;
+    [Header("Close Button References")]
+    [SerializeField] private Button closeButton;
+    [SerializeField] private RectTransform rectTransform;
+    [Header("Window Settings")]
     public string windowName;
     public float windowWidth;
     public float windowHeight;
+
+    bool isfirstTimeOpen = false;
 
     void OnValidate()
     {
         #if UNITY_EDITOR
         this.gameObject.name = windowName;
-        this.windowWidth = rectTransform.sizeDelta.x;
-        this.windowHeight = rectTransform.sizeDelta.y;
+        rectTransform.sizeDelta = new Vector2(windowWidth, windowHeight);
         #endif
     }
 
@@ -36,7 +40,17 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
         }
     }
 
-    public abstract void ExecuteWindow(); //For Setting up the window
+    //For Setting up the window
+    protected virtual void ExecuteWindow()
+    {
+        Debug.Log("Executing Window: " + windowName);
+        if(!isfirstTimeOpen)
+        {
+            isfirstTimeOpen = true;
+        }
+        
+        this.gameObject.SetActive(true);
+    } 
     public virtual void CloseWindow()
     {
         this.gameObject.SetActive(false);
@@ -80,7 +94,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
             Debug.LogWarning("Close Button or Desktop Icon is not assigned in " + windowName);
         }
 
-        rectTransform = GetComponent<RectTransform>();
+        rectTransform = this.gameObject.GetComponent<RectTransform>();
 
     }
     
