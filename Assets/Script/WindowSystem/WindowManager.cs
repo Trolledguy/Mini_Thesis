@@ -1,14 +1,25 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 public class WindowManager : MonoBehaviour
 {
     public static WindowManager instance;
 
+    [Header("Apps List")]
+    [SerializeField]
+    private WindowUI[] allApps;
+    
+    public Dictionary<WindowAppType,WindowUI> apps = new Dictionary<WindowAppType, WindowUI>();
+
+
     public RectTransform sizeReference;
     public Canvas windowCanvas;
     public float screenWidth;
     public float screenHeight;
+
+    
 
     void Start()
     {
@@ -16,6 +27,30 @@ public class WindowManager : MonoBehaviour
         screenWidth = sizeReference.sizeDelta.x;
         screenHeight = sizeReference.sizeDelta.y;
     }
+
+    public Chat AccessChat()
+    {
+        return apps[WindowAppType.CatChat].GetComponent<Chat>();
+    }
+
+    private Dictionary<WindowAppType, WindowUI> CreateAppAccess()
+    {
+        Dictionary<WindowAppType,WindowUI> applist = new Dictionary<WindowAppType, WindowUI>();
+        foreach(WindowUI w in allApps)
+        {
+            if(!apps.ContainsKey(w.windowCode))
+            {
+                WindowAppType id = w.windowCode;
+                applist.Add(id,w);
+            }
+            else
+            {
+                Debug.LogWarning("Dulplicated Key Found.");
+            }
+        }
+        return applist;
+    }
+
 
     private void Setup()
     {
@@ -30,6 +65,8 @@ public class WindowManager : MonoBehaviour
 
         sizeReference = GetComponent<RectTransform>();
         windowCanvas = GetComponentInParent<Canvas>();
+
+        apps = CreateAppAccess();
 
     }
 }

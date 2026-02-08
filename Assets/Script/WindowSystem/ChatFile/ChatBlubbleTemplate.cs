@@ -1,15 +1,13 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ChatBlubbleTemplate : MonoBehaviour
 {
     public RectTransform rectTransform;
     public TMP_Text messageText;
 
-    [SerializeField] private Button debugButton;
-    [SerializeField] private string testText;
-    //
+
+    //Size of chat bubble
     private float minimumWidth = 30f;
     private float minimumHight = 20f;
     private float maximumWidth = 115f;
@@ -18,13 +16,24 @@ public class ChatBlubbleTemplate : MonoBehaviour
     float messageBoxWidth;
     float messageBoxHight;
 
+    private float m_yPos;
+    public float yPos
+    {
+        get
+        {
+            return m_yPos;
+        }
+        set
+        {
+            m_yPos = value;
+            float currentX = rectTransform.rect.x;
+            rectTransform.position = new Vector2(currentX,value);
+        }
+    }
+
     void Awake()
     {
         Setup();
-        debugButton.onClick.AddListener(delegate()
-        {
-            SetMessage(testText);
-        });
     }
 
     
@@ -41,6 +50,8 @@ public class ChatBlubbleTemplate : MonoBehaviour
 
         messageBoxWidth = messageText.rectTransform.rect.width;
         messageBoxHight = messageText.rectTransform.rect.height;
+
+        m_yPos = rectTransform.anchoredPosition.y;
     }
 
     private void UpdateMessageboxSize(string massage)
@@ -63,13 +74,16 @@ public class ChatBlubbleTemplate : MonoBehaviour
             y = minimumHight;
 
         //Set Size here
+        messageBoxHight = y;
+        messageBoxWidth = x;
         rectTransform.sizeDelta = new Vector2(x - 200, y);
     }
-    private void SetBond()
-    {
-        
 
+    public Vector2 GetBubbleSize()
+    {
+        return new Vector2(messageBoxWidth,messageBoxHight);
     }
+
 
     void OnDrawGizmos()
     { 

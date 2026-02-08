@@ -11,6 +11,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
     [SerializeField] private RectTransform rectTransform;
     [Header("Window Settings")]
     public string windowName;
+    public WindowAppType windowCode;
     public float windowWidth;
     public float windowHeight;
 

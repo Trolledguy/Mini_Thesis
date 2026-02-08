@@ -19,6 +19,9 @@ public class FeedTemplate : MonoBehaviour
     private bool isLiked = false;
 
 
+    public MessageSender _sender;
+    
+
     public void SetUpTemplate(Post post)
     {
         profilePicture.sprite = post.postInfo.postAuthor.profilePicture;
@@ -36,6 +39,9 @@ public class FeedTemplate : MonoBehaviour
         isLiked = true;
         post.postInfo.likeCount += 1;
         likeCountText.text = post.postInfo.likeCount.ToString();
+
+        string uID = post.postInfo.postAuthor.userID;
+        _sender.onCallEvent.Invoke(uID);
     }
 
     

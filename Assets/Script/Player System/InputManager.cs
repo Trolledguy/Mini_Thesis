@@ -31,7 +31,6 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             if(PlayerCamera.Instance.isCameraZooming()) return;
-            Debug.Log("Interact");
             StartCoroutine(PlayerCamera.Instance.AdjustFOV(isUsingComputer, 5f));
             isUsingComputer = !isUsingComputer;
         }

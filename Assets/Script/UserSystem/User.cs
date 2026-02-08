@@ -18,6 +18,8 @@ public class User : ScriptableObject
         if(userID == "" || userID == null)
         {
             Debug.LogWarning("User ID is not set." + this.name);
+            userChatInfo.userChatID = userID;
+
         }
     }
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PostManager : MonoBehaviour
@@ -41,6 +42,12 @@ public class PostManager : MonoBehaviour
             Debug.LogWarning("Post ID not found: " + postID);
             return null;
         }
+    }
+
+    public Post[] GetAllPost()
+    {
+        Post[] rPosts = posts.Values.ToArray();
+        return rPosts;
     }
 
     public Post GetRandomPost()
