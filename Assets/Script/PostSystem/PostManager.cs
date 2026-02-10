@@ -65,7 +65,7 @@ public class PostManager : MonoBehaviour
 
     private void Setup()
     {
-        if (instance == null)
+        if (instance != this)
         {
             instance = this;
         }

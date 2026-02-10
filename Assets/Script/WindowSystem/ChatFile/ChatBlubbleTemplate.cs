@@ -76,7 +76,7 @@ public class ChatBlubbleTemplate : MonoBehaviour
         //Set Size here
         messageBoxHight = y;
         messageBoxWidth = x;
-        rectTransform.sizeDelta = new Vector2(x - 200, y);
+        rectTransform.sizeDelta = new Vector2(x - 200, y + 2);
     }
 
     public Vector2 GetBubbleSize()

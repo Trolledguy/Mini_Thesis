@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Linq;
+using Ink.Runtime;
 
 public class Chat : WindowUI
 {
@@ -45,11 +46,16 @@ public class Chat : WindowUI
         Debug.Log("Setting new Chat");
         User u = UserManager.intensce.GetUserByID(_UID);
         currentUserChat = u.userChatInfo;
-        while (currentUserChat.userStory.canContinue)
+        Story s = currentUserChat.userStory;
+        while (s.canContinue)
         {
-            string text = currentUserChat.userStory.Continue();
+            string text = s.Continue();
             AddNewChat(text,u);
-            Debug.Log($"Log Chat {text}");
+
+            if(s.currentChoices.Count > 0)
+            {
+                s.ChooseChoiceIndex(0);
+            }
         }
         Debug.Log("End Setup");
     }
@@ -71,17 +77,6 @@ public class Chat : WindowUI
         //Add infomation
         allBubble.Add(bubbleInfo);
         
-        
-        if(user != null)
-        {
-            //SetNewChatPosistion(bubbleInfo.rectTransform, user);
-            Debug.Log("This is User Chat"); // Posx = -17.5
-        }
-        else
-        {
-            
-            Debug.Log("This chat is player chat"); //Posx = 17.5
-        }
 
 
     }
@@ -89,13 +84,13 @@ public class Chat : WindowUI
 
     private void ExtentContentZone(float amount)
     {
-        // 1. Cache world positions
+        // Cache world positions
         List<Vector3> oldWorldPos = GetWorldBubblesPos();
 
-        // 2. Resize content
+        // Resize content
         contentTranform.sizeDelta += new Vector2(0, amount);
 
-        // 3. Restore positions so nothing shifts on screen
+        // Restore positions so nothing shifts on screen
         RestoreWorldBubblesPos(oldWorldPos);
     }
 

@@ -7,7 +7,7 @@ public class UserManager : MonoBehaviour
 
     public Dictionary<string , User> allUser = new Dictionary<string, User>();
 
-    void Awake()
+    void Start()
     {
         if(intensce != this)
         {intensce = this;}

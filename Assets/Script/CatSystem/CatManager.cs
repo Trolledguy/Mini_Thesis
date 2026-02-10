@@ -34,6 +34,19 @@ public class CatManager : MonoBehaviour
         return newCatDict;
     }
 
+    public Cat GetRandomCat()
+    {
+        List<Cat> catValues = new List<Cat>(catList.Values);
+        if (catValues.Count == 0)
+        {
+            Debug.LogWarning("No Cat available to select.");
+            return null;
+        }
+        int randomIndex = Random.Range(0, catValues.Count);
+        return catValues[randomIndex];
+    }
+
+
 
 
     private void Setup()
