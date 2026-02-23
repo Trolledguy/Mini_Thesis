@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChatBlubbleTemplate : MonoBehaviour
 {
     public RectTransform rectTransform;
     public TMP_Text messageText;
+    public Image imageZone;
 
 
     //Size of chat bubble
@@ -39,19 +41,42 @@ public class ChatBlubbleTemplate : MonoBehaviour
     
     public void SetMessage(string _message)
     {
+        messageText.gameObject.SetActive(true);
+        imageZone.gameObject.SetActive(false);
+        gameObject.SetActive(true);
         messageText.text = _message;
         UpdateMessageboxSize(_message);
+    }
+
+    public void SetImage(Sprite sprite)
+    {
+        imageZone.gameObject.SetActive(true);
+        messageText.gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        imageZone.sprite = sprite;
+        UpdateMessageboxSize(sprite);
     }
 
     private void Setup()
     {
         rectTransform = GetComponent<RectTransform>();
         messageText = GetComponentInChildren<TMP_Text>();
+        
+        if(imageZone == null) Debug.LogError("No image component assign");
 
         messageBoxWidth = messageText.rectTransform.rect.width;
         messageBoxHight = messageText.rectTransform.rect.height;
 
         m_yPos = rectTransform.anchoredPosition.y;
+
+        messageText.gameObject.SetActive(false);
+        imageZone.gameObject.SetActive(false);
+    }
+    private void UpdateMessageboxSize(Sprite _s)
+    {
+        messageBoxHight = 105;
+        messageBoxWidth = 105;
+        rectTransform.sizeDelta = new Vector2(messageBoxWidth - 200,messageBoxHight);
     }
 
     private void UpdateMessageboxSize(string massage)
@@ -92,9 +117,6 @@ public class ChatBlubbleTemplate : MonoBehaviour
             Debug.LogError("RectTranform or Text Missing");
             return;
         }
-    
-        
-
         Gizmos.color = Color.green;
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawWireCube(messageText.rectTransform.anchoredPosition, new Vector2(messageBoxWidth,messageBoxHight));

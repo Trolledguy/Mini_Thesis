@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Linq;
 using Ink.Runtime;
+using UnityEngine.Events;
 
 public class Chat : WindowUI
 {
@@ -20,6 +21,10 @@ public class Chat : WindowUI
 
     private float m_spawnPositionY = 0;
 
+    public UnityEvent imageSendEvent;
+
+    List<string> lastTags;
+
 
     protected override void Start()
     {
@@ -27,6 +32,11 @@ public class Chat : WindowUI
         chatblubblePrefab = Resources.Load<GameObject>("Prefab/Chat_Bubble_Template");
 
         contentTranform.sizeDelta = new Vector2(0 , 30);
+
+        imageSendEvent.AddListener(delegate()
+        {
+            AddNewImage();
+        });
 
 
         //
@@ -46,10 +56,25 @@ public class Chat : WindowUI
         Debug.Log("Setting new Chat");
         User u = UserManager.intensce.GetUserByID(_UID);
         currentUserChat = u.userChatInfo;
+        currentUserChat.SetupChat();
+        
         Story s = currentUserChat.userStory;
+
+        
         while (s.canContinue)
         {
             string text = s.Continue();
+            List<string>tags = s.currentTags;
+
+            //Check if is image post
+            if(UserChat.IsTagChange(lastTags,tags) && tags.Count > 0)
+            {
+                Debug.Log("Tag Change");
+                lastTags = tags;
+                currentUserChat.HandleTags(lastTags);
+                AddNewImage(u);
+                continue;
+            }
             AddNewChat(text,u);
 
             if(s.currentChoices.Count > 0)
@@ -57,7 +82,26 @@ public class Chat : WindowUI
                 s.ChooseChoiceIndex(0);
             }
         }
-        Debug.Log("End Setup");
+    }
+    private void AddNewImage(User user = null)
+    {  
+        //Setup image
+        Sprite spriteImg = user.userChatInfo.GetCurrentImage();
+        //Instantiate chat
+        GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
+        ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
+        bubbleInfo.SetImage(spriteImg);
+        //SetPosition
+        float newBubbleHight = bubbleInfo.GetBubbleSize().y;
+            
+        float b_expandSize = newBubbleHight + (newBubbleHight/3);
+        ExtentContentZone(b_expandSize);
+        
+        SetNewChatPosistion(bubbleInfo.rectTransform, user == null);
+        m_spawnPositionY += newBubbleHight - (newBubbleHight/2);
+        //Add infomation
+        allBubble.Add(bubbleInfo);
+
     }
 
     private void AddNewChat(string _message , User user = null)
