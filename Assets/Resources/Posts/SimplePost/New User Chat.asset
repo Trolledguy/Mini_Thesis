@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05753c244e3c75844ba230fdd66c0e30, type: 3}
   m_Name: New User Chat
   m_EditorClassIdentifier: Assembly-CSharp::UserChat
-  inkJSONAsset: {fileID: 4900000, guid: 76b475409028e474eb65951927b0f434, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 0fb52f5da9d38bf4fb86d7bf4b6361a0, type: 3}
   userChatID: US001
   sendImage:
   - {fileID: 21300000, guid: 0f81284b7ed879f4a8c6bd4f7091ba1f, type: 3}

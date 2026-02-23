@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Linq;
 using Ink.Runtime;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class Chat : WindowUI
 {
@@ -14,6 +16,7 @@ public class Chat : WindowUI
     private List<ChatBlubbleTemplate> allBubble = new List<ChatBlubbleTemplate>();
 
     [SerializeField] private Button debugButton;
+    [SerializeField] private Button askNextButton;
     [SerializeField] private string testText;
 
 
@@ -21,7 +24,6 @@ public class Chat : WindowUI
 
     private float m_spawnPositionY = 0;
 
-    public UnityEvent imageSendEvent;
 
     List<string> lastTags;
 
@@ -33,9 +35,9 @@ public class Chat : WindowUI
 
         contentTranform.sizeDelta = new Vector2(0 , 30);
 
-        imageSendEvent.AddListener(delegate()
+        askNextButton.onClick.AddListener(delegate()
         {
-            AddNewImage();
+            Player.chatContinueTrigger.Invoke(10);
         });
 
 
@@ -51,9 +53,18 @@ public class Chat : WindowUI
     /// User Chat Handler
     /// </summary>
 
-    public void SetNewChat(string _UID)
+    public IEnumerator SetNewChat(string _UID)
     {
         Debug.Log("Setting new Chat");
+        foreach(ChatBlubbleTemplate c in allBubble) //Clear all bubble
+        {
+            Destroy(c.gameObject);
+        }
+        contentTranform.sizeDelta = new Vector2(0 , 30);
+        m_spawnPositionY = 0;
+        allBubble.Clear();
+
+        //Get UserChat
         User u = UserManager.intensce.GetUserByID(_UID);
         currentUserChat = u.userChatInfo;
         currentUserChat.SetupChat();
@@ -63,9 +74,11 @@ public class Chat : WindowUI
         
         while (s.canContinue)
         {
+            yield return new WaitForSeconds(1f);
             string text = s.Continue();
             List<string>tags = s.currentTags;
 
+            
             //Check if is image post
             if(UserChat.IsTagChange(lastTags,tags) && tags.Count > 0)
             {
@@ -73,14 +86,13 @@ public class Chat : WindowUI
                 lastTags = tags;
                 currentUserChat.HandleTags(lastTags);
                 AddNewImage(u);
+                
                 continue;
             }
-            AddNewChat(text,u);
 
-            if(s.currentChoices.Count > 0)
-            {
-                s.ChooseChoiceIndex(0);
-            }
+            AddNewChat(text,u);
+            yield return null;
+            
         }
     }
     private void AddNewImage(User user = null)
@@ -90,6 +102,19 @@ public class Chat : WindowUI
         //Instantiate chat
         GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
         ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
+        Button button = bubbleInfo.AddComponent<Button>();
+        button.onClick.AddListener(delegate()
+        {
+            Debug.Log("Image Clicked");
+            CatProfile catProfile = WindowManager.instance.catProfilePrefab;
+            GameObject obj = Instantiate(catProfile.gameObject);
+            obj.transform.SetParent(WindowManager.instance.windowCanvas.transform);
+            obj.transform.localScale = Vector3.one;
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localRotation = Quaternion.identity;
+            catProfile = obj.GetComponent<CatProfile>();
+            catProfile.SetCatProfile(user.userRequestedCat, user);
+        });
         bubbleInfo.SetImage(spriteImg);
         //SetPosition
         float newBubbleHight = bubbleInfo.GetBubbleSize().y;

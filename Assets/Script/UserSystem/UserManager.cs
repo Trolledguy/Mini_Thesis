@@ -23,6 +23,7 @@ public class UserManager : MonoBehaviour
         {
             User u = p.postInfo.postAuthor;
             string uID = u.userID;
+            u.SetupProfile();
             uDic.Add(uID,u);
         }
         

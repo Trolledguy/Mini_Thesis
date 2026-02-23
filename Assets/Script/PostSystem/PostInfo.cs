@@ -8,6 +8,8 @@ public class PostInfo : ScriptableObject
     [Header("Post Details")]
     public User postAuthor;
     public string postID; // Unique identifier for the post
+    public PostTag postTag;
+    
     [Header("Post Time")]
     public PostTime postTime;
     [SerializeField] private int day;

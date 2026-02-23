@@ -10,17 +10,27 @@ public class GameManager : MonoBehaviour
     private PlayerViable playerViable;
     private float currentTime;
 
+    private int currectCase = 0;
+    private int incurrectCase = 0;
+
     void Update()
     {
         RunTimeDayCycle();
     }
 
+    public void UpdateScore(bool isCorrect)
+    {
+        if (isCorrect)
+            currectCase++;
+        else
+            incurrectCase++;
+        DebugBox.instance.AddDebugText($"Answer is {(isCorrect ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
+    }
     private void Start() //Used Start after Awake because PlayerViable might need to be initialized in gamemanager first.
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

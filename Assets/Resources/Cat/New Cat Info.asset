@@ -15,7 +15,7 @@ MonoBehaviour:
   catName: Test Cat 1
   breed: Orange
   age: 1
-  catID: CAT0001
-  catImage: {fileID: 0}
+  catID: CAT001
+  catImage: {fileID: 21300000, guid: 0f81284b7ed879f4a8c6bd4f7091ba1f, type: 3}
   description: He's a fit fat orange cat.
   backgroundStory: He's came from nowhere. And he's fat.

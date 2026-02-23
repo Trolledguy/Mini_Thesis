@@ -19,6 +19,9 @@ public class PostManager : MonoBehaviour
 
         foreach (PostInfo postInfo in postList)
         {
+            if(postInfo.postTag == PostTag.Profile)
+                continue;
+
             Post post = new Post(postInfo);
             if (!newpostDict.ContainsKey(postInfo.postID))
             {
@@ -46,8 +49,7 @@ public class PostManager : MonoBehaviour
 
     public Post[] GetAllPost()
     {
-        Post[] rPosts = posts.Values.ToArray();
-        return rPosts;
+        return posts.Values.ToArray();
     }
 
     public Post GetRandomPost()

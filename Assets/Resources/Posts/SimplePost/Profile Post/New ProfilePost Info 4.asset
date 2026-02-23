@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 635edd08e052bbd4b8695ebcdba56735, type: 3}
-  m_Name: New Post Info
+  m_Name: New ProfilePost Info 4
   m_EditorClassIdentifier: Assembly-CSharp::PostInfo
   postAuthor: {fileID: 11400000, guid: 839cfb8b072025749ba9ec0e86950e5b, type: 2}
-  postID: PO001
-  postTag: 0
+  postID: PP001
+  postTag: 1
   day: 1
   month: 1
   year: 2000
-  defaultLikeCount: 81
-  likeCount: 81
-  postContent: TestttTestttTestttTestttTesttt
-  postImage: {fileID: 21300000, guid: 7afdcd037de46d942a3e5b6e2e0fa217, type: 3}
+  defaultLikeCount: 0
+  likeCount: 0
+  postContent: Test
+  postImage: {fileID: 0}

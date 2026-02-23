@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -6,11 +7,31 @@ public class Player : MonoBehaviour
     [Header("Viable Setting Reference")]
     [Tooltip("Reference to Viable Setting Scriptable Object")]
     public ViableSetting viableSetting;
+
+    public static ChatEventTracker chatContinueTrigger;
     private void Awake()
     {
         InitializePlayer();
+        SetupEvent();
     }
 
+    private void ConsumeEnergy(int _amount)
+    {
+        if(playerViable.playerEnegy < _amount)
+        {
+            Debug.Log("Not enough energy to consume. Current Energy: " + playerViable.playerEnegy);
+            return;
+        }
+        Debug.Log($"Consume : {_amount} Energys");
+        playerViable.playerEnegy -= _amount;
+        chatContinueTrigger.InvokeTracked(_amount);
+    }
+    
+    private void SetupEvent()
+    {
+        chatContinueTrigger = new ChatEventTracker();
+        chatContinueTrigger.AddListener(ConsumeEnergy);
+    }
 
     private void InitializePlayer()
     {

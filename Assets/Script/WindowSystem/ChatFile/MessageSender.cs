@@ -13,7 +13,7 @@ public class MessageSender : MonoBehaviour
     public void SendID(string _ID)
     {
         Chat chat = WindowManager.instance.AccessChat();
-        chat.SetNewChat(_ID);
+        StartCoroutine(chat.SetNewChat(_ID));
         Debug.Log("Receive user ID : " + _ID);
     }
 }

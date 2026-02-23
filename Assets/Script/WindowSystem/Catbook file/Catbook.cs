@@ -2,19 +2,36 @@ using UnityEngine;
 using Ink;
 using Ink.UnityIntegration;
 using NUnit.Framework;
+using UnityEngine.UI;
 
 public class Catbook : WindowUI
 {
     [Header("Bravebook Specific Settings")]
     [SerializeField]
     private RectTransform[] feedsposition = new RectTransform[2]; //positions to spawn feeds into
+    [Header("Page Settings")]
+    public ProfilePage profilePage;
+
+    [SerializeField]    private Button activeProfileButton;
+    [SerializeField]    private Button deactiveProfileButton;
+
+    [Header("Debug")]
+    [SerializeField]    private Button testButton;
+    [SerializeField]    private PostInfo TestUser;
+
     private Feed[] feeds = new Feed[2];
-    private FeedTemplate feedTemplatePrefab;
+    public static FeedTemplate feedTemplatePrefab;
 
 
     protected override void Start()
     {
         this.SettUp();
+    }
+
+    public void UpdateFeed(Post postData)
+    {
+        RemoveFeed(0);
+        SpawnFeeds(1);
     }
 
 
@@ -24,6 +41,13 @@ public class Catbook : WindowUI
         feedTemplatePrefab = Resources.Load<FeedTemplate>("Prefab/Feed_Template");
 
         SpawnFeeds(2);
+
+        activeProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(true));
+        deactiveProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(false));
+
+        //Debug
+        testButton.onClick.AddListener(() => profilePage.SetProfile(TestUser.postAuthor));
+
     }
 
     private void SpawnFeeds(int amount)

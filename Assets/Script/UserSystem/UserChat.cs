@@ -30,7 +30,6 @@ public class UserChat : ScriptableObject
 
     public Sprite GetCurrentImage()
     {
-        Debug.Log($"Image ID : {selectImageID}");
         return allImage[selectImageID];
     }
 

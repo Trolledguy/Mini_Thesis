@@ -12,6 +12,7 @@ public class WindowManager : MonoBehaviour
     private WindowUI[] allApps;
     
     public Dictionary<WindowAppType,WindowUI> apps = new Dictionary<WindowAppType, WindowUI>();
+    public CatProfile catProfilePrefab;
 
 
     public RectTransform sizeReference;
@@ -26,6 +27,11 @@ public class WindowManager : MonoBehaviour
         Setup();
         screenWidth = sizeReference.sizeDelta.x;
         screenHeight = sizeReference.sizeDelta.y;
+    }
+
+    public Catbook AccessCatbook()
+    {
+        return apps[WindowAppType.Catbook].GetComponent<Catbook>();
     }
 
     public Chat AccessChat()
@@ -65,6 +71,7 @@ public class WindowManager : MonoBehaviour
 
         sizeReference = GetComponent<RectTransform>();
         windowCanvas = GetComponentInParent<Canvas>();
+        catProfilePrefab = Resources.Load<CatProfile>("Prefab/Cat_Profile");
 
         apps = CreateAppAccess();
 

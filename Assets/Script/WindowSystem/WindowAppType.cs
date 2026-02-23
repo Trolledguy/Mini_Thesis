@@ -1,5 +1,5 @@
 public enum WindowAppType
 {
-    CatFeed,
+    Catbook,
     CatChat
 }

@@ -9,7 +9,6 @@ public class CatManager : MonoBehaviour
 
     private void Awake()
     {
-
         Setup();
     }
 
@@ -46,6 +45,16 @@ public class CatManager : MonoBehaviour
         return catValues[randomIndex];
     }
 
+    public Cat GetCatByID(string catID)
+    {
+        if (catList.TryGetValue(catID, out Cat cat))
+        {
+            return cat;
+        }
+        Debug.LogWarning("Cat ID not found: " + catID);
+        return null;
+    }
+
 
 
 
@@ -54,12 +63,8 @@ public class CatManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
         
         catList = CreateCatDictionary();
     }
