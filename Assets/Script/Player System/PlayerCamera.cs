@@ -57,8 +57,8 @@ public class PlayerCamera : MonoBehaviour
 
             while(true)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, 29 , speed * Time.deltaTime);
-                if(Mathf.Abs(playerCamera.fieldOfView - 29) < 0.1f)
+                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, 15 , speed * Time.deltaTime);
+                if(Mathf.Abs(playerCamera.fieldOfView - 15) < 0.1f)
                 {
                     isZooming = false;
                     yield break;

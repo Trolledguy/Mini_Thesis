@@ -21,4 +21,4 @@ MonoBehaviour:
   defaultLikeCount: 0
   likeCount: 0
   postContent: Test
-  postImage: {fileID: 0}
+  postImage: {fileID: 21300000, guid: 10b7838ead63bf74aa5fbb0935d0846b, type: 3}
