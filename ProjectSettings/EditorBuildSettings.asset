@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dev_TestSide_DONOTTOUCH.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/ClickCat_UI/UI_Page/Test_MainMenu.unity
+    guid: 9fb6b1455503b6c42bd7731b7eda0629
+  - enabled: 1
+    path: Assets/ClickCat_UI/UI_Page/Test_Setting.unity
+    guid: 775c77c0b2b3d76419bfdb98041bcdd5
+  - enabled: 1
+    path: Assets/Scenes/Test_MainMap.unity
+    guid: 6496bc4f339a28f479e035c0046eed68
   m_configObjects:
     com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: 6099eb7921a0f2b4bb109904f3d4e785, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: e12ce7cd0fced0146b67d9451bfac52a, type: 2}
