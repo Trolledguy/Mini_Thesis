@@ -9,6 +9,18 @@ public class ProfilePage : MonoBehaviour
 
     public void SetProfile(User user)
     {
+        // Clear existing posts
+        GameObject[] children = new GameObject[contentParent.childCount];
+        for (int i = 0; i < contentParent.childCount; i++)
+        {
+            children[i] = contentParent.GetChild(i).gameObject;
+        }
+        foreach (GameObject child in children)
+        {
+            Destroy(child);
+        }
+        contentParent.sizeDelta = new Vector2(contentParent.sizeDelta.x, 0);
+
         Post[] posts = user.GetProfilePost();
         List<FeedTemplate> newFeeds = new List<FeedTemplate>();
         int feedCount = 0;

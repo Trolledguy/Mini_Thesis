@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +32,10 @@ public class FeedTemplate : MonoBehaviour
         postImage.sprite = post.postInfo.postImage;
         likeCountText.text = post.postInfo.likeCount.ToString();
         likeButton.onClick.AddListener(() => HandleLikeButton(post));
+    
+
+        ProfilePage profilePage = WindowManager.instance.AccessCatbook().profilePage;
+        profilePicture.AddComponent<Button>().onClick.AddListener(() => profilePage.SetProfile(post.postInfo.postAuthor));
     }
 
     private void HandleLikeButton(Post post)
@@ -39,6 +44,8 @@ public class FeedTemplate : MonoBehaviour
         isLiked = true;
         post.postInfo.likeCount += 1;
         likeCountText.text = post.postInfo.likeCount.ToString();
+
+        if(post.postInfo.postTag == PostTag.Profile) return; //prevent Send profile post
 
         string uID = post.postInfo.postAuthor.userID;
         _sender.onCallEvent.Invoke(uID);

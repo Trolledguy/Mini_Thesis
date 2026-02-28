@@ -26,7 +26,7 @@ public class PostManager : MonoBehaviour
             if (!newpostDict.ContainsKey(postInfo.postID))
             {
                 newpostDict.Add(postInfo.postID, post);
-                Debug.Log("Post added: " + postInfo.postID);
+                Debug.Log("Post added: " + postInfo.postID + " by User ID: " + postInfo.postAuthor.userID);
             }
             else
             {

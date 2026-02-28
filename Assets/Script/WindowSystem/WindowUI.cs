@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public abstract class WindowUI : MonoBehaviour , IDragHandler
 {
     [Header("Window Icon References")]
-    [SerializeField] private Button desktopIcon;
+    [SerializeField] private DesktopIcon desktopIcon; //TODO : Change to Image if we want to click the whole icon instead of just a button
     [Header("Close Button References")]
     [SerializeField] private Button closeButton;
     [SerializeField] private RectTransform rectTransform;
@@ -42,7 +42,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
     }
 
     //For Setting up the window
-    protected virtual void ExecuteWindow()
+    public virtual void ExecuteWindow()
     {
         Debug.Log("Executing Window: " + windowName);
         if(!isfirstTimeOpen)
@@ -88,7 +88,6 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
         if (closeButton != null && desktopIcon != null)
         {
             closeButton.onClick.AddListener(CloseWindow);
-            desktopIcon.onClick.AddListener(ExecuteWindow);
         }
         else
         {

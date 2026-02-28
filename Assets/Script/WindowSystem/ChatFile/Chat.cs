@@ -21,6 +21,7 @@ public class Chat : WindowUI
 
 
     private UserChat currentUserChat;
+    private Story currentStory;
 
     private float m_spawnPositionY = 0;
 
@@ -37,7 +38,7 @@ public class Chat : WindowUI
 
         askNextButton.onClick.AddListener(delegate()
         {
-            Player.chatContinueTrigger.Invoke(10);
+            StartCoroutine(ContinueChat());
         });
 
 
@@ -53,30 +54,61 @@ public class Chat : WindowUI
     /// User Chat Handler
     /// </summary>
 
+    public IEnumerator ContinueChat()
+    {
+        try
+        {
+            currentStory.ChooseChoiceIndex(0); // Automatically choose the first choice for testing purposes, replace with actual choice handling logic
+            Player.chatContinueTrigger.Invoke(10);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log("No choices available or error in story progression: " + e.Message);
+            yield break; // Exit the coroutine if there's an error
+        }
+        
+        while (currentStory.canContinue)
+        {
+            yield return new WaitForSeconds(1f);
+            string text = currentStory.Continue();
+            List<string> tags = currentStory.currentTags;
+
+            
+            //Check if is image post
+            if(UserChat.IsTagChange(lastTags,tags) && tags.Count > 0)
+            {
+                Debug.Log("Tag Change");
+                lastTags = tags;
+                currentUserChat.HandleTags(lastTags);
+                AddNewImage();
+                
+                continue;
+            }
+
+            AddNewChat(text);
+            yield return null;
+            
+        }
+    }
+
     public IEnumerator SetNewChat(string _UID)
     {
         Debug.Log("Setting new Chat");
-        foreach(ChatBlubbleTemplate c in allBubble) //Clear all bubble
-        {
-            Destroy(c.gameObject);
-        }
-        contentTranform.sizeDelta = new Vector2(0 , 30);
-        m_spawnPositionY = 0;
-        allBubble.Clear();
+        ClearChat();
 
         //Get UserChat
         User u = UserManager.intensce.GetUserByID(_UID);
         currentUserChat = u.userChatInfo;
         currentUserChat.SetupChat();
         
-        Story s = currentUserChat.userStory;
+        currentStory = currentUserChat.userStory;
 
         
-        while (s.canContinue)
+        while (currentStory.canContinue)
         {
             yield return new WaitForSeconds(1f);
-            string text = s.Continue();
-            List<string>tags = s.currentTags;
+            string text = currentStory.Continue();
+            List<string> tags = currentStory.currentTags;
 
             
             //Check if is image post
@@ -94,6 +126,16 @@ public class Chat : WindowUI
             yield return null;
             
         }
+    }
+    public void ClearChat()
+    {
+        foreach(ChatBlubbleTemplate c in allBubble)
+        {
+            Destroy(c.gameObject);
+        }
+        contentTranform.sizeDelta = new Vector2(0 , 30);
+        m_spawnPositionY = 0;
+        allBubble.Clear();
     }
     private void AddNewImage(User user = null)
     {  
@@ -149,6 +191,7 @@ public class Chat : WindowUI
 
 
     }
+
 
 
     private void ExtentContentZone(float amount)

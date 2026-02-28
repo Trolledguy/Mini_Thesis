@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +21,14 @@ public class User : ScriptableObject
     #if UNITY_EDITOR
     void OnValidate()
     {
+        if(AssetDatabase.IsAssetImportWorkerProcess())
+            return;
         if(userID == "" || userID == null)
         {
             Debug.LogWarning("User ID is not set." + this.name);
             userChatInfo.userChatID = userID;
         }
+        AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(this), userName);
     }
     #endif
 

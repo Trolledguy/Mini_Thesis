@@ -28,17 +28,19 @@ public class CatProfile : MonoBehaviour
     {
         Debug.Log("Approved cat : " + catNameText.text);
         GameManager.Instance.UpdateScore(user.isLoveAnimals);
-        WindowManager.instance.AccessCatbook().UpdateFeed(null); // Set to null for now
+        WindowManager.instance.AccessCatbook().UpdateFeed(PostStatus.Scrollable); // Set to null for now
+        WindowManager.instance.AccessChat().ClearChat();
+        Player.onDesignEvent.Invoke(); // Trigger the design event to consume energy
         Destroy(gameObject);
-        // Implement approval logic here (e.g., add to favorites, update UI, etc.)
     }
     private void OnDeny(User user)
     {
         Debug.Log("Denied cat : " + catNameText.text);
         GameManager.Instance.UpdateScore(!user.isLoveAnimals);
-        WindowManager.instance.AccessCatbook().UpdateFeed(null); // Set to null for now
+        WindowManager.instance.AccessCatbook().UpdateFeed(PostStatus.Scrollable); // Set to null for now
+        WindowManager.instance.AccessChat().ClearChat();
+        Player.onDesignEvent.Invoke(); 
         Destroy(gameObject);
-        // Implement denial logic here (e.g., remove from list, update UI, etc.)
     }
 
     public void SetCatProfile(CatInfo catInfo , User user)

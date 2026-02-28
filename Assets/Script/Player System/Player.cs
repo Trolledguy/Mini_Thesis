@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public ViableSetting viableSetting;
 
     public static ChatEventTracker chatContinueTrigger;
+    public static UnityEvent onDesignEvent = new UnityEvent();
     private void Awake()
     {
         InitializePlayer();
@@ -30,7 +31,17 @@ public class Player : MonoBehaviour
     private void SetupEvent()
     {
         chatContinueTrigger = new ChatEventTracker();
-        chatContinueTrigger.AddListener(ConsumeEnergy);
+        chatContinueTrigger.AddListener(
+            delegate(int energyCost) 
+            {
+                ConsumeEnergy(energyCost);
+                
+            }
+        );
+        onDesignEvent.AddListener(delegate() 
+        {
+            ConsumeEnergy(viableSetting.energyCostPerChatContinue);
+        });
     }
 
     private void InitializePlayer()
