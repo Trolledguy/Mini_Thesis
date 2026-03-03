@@ -37,6 +37,7 @@ public class ProfilePage : MonoBehaviour
             SetPosition(feedCount, index, f.GetComponent<RectTransform>());
             index++;
         }
+        gameObject.SetActive(true);
     }
 
     private void SetPosition(int feedCount, int index, RectTransform reTransform)
@@ -66,7 +67,7 @@ public class ProfilePage : MonoBehaviour
 
     private FeedTemplate SpawnPostAndGetPost(Post post)
     {
-        FeedTemplate prefab = Catbook.feedTemplatePrefab;
+        FeedTemplate prefab = UIManager.feedTemplatePrefab;
         GameObject obj = Instantiate(prefab.gameObject);
         obj.transform.SetParent(contentParent);
         obj.transform.localScale = Vector3.one;

@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image blackScreen;
     [SerializeField] private TMP_Text dayText;
 
+    public static FeedTemplate feedTemplatePrefab;
+
     private void Awake()
     {
         if (Instance == null)
@@ -19,6 +21,9 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        feedTemplatePrefab = Resources.Load<FeedTemplate>("Prefab/Feed_Template");
+
     }
     public void UpdateDayText(int day)
     {

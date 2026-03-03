@@ -24,7 +24,6 @@ public class Catbook : WindowUI
 
     [Header("Feed Positions")]
     private Feed[] feeds = new Feed[3]; // Array to hold references to the spawned feeds
-    public static FeedTemplate feedTemplatePrefab;
 
 
     protected override void Start()
@@ -43,10 +42,16 @@ public class Catbook : WindowUI
 
     public void UpdateFeed(PostStatus postStatus) //Call after approving or denying a cat and ContentRect Y > 190, to update the feed based on the post status
     {
+        int currentFeedCount = GameManager.Instance.GetFeedCount();
+        if(currentFeedCount >= GameManager.Instance.GetFeedRequiredForCurrentDay())
+        {
+            Debug.Log("Day End");
+            //TODO : Implement day transition logic here 
+            return;
+        }
         switch (postStatus)
         {
             case PostStatus.Scrollable:
-                //Todo Implement scrollable feed update logic here (e.g., spawn new feed, update existing feeds, etc.)
                 currentPostStatus = PostStatus.Scrollable;
                 SetContentParentHight(PostStatus.Scrollable);
                 feeds[0] = feeds[2]; // Move the current feed to the scrollable position
@@ -71,7 +76,14 @@ public class Catbook : WindowUI
         }
 
         contentRect.anchoredPosition = Vector2.zero;
+        GameManager.Instance.IncrementFeedCounter();
     }
+    public void ResetFeed()
+    {
+        ClearFeed();
+        SpawnFeeds(2);
+    }
+
 
 
     protected override void SettUp()
@@ -82,10 +94,9 @@ public class Catbook : WindowUI
             Debug.LogError("ContentRect is not assigned in Catbook.");
             return;
         }
-        feedTemplatePrefab = Resources.Load<FeedTemplate>("Prefab/Feed_Template");
 
         currentPostStatus = PostStatus.Unscrollable;
-        SpawnFeeds(2);
+        SpawnFeeds(2); //Spawn Setup
 
         activeProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(true));
         deactiveProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(false));
@@ -94,12 +105,25 @@ public class Catbook : WindowUI
         
 
     }
+    private void ClearFeed()
+    {
+        for(int i =0;i < feeds.Length;i++)
+        {
+            if(feeds[i] == null)
+            {
+                continue;
+            }
+            Destroy(feeds[i].gameObject);
+            feeds[i] = null;
+        }
+    }
 
     private void SpawnFeeds(int amount)
     {
         for(int i = 0; i < amount; i++)
         {
-            GameObject feedObject = Instantiate(feedTemplatePrefab.gameObject, feedsposition[1].transform);
+            
+            GameObject feedObject = Instantiate(UIManager.feedTemplatePrefab.gameObject, feedsposition[1].transform);
             feedObject.SetActive(false);
             feedObject.AddComponent<Feed>();
 

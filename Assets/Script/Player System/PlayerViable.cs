@@ -7,6 +7,7 @@ public class PlayerViable
     private int m_playerEnergy;
     private int m_moneyBalance;
     private int m_DayCounter = 1;
+    private int[] m_daysFeedRequired; 
     private float m_timeRemainingPerDay;
 
     public int playerEnegy
@@ -57,6 +58,19 @@ public class PlayerViable
             }
         }
     }
+
+    public int GetFeedRequired()
+    {
+        if (m_DayCounter - 1 < m_daysFeedRequired.Length)
+        {
+            return m_daysFeedRequired[m_DayCounter - 1];
+        }
+        else
+        {
+            Debug.LogWarning("Current day exceeds defined feed requirements. Returning last defined requirement.");
+            return m_daysFeedRequired[m_daysFeedRequired.Length - 1];
+        }
+    }
     
 
     public PlayerViable(ViableSetting viableSetting)
@@ -65,6 +79,7 @@ public class PlayerViable
         m_playerEnergy = viableSetting.playerEnergy;
         m_moneyBalance = viableSetting.moneyBalance;
         m_timeRemainingPerDay = viableSetting.timeRemainingPerDay;
+        m_daysFeedRequired = viableSetting.daysFeedRequired;
     }
 
 

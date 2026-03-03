@@ -10,5 +10,6 @@ public class ViableSetting : MonoBehaviour
 
     [Header("Game Balance Settings")]
     public int energyCostPerChatContinue;
+    public int[] daysFeedRequired; // Array to define how many feeds are required for each day progression
 
 }

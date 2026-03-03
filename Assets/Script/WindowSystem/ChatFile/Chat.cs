@@ -93,7 +93,6 @@ public class Chat : WindowUI
 
     public IEnumerator SetNewChat(string _UID)
     {
-        Debug.Log("Setting new Chat");
         ClearChat();
 
         //Get UserChat

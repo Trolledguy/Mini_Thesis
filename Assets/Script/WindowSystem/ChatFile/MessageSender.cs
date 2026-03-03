@@ -15,6 +15,5 @@ public class MessageSender : MonoBehaviour
         Chat chat = WindowManager.instance.AccessChat();
         chat.gameObject.SetActive(true);
         StartCoroutine(chat.SetNewChat(_ID));
-        Debug.Log("Receive user ID : " + _ID);
     }
 }
