@@ -17,16 +17,14 @@ public class WindowManager : MonoBehaviour
 
     public RectTransform sizeReference;
     public Canvas windowCanvas;
-    public float screenWidth;
-    public float screenHeight;
+
 
     
 
     void Start()
     {
         Setup();
-        screenWidth = sizeReference.sizeDelta.x;
-        screenHeight = sizeReference.sizeDelta.y;
+
     }
 
     public Catbook AccessCatbook()

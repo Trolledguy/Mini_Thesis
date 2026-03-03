@@ -44,15 +44,12 @@ public class GameManager : MonoBehaviour
 
         currentTime = playerViable.timeRemainingPerDay;
         
+        UIManager.Instance.UpdateDayText(playerViable.currentDay);
+        UIManager.Instance.SetBlackScreen(1f, false);
     }
 
     private void RunTimeDayCycle()
     {
-        if(playerViable == null) 
-        { 
-            Debug.LogError("PlayerViable is null in RunTimeDayCycle.");
-            return; 
-        }
 
         if(currentTime > 0)
         {

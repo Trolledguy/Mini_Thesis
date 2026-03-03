@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
             Debug.Log("Not enough energy to consume. Current Energy: " + playerViable.playerEnegy);
             return;
         }
-        Debug.Log($"Consume : {_amount} Energys");
         playerViable.playerEnegy -= _amount;
         chatContinueTrigger.InvokeTracked(_amount);
     }

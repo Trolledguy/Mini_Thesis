@@ -6,6 +6,7 @@ public class PlayerViable
     public string playerName;
     private int m_playerEnergy;
     private int m_moneyBalance;
+    private int m_DayCounter = 1;
     private float m_timeRemainingPerDay;
 
     public int playerEnegy
@@ -41,6 +42,18 @@ public class PlayerViable
             if(m_timeRemainingPerDay < 0)
             {
                 m_timeRemainingPerDay = 0;
+            }
+        }
+    }
+    public int currentDay
+    {
+        get { return m_DayCounter; }
+        set 
+        { 
+            m_DayCounter = value; 
+            if(m_DayCounter < 1)
+            {
+                m_DayCounter = 1;
             }
         }
     }
