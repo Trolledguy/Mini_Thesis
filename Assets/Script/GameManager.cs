@@ -47,13 +47,17 @@ public class GameManager : MonoBehaviour
         currentDayEarned = 0;
         currentTime = 0;
         playerViable.currentDay++;
+        WindowManager.instance.AccessCatbook().gameObject.SetActive(true);
+        WindowManager.instance.AccessChat().gameObject.SetActive(true);
         ResetFeedCounter();
         UIManager.Instance.UpdateDayText(playerViable.currentDay);
         UIManager.Instance.SetBlackScreen(1f, false);
         
         WindowManager.instance.AccessCatbook().ResetFeed();
         
-        //TODO : Implement additional logic for starting a new day (e.g., reset player energy, spawn new cats, etc.)
+
+        WindowManager.instance.AccessCatbook().gameObject.SetActive(false);
+        WindowManager.instance.AccessChat().gameObject.SetActive(false);
     }
 
     public void UpdateScore(bool isCorrect)

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635edd08e052bbd4b8695ebcdba56735, type: 3}
+  m_Name: New Post Info 5
+  m_EditorClassIdentifier: Assembly-CSharp::PostInfo
+  postAuthor: {fileID: 11400000, guid: c021876f5271d824b9f9fef279408bd5, type: 2}
+  postID: K06
+  postTag: 1
+  day: 25
+  month: 6
+  year: 2018
+  defaultLikeCount: 5
+  likeCount: 5
+  postContent: TEwasdawe
+  postImage: {fileID: 0}

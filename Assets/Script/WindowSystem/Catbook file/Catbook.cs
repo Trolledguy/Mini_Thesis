@@ -188,6 +188,8 @@ public class Catbook : WindowUI
 
     private void RemoveFeed(int index)
     {
+        if(feeds[index] == null)
+            return;
         Destroy(feeds[index].gameObject);
         feeds[index] = null;
     }
