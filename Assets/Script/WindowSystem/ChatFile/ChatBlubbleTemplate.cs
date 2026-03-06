@@ -75,34 +75,44 @@ public class ChatBlubbleTemplate : MonoBehaviour
     }
     private void UpdateMessageboxSize(Sprite _s)
     {
-        messageBoxHight = 105;
-        messageBoxWidth = 105;
-        rectTransform.sizeDelta = new Vector2(messageBoxWidth - 200,messageBoxHight);
+        messageBoxHight = 110;
+        messageBoxWidth = 110;
+        rectTransform.sizeDelta = new Vector2(messageBoxWidth - 173.14f,messageBoxHight);
     }
 
-    private void UpdateMessageboxSize(string massage)
+    private void UpdateMessageboxSize(string message)
     {
-        //Setup
+        if (string.IsNullOrEmpty(message))
+        {
+            return;
+        }
+
+        // Ensure text wraps and the mesh is up to date before measuring
         messageText.textWrappingMode = TextWrappingModes.Normal;
+        messageText.overflowMode = TextOverflowModes.Overflow;
         messageText.ForceMeshUpdate();
 
-        //Get preferred size with width constraint from the start
-        Vector2 preferSize = messageText.GetPreferredValues(massage, maximumWidth, Mathf.Infinity);
-        float x = preferSize.x;
-        float y = preferSize.y;
+        // Get preferred size with a max width constraint
+        Vector2 preferredSize = messageText.GetPreferredValues(message, maximumWidth, Mathf.Infinity);
+        float textWidth = Mathf.Clamp(preferredSize.x, minimumWidth, maximumWidth);
+        float textHeight = Mathf.Max(preferredSize.y, minimumHight);
 
-        //Apply min/max bounds
-        if(x < minimumWidth)
-            x = minimumWidth;
-        else if(x > maximumWidth)
-            x = maximumWidth;
-        if(y < minimumHight)
-            y = minimumHight;
+        // Add padding so the bubble doesn't clip the text
+        const float paddingHorizontal = 16f;
+        const float paddingVertical = 10f;
 
-        //Set Size here
-        messageBoxHight = y;
-        messageBoxWidth = x;
-        rectTransform.sizeDelta = new Vector2(x - 200, y + 2);
+        // Update stored size
+        if(textWidth < minimumWidth)
+            textWidth = minimumWidth;
+        else if(textWidth > maximumWidth)
+            textWidth = maximumWidth;
+        if(textHeight < minimumHight)
+            textHeight = minimumHight;
+        messageBoxWidth = textWidth;
+        messageBoxHight = textHeight;
+
+        // Set overall bubble size
+        rectTransform.sizeDelta = new Vector2(textWidth + paddingHorizontal - 180f, textHeight + paddingVertical);
     }
 
     public Vector2 GetBubbleSize()

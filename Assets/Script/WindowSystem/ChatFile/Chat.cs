@@ -160,11 +160,11 @@ public class Chat : WindowUI
         //SetPosition
         float newBubbleHight = bubbleInfo.GetBubbleSize().y;
             
-        float b_expandSize = newBubbleHight + (newBubbleHight/3);
+        float b_expandSize = newBubbleHight + 30 + (newBubbleHight/2);
         ExtentContentZone(b_expandSize);
         
         SetNewChatPosistion(bubbleInfo.rectTransform, user == null);
-        m_spawnPositionY += newBubbleHight - (newBubbleHight/2);
+        m_spawnPositionY += newBubbleHight - (newBubbleHight/2f);
         //Add infomation
         allBubble.Add(bubbleInfo);
 
@@ -179,7 +179,7 @@ public class Chat : WindowUI
         //SetPosition
         float newBubbleHight = bubbleInfo.GetBubbleSize().y;
             
-        float b_expandSize = newBubbleHight + (newBubbleHight/3);
+        float b_expandSize = newBubbleHight + 30 + (newBubbleHight/2);
         ExtentContentZone(b_expandSize);
         
         SetNewChatPosistion(bubbleInfo.rectTransform, user == null);
@@ -231,8 +231,9 @@ public class Chat : WindowUI
         }
         else
         {
-            targetRect.anchoredPosition = new Vector2(-30.5f, - m_spawnPositionY);
+            targetRect.anchoredPosition = new Vector2(-3.5f, - m_spawnPositionY);
         }
     }
+
 
 }
