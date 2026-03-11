@@ -1,5 +1,7 @@
 public enum WindowAppType
 {
     Catbook,
-    CatChat
+    CatChat,
+    CatShop
+
 }

@@ -33,8 +33,8 @@ public class FeedTemplate : MonoBehaviour
         likeCountText.text = post.postInfo.likeCount.ToString();
         likeButton.onClick.AddListener(() => HandleLikeButton(post));
     
-
-        ProfilePage profilePage = WindowManager.instance.AccessCatbook().profilePage;
+        Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
+        ProfilePage profilePage = catbook.profilePage;
         profilePicture.AddComponent<Button>().onClick.AddListener(() => profilePage.SetProfile(post.postInfo.postAuthor));
     }
 

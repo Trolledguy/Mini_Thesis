@@ -27,6 +27,9 @@ public class Shop : WindowUI
     [Tooltip("Food Items")]
     public List<Item> f_Item = new List<Item>();
 
+    [Header("")]
+    public ShopItemFrame framePrefab;
+
     protected override void Start()
     {
         base.Start();
@@ -35,6 +38,9 @@ public class Shop : WindowUI
 
     public void Setup()
     {
+        if(framePrefab == null)
+            Debug.LogError("Frame Prefab Is empty");
+
         d_Item.Clear();
         r_Item.Clear();
         c_Item.Clear();
@@ -65,4 +71,9 @@ public class Shop : WindowUI
 
         // TODO: Hook up UI (buttons/lists) to display loaded items.
     }
+
+    private void SetShop(List<Item> input)
+    {
+        
+    } 
 }

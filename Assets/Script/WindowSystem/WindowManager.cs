@@ -26,10 +26,9 @@ public class WindowManager : MonoBehaviour
         Setup();
 
     }
-
-    public Catbook AccessCatbook()
+    public WindowUI AccessApp(WindowAppType type)
     {
-        return apps[WindowAppType.Catbook].GetComponent<Catbook>();
+        return apps[type].GetComponent<WindowUI>();
     }
 
     public Chat AccessChat()

@@ -12,7 +12,7 @@ public class MessageSender : MonoBehaviour
 
     public void SendID(string _ID)
     {
-        Chat chat = WindowManager.instance.AccessChat();
+        Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
         chat.gameObject.SetActive(true);
         StartCoroutine(chat.SetNewChat(_ID));
     }

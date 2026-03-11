@@ -28,8 +28,10 @@ public class CatProfile : MonoBehaviour
     {
         Debug.Log("Approved cat : " + catNameText.text);
         GameManager.Instance.UpdateScore(user.isLoveAnimals);
-        WindowManager.instance.AccessCatbook().UpdateFeed(PostStatus.Scrollable); // Set to null for now
-        WindowManager.instance.AccessChat().ClearChat();
+        Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
+        Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
+        catbook.UpdateFeed(PostStatus.Scrollable);
+        chat.ClearChat();
         Player.onDesignEvent.Invoke(); // Trigger the design event to consume energy
         Destroy(gameObject);
     }
@@ -37,8 +39,10 @@ public class CatProfile : MonoBehaviour
     {
         Debug.Log("Denied cat : " + catNameText.text);
         GameManager.Instance.UpdateScore(!user.isLoveAnimals);
-        WindowManager.instance.AccessCatbook().UpdateFeed(PostStatus.Scrollable); // Set to null for now
-        WindowManager.instance.AccessChat().ClearChat();
+        Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
+        Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
+        catbook.UpdateFeed(PostStatus.Scrollable);
+        chat.ClearChat();
         Player.onDesignEvent.Invoke(); 
         Destroy(gameObject);
     }

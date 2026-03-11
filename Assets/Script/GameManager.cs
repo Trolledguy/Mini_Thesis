@@ -47,17 +47,19 @@ public class GameManager : MonoBehaviour
         currentDayEarned = 0;
         currentTime = 0;
         playerViable.currentDay++;
-        WindowManager.instance.AccessCatbook().gameObject.SetActive(true);
-        WindowManager.instance.AccessChat().gameObject.SetActive(true);
+        Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
+        Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
+        catbook.gameObject.SetActive(true); //Set Active to get info and prevent error
+        chat.gameObject.SetActive(true);
         ResetFeedCounter();
         UIManager.Instance.UpdateDayText(playerViable.currentDay);
         UIManager.Instance.SetBlackScreen(1f, false);
         
-        WindowManager.instance.AccessCatbook().ResetFeed();
+        catbook.ResetFeed();
         
 
-        WindowManager.instance.AccessCatbook().gameObject.SetActive(false);
-        WindowManager.instance.AccessChat().gameObject.SetActive(false);
+        catbook.gameObject.SetActive(false);
+        chat.gameObject.SetActive(false);
     }
 
     public void UpdateScore(bool isCorrect)
