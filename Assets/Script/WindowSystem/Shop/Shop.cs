@@ -7,14 +7,20 @@ public class Shop : WindowUI
     [Header("Resources Setup")]
     [Tooltip("If empty, loads all Item assets located anywhere under Resources.")]
     public string resourcesPath = ""; // e.g. "Shop" or "Shop/Items"
+    [Tooltip("Prefab For Item")]
+    public ShopItemFrame framePrefab;
+
+    [Header("Parent object for spawn content")]
+    public RectTransform contentParent;
 
     [Header("Button Setup")]
-    public Button deskTopDeco;
+    public Button desktopDeco;
     public Button roomDeco;
     public Button catDeco;
     public Button food;
 
     [Header("Item Lists")]
+    private List<Item> showItem = new List<Item>();
     [Tooltip("Desktop Decoration Items")]
     public List<Item> d_Item = new List<Item>();
 
@@ -27,8 +33,7 @@ public class Shop : WindowUI
     [Tooltip("Food Items")]
     public List<Item> f_Item = new List<Item>();
 
-    [Header("")]
-    public ShopItemFrame framePrefab;
+    
 
     protected override void Start()
     {
@@ -39,7 +44,7 @@ public class Shop : WindowUI
     public void Setup()
     {
         if(framePrefab == null)
-            Debug.LogError("Frame Prefab Is empty");
+            framePrefab = Resources.Load<ShopItemFrame>("Prefab/ItemFrame");
 
         d_Item.Clear();
         r_Item.Clear();
@@ -70,10 +75,42 @@ public class Shop : WindowUI
         }
 
         // TODO: Hook up UI (buttons/lists) to display loaded items.
+        desktopDeco.onClick.AddListener(delegate ()
+        {
+            SetShop(d_Item);
+        });
     }
 
     private void SetShop(List<Item> input)
     {
-        
+        Vector3 rowTop = new Vector3(-155f,41.5f,0);
+        Vector3 rowBot = new Vector3(-155f,-38.5f,0);
+        int count = 0;
+        foreach(Item item in input)
+        {
+            if(count % 2 == 0)
+            {
+                SpawnFrame(item,rowTop);
+                rowTop += new Vector3(80,0,0);
+                count++;
+            }
+            else
+            {
+                SpawnFrame(item,rowBot);
+                rowBot += new Vector3(80,0,0);
+                count++;
+            }
+            
+        }
     } 
+
+    private void SpawnFrame(Item _item ,Vector3 _position)
+    {
+        ShopItemFrame frameObj = Instantiate(framePrefab,contentParent);
+        RectTransform frameRect = frameObj.GetComponent<RectTransform>();
+        frameRect.localPosition = _position + new Vector3(197.7f,-85f,0); //
+
+        frameObj.SetFrame(_item);
+    }
+
 }
