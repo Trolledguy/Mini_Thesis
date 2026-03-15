@@ -25,7 +25,6 @@ public class UserManager : MonoBehaviour
             string uID = u.userID;
             u.SetupProfile();
             uDic.Add(uID,u);
-            Debug.Log($"User Added : {u.userName} with ID : {uID}");
         }
         
         return uDic;
