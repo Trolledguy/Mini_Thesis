@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40468901babfccc4da0113ce7d7c4008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemFrame
+  bg: {fileID: 3178048474671882786}
   sp: {fileID: 1617655561376338490}
   valueText: {fileID: 1509220830188249331}
 --- !u!1 &8950021147961740496

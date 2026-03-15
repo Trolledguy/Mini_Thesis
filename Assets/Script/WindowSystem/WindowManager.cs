@@ -9,7 +9,7 @@ public class WindowManager : MonoBehaviour
 
     [Header("Apps List")]
     [SerializeField]
-    private WindowUI[] allApps;
+    private WindowUI[] allApps; //For regis an app
     
     public Dictionary<WindowAppType,WindowUI> apps = new Dictionary<WindowAppType, WindowUI>();
     public CatProfile catProfilePrefab;
@@ -29,11 +29,6 @@ public class WindowManager : MonoBehaviour
     public WindowUI AccessApp(WindowAppType type)
     {
         return apps[type].GetComponent<WindowUI>();
-    }
-
-    public Chat AccessChat()
-    {
-        return apps[WindowAppType.CatChat].GetComponent<Chat>();
     }
 
     private Dictionary<WindowAppType, WindowUI> CreateAppAccess()

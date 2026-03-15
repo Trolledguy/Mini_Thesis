@@ -7,6 +7,7 @@ public class ShopItemFrame : MonoBehaviour
 {
     private Button interactButton;
     [Header("Component needed")]
+    public Image bg;
     public Image sp; //May Change to 3D model later
     public TMP_Text valueText;
 
@@ -20,7 +21,8 @@ public class ShopItemFrame : MonoBehaviour
     {
         try
         {
-            interactButton.GetComponent<Button>();
+            bg = GetComponent<Image>();
+            interactButton = GetComponent<Button>();
             valueText.GetComponentInChildren<TMP_Text>();
         }
         catch (NullReferenceException)

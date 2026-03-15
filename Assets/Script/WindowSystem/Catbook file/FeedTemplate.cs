@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class FeedTemplate : MonoBehaviour
 {
     [Header("Feed UI Elements")]
+    public Image background;
     public Image profilePicture;
     public TMP_Text userNameText;
     public TMP_Text postTimeText;
@@ -25,6 +26,9 @@ public class FeedTemplate : MonoBehaviour
 
     public void SetUpTemplate(Post post)
     {
+        if(background == null)
+            Debug.LogWarning("Can't Access background");
+
         profilePicture.sprite = post.postInfo.postAuthor.profilePicture;
         userNameText.text = post.postInfo.postAuthor.userName;
         postTimeText.text = post.postInfo.postTime.GetFormattedDate();

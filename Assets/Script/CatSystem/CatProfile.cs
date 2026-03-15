@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor.PackageManager.UI;
 
 
 public class CatProfile : MonoBehaviour
@@ -14,6 +13,8 @@ public class CatProfile : MonoBehaviour
 
     [SerializeField] private Button approveButton;
     [SerializeField] private Button denyButton;
+
+    public Image bg;
 
     private User currentUser;
 
@@ -45,6 +46,13 @@ public class CatProfile : MonoBehaviour
         chat.ClearChat();
         Player.onDesignEvent.Invoke(); 
         Destroy(gameObject);
+    }
+
+    public void ChangeSkin(UISetInfo skinInfo)
+    {
+        bg.sprite = skinInfo.catProfileBg;
+        approveButton.image.sprite = skinInfo.appProveButton;
+        denyButton.image.sprite = skinInfo.denyButton;
     }
 
     public void SetCatProfile(CatInfo catInfo , User user)

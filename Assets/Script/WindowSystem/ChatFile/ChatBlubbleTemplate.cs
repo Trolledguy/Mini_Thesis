@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChatBlubbleTemplate : MonoBehaviour
 {
     public RectTransform rectTransform;
+    public Image chatBorder;
     public TMP_Text messageText;
     public Image imageZone;
 
@@ -61,6 +62,7 @@ public class ChatBlubbleTemplate : MonoBehaviour
     private void Setup()
     {
         rectTransform = GetComponent<RectTransform>();
+        chatBorder = GetComponent<Image>();
         messageText = GetComponentInChildren<TMP_Text>();
         
         if(imageZone == null) Debug.LogError("No image component assign");

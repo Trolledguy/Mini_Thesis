@@ -19,7 +19,6 @@ public class Catbook : WindowUI
     [SerializeField]    private Button deactiveProfileButton;
 
     //For Testing Purposes
-
     //
 
     [Header("Feed Positions")]
@@ -85,26 +84,6 @@ public class Catbook : WindowUI
     }
 
 
-
-    protected override void SettUp()
-    {
-        base.SettUp();
-        if(contentRect == null)
-        {
-            Debug.LogError("ContentRect is not assigned in Catbook.");
-            return;
-        }
-
-        currentPostStatus = PostStatus.Unscrollable;
-        SpawnFeeds(2); //Spawn Setup
-
-        activeProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(true));
-        deactiveProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(false));
-
-        //Debug
-        
-
-    }
     private void ClearFeed()
     {
         for(int i =0;i < feeds.Length;i++)
@@ -201,5 +180,23 @@ public class Catbook : WindowUI
         else
             return false;
     }
+    protected override void SettUp()
+    {
+        base.SettUp();
+        if(contentRect == null)
+        {
+            Debug.LogError("ContentRect is not assigned in Catbook.");
+            return;
+        }
+
+        currentPostStatus = PostStatus.Unscrollable;
+        SpawnFeeds(2); //Spawn Setup
+
+        activeProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(true));
+        deactiveProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(false));
+
+        //Debug
+    }
+
 
 }

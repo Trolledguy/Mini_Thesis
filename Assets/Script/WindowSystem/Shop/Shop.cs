@@ -113,4 +113,13 @@ public class Shop : WindowUI
         frameObj.SetFrame(_item);
     }
 
+    public override void ChangeSkin(WindowSkin skinInfo , UISetInfo uISetInfo = null)
+    {
+        base.ChangeSkin(skinInfo);
+        desktopDeco.image.sprite = uISetInfo.deskTopB;
+        roomDeco.image.sprite = uISetInfo.roomB;
+        catDeco.image.sprite = uISetInfo.catB;
+        food.image.sprite = uISetInfo.foodB;
+    }
+
 }

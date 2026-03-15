@@ -11,6 +11,7 @@ public class Summary : MonoBehaviour
     [SerializeField] private TMP_Text totalGoodChoiceText;
     [SerializeField] private TMP_Text moneyEarnedText;
     [SerializeField] private Button nextDayButton;
+    
 
     private void Awake()
     {

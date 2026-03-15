@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public abstract class WindowUI : MonoBehaviour , IDragHandler
 {
     [Header("Window Icon References")]
-    [SerializeField] private DesktopIcon desktopIcon; //TODO : Change to Image if we want to click the whole icon instead of just a button
-    [Header("Close Button References")]
+    [SerializeField] private DesktopIcon desktopIcon; 
     [SerializeField] private Button closeButton;
     [SerializeField] private RectTransform rectTransform;
+    protected Image background;
+
     [Header("Window Settings")]
     public string windowName;
     public WindowAppType windowCode;
@@ -83,6 +84,13 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
         rectTransform.anchoredPosition = anchoredPosition;
     }
 
+    public virtual void ChangeSkin(WindowSkin skinInfo , UISetInfo uISetInfo = null)
+    {
+        background.sprite = skinInfo.window;
+        desktopIcon.image.sprite = skinInfo.desktopIcon;
+        closeButton.image.sprite = skinInfo.closeIcon;
+    }
+
     protected virtual void SettUp()
     {
         if (closeButton != null && desktopIcon != null)
@@ -95,7 +103,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
         }
 
         rectTransform = this.gameObject.GetComponent<RectTransform>();
-
+        background = GetComponent<Image>();
     }
     
 
