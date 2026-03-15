@@ -4,6 +4,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName ="New UISkinInfo",menuName ="Skin/Scene/UISkinInfo")]
 public class UISetInfo : ScriptableObject
 {
+    [Header("ID")]
+    public string id;
     [Header("Main Window Asset")]
     public Sprite backGround;
     public Sprite menuButton;

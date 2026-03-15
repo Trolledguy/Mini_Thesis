@@ -13,3 +13,17 @@ MonoBehaviour:
   m_Name: New UISkinInfo
   m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
   backGround: {fileID: 0}
+  menuButton: {fileID: 0}
+  menuBackground: {fileID: 0}
+  windowSkins: []
+  feedBackground: {fileID: 0}
+  likeButton: {fileID: 0}
+  catProfileBg: {fileID: 0}
+  appProveButton: {fileID: 0}
+  denyButton: {fileID: 0}
+  chatBorder: {fileID: 0}
+  itemframe: {fileID: 0}
+  deskTopB: {fileID: 0}
+  roomB: {fileID: 0}
+  catB: {fileID: 0}
+  foodB: {fileID: 0}

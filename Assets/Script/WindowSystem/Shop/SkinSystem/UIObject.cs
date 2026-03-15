@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIObject : Component
+public class UIObject : MonoBehaviour
 {
     [Header("List of UI Object")]
     public Image backGround;
