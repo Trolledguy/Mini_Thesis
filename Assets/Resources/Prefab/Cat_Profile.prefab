@@ -240,6 +240,7 @@ MonoBehaviour:
   catImageRenderer: {fileID: 8054431794942879044}
   approveButton: {fileID: 1298798176463268580}
   denyButton: {fileID: 7884449119878154659}
+  bg: {fileID: 5350078997664567547}
 --- !u!1 &3077890745069965491
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,20 +19,20 @@ public class UIObject : MonoBehaviour
         chat.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.CatChat));
         shop.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.CatShop), uISetInfo);
         
-        FeedTemplate feedTemplate = AssetDatabase.LoadAssetAtPath<FeedTemplate>("Assets/Resources/Prefab");
+        FeedTemplate feedTemplate = (FeedTemplate)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/Feed_Template.prefab",typeof (FeedTemplate));
         feedTemplate.background.sprite = uISetInfo.feedBackground;
         feedTemplate.likeButton.image.sprite = uISetInfo.likeButton;
         EditorUtility.SetDirty(feedTemplate);
 
-        CatProfile catProfile = AssetDatabase.LoadAssetAtPath<CatProfile>("Assets/Resources/Prefab");
+        CatProfile catProfile = (CatProfile)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/Cat_Profile.prefab",typeof (CatProfile));
         catProfile.ChangeSkin(uISetInfo);
         EditorUtility.SetDirty(catProfile);
 
-        ChatBlubbleTemplate chatBlubble = AssetDatabase.LoadAssetAtPath<ChatBlubbleTemplate>("Assets/Resources/Prefab");
+        ChatBlubbleTemplate chatBlubble = (ChatBlubbleTemplate)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/Chat_Bubble_Template.prefab",typeof (ChatBlubbleTemplate));
         chatBlubble.chatBorder.sprite = uISetInfo.chatBorder;
         EditorUtility.SetDirty(chatBlubble);
 
-        ShopItemFrame itemFrame = AssetDatabase.LoadAssetAtPath<ShopItemFrame>("Assets/Resources/Prefab");
+        ShopItemFrame itemFrame = (ShopItemFrame)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/ItemFrame.prefab",typeof (ShopItemFrame));
         itemFrame.bg.sprite = uISetInfo.itemframe;
         EditorUtility.SetDirty(itemFrame);
 

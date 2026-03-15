@@ -12,18 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83366e5f87318b4eb4a92487ad4ed12, type: 3}
   m_Name: New UISkinInfo
   m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
-  backGround: {fileID: 0}
-  menuButton: {fileID: 0}
-  menuBackground: {fileID: 0}
-  windowSkins: []
-  feedBackground: {fileID: 0}
-  likeButton: {fileID: 0}
-  catProfileBg: {fileID: 0}
-  appProveButton: {fileID: 0}
-  denyButton: {fileID: 0}
-  chatBorder: {fileID: 0}
-  itemframe: {fileID: 0}
-  deskTopB: {fileID: 0}
-  roomB: {fileID: 0}
-  catB: {fileID: 0}
-  foodB: {fileID: 0}
+  id: HW
+  backGround: {fileID: 21300000, guid: cc71cbd6891c42740addc1a2fff4306c, type: 3}
+  menuButton: {fileID: 21300000, guid: d59a0c818f87eb044bed2443b1ab3054, type: 3}
+  menuBackground: {fileID: 21300000, guid: 88b77184879154c439d5862c78f78440, type: 3}
+  windowSkins:
+  - type: 0
+    window: {fileID: 21300000, guid: 0559c14d44c7db74f82895071084bbc7, type: 3}
+    desktopIcon: {fileID: 21300000, guid: ca80ee8a4d7a5c247b3f0eb2c8c1e0e8, type: 3}
+    closeIcon: {fileID: 21300000, guid: 7eb39266b4ccc7f469cb66fa4238dc36, type: 3}
+  - type: 1
+    window: {fileID: 21300000, guid: 644795acb0dc8cd48b775c8df97980ba, type: 3}
+    desktopIcon: {fileID: 21300000, guid: 53ef930a2f79d43409f44d9b32ba17ef, type: 3}
+    closeIcon: {fileID: 21300000, guid: 7eb39266b4ccc7f469cb66fa4238dc36, type: 3}
+  - type: 2
+    window: {fileID: 21300000, guid: 69288457efb536440af803b371f9f931, type: 3}
+    desktopIcon: {fileID: 21300000, guid: 0642dc44d4380a64a94827586c0c43b6, type: 3}
+    closeIcon: {fileID: 21300000, guid: 6f0dc8b6fee79cd408bb8daa8a39450c, type: 3}
+  feedBackground: {fileID: 21300000, guid: 66d6262458a7cf74dac3a96af6bba9fd, type: 3}
+  likeButton: {fileID: 21300000, guid: fbb72b5d599804f47a14fac82fef55a9, type: 3}
+  catProfileBg: {fileID: 21300000, guid: f7fe5191595861b4abb188259331f2d1, type: 3}
+  appProveButton: {fileID: 21300000, guid: 3572537b32afb2f489ceea25daf8ad1d, type: 3}
+  denyButton: {fileID: 21300000, guid: a49c60b65f1e6e842b180cc30eded596, type: 3}
+  chatBorder: {fileID: 21300000, guid: 22a03b6be6e0d504fbaecdd1c158374a, type: 3}
+  itemframe: {fileID: 21300000, guid: 78ab1d88883d6974bb484df8c8e22756, type: 3}
+  deskTopB: {fileID: 21300000, guid: c7b7bde1bef4e204eb52fba22888491d, type: 3}
+  roomB: {fileID: 21300000, guid: b40cfe18ce92fbf4d8083284985aaea8, type: 3}
+  catB: {fileID: 21300000, guid: 1dd92e00e7046f744a5003332e61a340, type: 3}
+  foodB: {fileID: 21300000, guid: 6d05450a753e08f458bc3cc9061ad74d, type: 3}

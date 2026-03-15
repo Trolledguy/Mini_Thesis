@@ -304,5 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatBlubbleTemplate
   rectTransform: {fileID: 5114917747397548832}
+  chatBorder: {fileID: 2210996668811505903}
   messageText: {fileID: 7024856142705161927}
   imageZone: {fileID: 1631405338388256315}

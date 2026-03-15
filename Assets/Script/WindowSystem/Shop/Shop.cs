@@ -119,7 +119,7 @@ public class Shop : WindowUI
         desktopDeco.image.sprite = uISetInfo.deskTopB;
         roomDeco.image.sprite = uISetInfo.roomB;
         catDeco.image.sprite = uISetInfo.catB;
-        food.image.sprite = uISetInfo.foodB;
+        //food.image.sprite = uISetInfo.foodB;
     }
 
 }

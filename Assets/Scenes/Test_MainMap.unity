@@ -3143,8 +3143,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1455482874310756776, guid: 29de34b537cc4ba44a52c58f4fc91014, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4036308351182533199, guid: 29de34b537cc4ba44a52c58f4fc91014, type: 3}
+      propertyPath: bg
+      value: 
+      objectReference: {fileID: 2028920418}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3547,8 +3551,8 @@ MonoBehaviour:
   framePrefab: {fileID: 0}
   contentParent: {fileID: 1733357336}
   desktopDeco: {fileID: 1293526798}
-  roomDeco: {fileID: 0}
-  catDeco: {fileID: 0}
+  roomDeco: {fileID: 1563059420}
+  catDeco: {fileID: 1225936801}
   food: {fileID: 0}
   d_Item: []
   r_Item: []
@@ -4429,7 +4433,7 @@ GameObject:
   - component: {fileID: 1225936802}
   - component: {fileID: 1225936801}
   m_Layer: 5
-  m_Name: Cat Button (2)
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5017,7 +5021,7 @@ GameObject:
   - component: {fileID: 1293526799}
   - component: {fileID: 1293526798}
   m_Layer: 5
-  m_Name: Cat Button
+  m_Name: Deco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6738,7 +6742,7 @@ GameObject:
   - component: {fileID: 1563059421}
   - component: {fileID: 1563059420}
   m_Layer: 5
-  m_Name: Cat Button (1)
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7042,6 +7046,7 @@ MonoBehaviour:
   allApps:
   - {fileID: 1316691628}
   - {fileID: 953483600}
+  - {fileID: 898577068}
   catProfilePrefab: {fileID: 4036308351182533199, guid: 29de34b537cc4ba44a52c58f4fc91014, type: 3}
   sizeReference: {fileID: 779746892}
   windowCanvas: {fileID: 1639920677}
@@ -8670,6 +8675,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7709589518530991410, guid: c5ded9d37dd15c546b5ef0c1833a0f91, type: 3}
   m_PrefabInstance: {fileID: 2014930623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2028920418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5350078997664567547, guid: 29de34b537cc4ba44a52c58f4fc91014, type: 3}
+  m_PrefabInstance: {fileID: 758950232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &2050453782
 GameObject:
   m_ObjectHideFlags: 0

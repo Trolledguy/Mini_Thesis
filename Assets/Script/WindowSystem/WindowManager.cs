@@ -19,13 +19,11 @@ public class WindowManager : MonoBehaviour
     public Canvas windowCanvas;
 
 
-    
-
-    void Start()
+    void Awake()
     {
         Setup();
-
     }
+
     public WindowUI AccessApp(WindowAppType type)
     {
         return apps[type].GetComponent<WindowUI>();
