@@ -6,11 +6,11 @@ public class SceneSkinInfo : ScriptableObject
 {
     public Scene scene;
     [Tooltip("Insert the name of the scene")]
-    public string id;
+    public string nameID;
 
     void Awake()
     {
-        scene = SceneManager.GetSceneByName(id);
+        scene = SceneManager.GetSceneByName(nameID);
     }
 }
 

@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,7 +15,11 @@ public class SkinManager : MonoBehaviour
     public UIObject ui;
     public Dictionary<string,UISetInfo> skinInfos = new Dictionary<string, UISetInfo>();
 
+
+    //Test Zone
+    [Header("Test Zone")]
     public Button testButton;
+    public SceneSkinInfo skinTest; 
 
     void Awake()
     {
@@ -25,7 +31,13 @@ public class SkinManager : MonoBehaviour
         }
 
         skinInfos = CreateSkinList();
-        testButton.onClick.AddListener(ChangeUI);
+        testButton.onClick.AddListener(delegate ()
+        {
+            GameObject[] playerObj = GameObject.FindGameObjectsWithTag("Game Logical");
+            
+            AssignDontDestroy(playerObj);
+            StartCoroutine(ChangeScene(skinTest));
+        });
     }
     public void ChangeUI()
     {
@@ -33,10 +45,50 @@ public class SkinManager : MonoBehaviour
         ui.ChangeSkin(test);
     }
 
-
-    public void ChangeScene(SceneSkinInfo info)
+    public void AssignDontDestroy(GameObject[] objs)
     {
-        SceneManager.LoadScene(info.id,LoadSceneMode.Single);
+        foreach(GameObject i in objs)
+        {
+            Debug.Log($"Name : {i.name}");
+            DontDestroyOnLoad(i);
+        }
+        
+    }
+
+    public IEnumerator ChangeScene(SceneSkinInfo info)
+    {
+        InputManager.Instance.gameObject.SetActive(false);
+        
+        AsyncOperation op = SceneManager.LoadSceneAsync(info.nameID,LoadSceneMode.Single);
+
+        while (!op.isDone)
+        {
+            Debug.Log("Loading");
+            yield return null;
+        }
+
+        SceneAnchor sceneAnchor = GameObject.FindAnyObjectByType<SceneAnchor>();
+        if(sceneAnchor == null)
+        {
+            Debug.LogError("Scene Anchor Not Found");
+            yield break;
+        }
+
+        PlayerCamera playerCamera = PlayerCamera.Instance;
+        playerCamera.SetUp();
+        StartCoroutine(playerCamera.AdjustFOV(false,100));
+        
+
+        playerCamera.transform.position = sceneAnchor.cameraPoint.position;
+        playerCamera.transform.eulerAngles = new Vector3(0,180,0);
+
+        WindowManager wd = WindowManager.instance; 
+
+        wd.transform.position = sceneAnchor.uiPoint.position;
+        wd.transform.localEulerAngles = Vector3.zero;
+
+        InputManager.Instance.gameObject.SetActive(true);
+        yield return null;
     }
     public UISetInfo GetUISkinByID(string _id)
     {

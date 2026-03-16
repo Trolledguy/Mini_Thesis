@@ -1,18 +1,18 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
     public static PlayerCamera Instance { get; private set; }
     [Header("Camera Settings")]
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] public Camera playerCamera;
     private bool isZooming = false;
 
     void Awake()
     {
-        SetUp();
+        this.SetUp();
     }
-
     public IEnumerator MoveCamera(MoveDirection direction, float speed)
     {
         if(isZooming) yield break;
@@ -87,11 +87,15 @@ public class PlayerCamera : MonoBehaviour
         return isZooming;
     }
 
-    private void SetUp()
+    public void SetUp()
     {
-        if(Instance == null)
-        Instance = this;
-        else
-        Destroy(gameObject);
+        if(Instance != this)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        playerCamera = GetComponent<Camera>();
+        Camera.SetupCurrent(playerCamera);
     }
 }
