@@ -36,6 +36,11 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public static void SetInput(bool _input)
+    {
+        Instance.isUsingComputer = _input;
+    }
+
     public bool IsUsingComputer()
     {
         return isUsingComputer;

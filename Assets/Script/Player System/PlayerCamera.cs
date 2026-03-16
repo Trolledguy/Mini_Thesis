@@ -86,6 +86,19 @@ public class PlayerCamera : MonoBehaviour
     {
         return isZooming;
     }
+    public void SetZoom(bool _input)
+    {
+        isZooming = _input;
+        bool ic = InputManager.Instance.IsUsingComputer();
+        if(ic)
+        {
+            playerCamera.fieldOfView = 15;
+        }
+        else
+        {
+            playerCamera.fieldOfView = 60;
+        }
+    }
 
     public void SetUp()
     {

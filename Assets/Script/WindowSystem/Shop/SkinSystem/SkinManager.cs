@@ -78,6 +78,7 @@ public class SkinManager : MonoBehaviour
         playerCamera.SetUp();
         StartCoroutine(playerCamera.AdjustFOV(false,100));
         
+        
 
         playerCamera.transform.position = sceneAnchor.cameraPoint.position;
         playerCamera.transform.eulerAngles = new Vector3(0,180,0);
@@ -88,6 +89,8 @@ public class SkinManager : MonoBehaviour
         wd.transform.localEulerAngles = Vector3.zero;
 
         InputManager.Instance.gameObject.SetActive(true);
+        InputManager.SetInput(true);
+        playerCamera.SetZoom(false);
         yield return null;
     }
     public UISetInfo GetUISkinByID(string _id)
