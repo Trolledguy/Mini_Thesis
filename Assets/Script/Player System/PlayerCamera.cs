@@ -13,6 +13,17 @@ public class PlayerCamera : MonoBehaviour
     {
         this.SetUp();
     }
+    public IEnumerator MoveCamera(Transform point, float speed)
+    {
+        if(isZooming) yield break;
+        isZooming = true;
+        while(Vector3.Distance(playerCamera.transform.position , point.position) > 0.01f)
+        {
+            playerCamera.transform.position = Vector3.MoveTowards(playerCamera.transform.position, point.position,speed * Time.deltaTime);
+            yield return null;
+        }
+        isZooming =false;
+    }
     public IEnumerator MoveCamera(MoveDirection direction, float speed)
     {
         if(isZooming) yield break;

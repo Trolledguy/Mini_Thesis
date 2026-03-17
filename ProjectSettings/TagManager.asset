@@ -8,6 +8,7 @@ TagManager:
   - Game Logical
   - Cam Position
   - UI Position
+  - Cat Board
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     [Header("Input State")]
     public float turnSpeed;
     private bool isUsingComputer = false;
+    private bool isOnBoard = false;
 
     void Awake()
     {
@@ -16,7 +17,7 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if(!isUsingComputer)
+        if(!isUsingComputer && !isOnBoard)
         {
             if(Input.GetKeyDown(KeyCode.A))
             {
@@ -30,9 +31,33 @@ public class InputManager : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(PlayerCamera.Instance.isCameraZooming()) return;
+            if(PlayerCamera.Instance.isCameraZooming()) 
+                return;
+
+            if(isOnBoard)
+            {
+                Transform point = FindAnyObjectByType<SceneAnchor>().cameraPoint;
+                StartCoroutine(PlayerCamera.Instance.MoveCamera(point,5));
+                isOnBoard = false;
+                return;
+            }
+            
             StartCoroutine(PlayerCamera.Instance.AdjustFOV(isUsingComputer, 5f));
             isUsingComputer = !isUsingComputer;
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(isOnBoard) return;
+            Ray ray = PlayerCamera.Instance.playerCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray,out RaycastHit hitInfo,20))
+            {
+                if(hitInfo.collider.tag == "Cat Board")
+                {
+                    SceneAnchor anchor = FindAnyObjectByType<SceneAnchor>();
+                    StartCoroutine(PlayerCamera.Instance.MoveCamera(anchor.boardCamPoint,5f));
+                    isOnBoard = true;
+                }
+            }
         }
     }
 
@@ -44,5 +69,14 @@ public class InputManager : MonoBehaviour
     public bool IsUsingComputer()
     {
         return isUsingComputer;
+    }
+
+
+    void OnDrawGizmos()
+    {
+        if(!Application.isPlaying) return;
+        Gizmos.color = Color.red;
+        Ray ray = PlayerCamera.Instance.playerCamera.ScreenPointToRay(Input.mousePosition);
+        Gizmos.DrawRay(ray.origin, ray.direction * 20);
     }
 }

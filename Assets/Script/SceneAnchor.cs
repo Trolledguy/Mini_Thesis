@@ -3,4 +3,5 @@ public class SceneAnchor : MonoBehaviour
 {
     public Transform cameraPoint;
     public Transform uiPoint;
+    public Transform boardCamPoint;
 }
