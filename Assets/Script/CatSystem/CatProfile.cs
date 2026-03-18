@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System;
 
 
-public class CatProfile : MonoBehaviour
+public class CatProfile : MonoBehaviour , IPointerClickHandler
 {
     [SerializeField] private TMP_Text catNameText;
     [SerializeField] private TMP_Text breedText;
@@ -13,40 +15,28 @@ public class CatProfile : MonoBehaviour
 
     [SerializeField] private Button approveButton;
     [SerializeField] private Button denyButton;
+    private Vector3 spawnPosition;
+    private Vector3 spawnRotation;
 
     public Image bg;
+    private Cat currentCat;
 
-    private User currentUser;
+    
 
-    void Awake()
+    private void OnDesign(User user)
     {
-        gameObject.SetActive(false);
-        approveButton.onClick.AddListener(() => OnApprove(currentUser));
-        denyButton.onClick.AddListener(() => OnDeny(currentUser));
-    }
-
-    private void OnApprove(User user)
-    {
-        Debug.Log("Approved cat : " + catNameText.text);
-        GameManager.Instance.UpdateScore(user.isLoveAnimals);
+        Debug.Log("Design cat Fade : " + catNameText.text);
+        Cat cat = GameManager.Instance.selectCat;
+        GameManager.Instance.UpdateScore(cat , user);
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
         catbook.UpdateFeed(PostStatus.Scrollable);
-        chat.ClearChat();
+        chat.ClearChat(); 
+        //TODO : Add past Chat
         Player.onDesignEvent.Invoke(); // Trigger the design event to consume energy
         Destroy(gameObject);
     }
-    private void OnDeny(User user)
-    {
-        Debug.Log("Denied cat : " + catNameText.text);
-        GameManager.Instance.UpdateScore(!user.isLoveAnimals);
-        Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
-        Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
-        catbook.UpdateFeed(PostStatus.Scrollable);
-        chat.ClearChat();
-        Player.onDesignEvent.Invoke(); 
-        Destroy(gameObject);
-    }
+
 
     public void ChangeSkin(UISetInfo skinInfo)
     {
@@ -55,14 +45,47 @@ public class CatProfile : MonoBehaviour
         denyButton.image.sprite = skinInfo.denyButton;
     }
 
-    public void SetCatProfile(CatInfo catInfo , User user)
+    public void SetCatProfile(CatInfo catInfo, Vector2 position , float zRotation)
     {
-        catNameText.text = catInfo.catName;
+        gameObject.SetActive(false);
+        SetOrigin(position, zRotation);
+
+        currentCat = CatManager.instance.GetCatByID(catInfo.catID);
+        catNameText.text = catInfo.catName; 
         breedText.text = catInfo.breed;
         ageText.text = $"Age: {catInfo.age}";
         descriptionText.text = catInfo.description;
         catImageRenderer.sprite = catInfo.catImage;
-        currentUser = user;
         this.gameObject.SetActive(true);
+    }
+    private void SetOrigin(Vector2 pos,float zRotation)
+    {
+        spawnPosition = pos;
+        spawnRotation = new Vector3(0,0,zRotation);
+    }
+
+    public void ResetPosition()
+    {
+        transform.localPosition = spawnPosition;
+        transform.localEulerAngles = spawnRotation;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        try
+        {
+        string uID = GameManager.Instance.currentUserID;
+        User cUser = UserManager.intensce.GetUserByID(uID);
+        approveButton.onClick.AddListener(() => OnDesign(cUser));
+        denyButton.onClick.AddListener(() => OnDesign(cUser));
+        }
+        catch(NullReferenceException) { Debug.Log("No Current User"); }
+
+        transform.position = PlayerCamera.Instance.playerCamera.transform.position + new Vector3(-0.5f,0,0);
+        transform.LookAt(PlayerCamera.Instance.playerCamera.transform);
+        //GameManager.Instance.selectCat = CatManager.instance.GetCatByID(currentCat.catInfo.catID);
+        
+        InputManager.Instance.selectCatProfile = this;
+        InputManager.Instance.isInspecting = true;
     }
 }

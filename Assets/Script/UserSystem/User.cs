@@ -11,7 +11,8 @@ public class User : ScriptableObject
     public string userName;
     public string userID; // Unique identifier for the user
     public UserChat userChatInfo;
-    public CatInfo userRequestedCat;
+    public CatInfo userRequestedCat; //For later Use
+    public Identity userIdentity;
     public List<Post> profilePost = new List<Post>();
 
     public Sprite profilePicture;

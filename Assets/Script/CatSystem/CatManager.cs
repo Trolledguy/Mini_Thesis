@@ -14,7 +14,7 @@ public class CatManager : MonoBehaviour
 
     private Dictionary<string, Cat> CreateCatDictionary()
     {
-        CatInfo[] catList = Resources.LoadAll<CatInfo>("Cats");
+        CatInfo[] catList = Resources.LoadAll<CatInfo>("Cat");
         Dictionary<string, Cat> newCatDict = new Dictionary<string, Cat>();
 
         foreach (CatInfo catInfo in catList)
@@ -60,7 +60,7 @@ public class CatManager : MonoBehaviour
 
     private void Setup()
     {
-        if (instance == null)
+        if (instance != this)
         {
             instance = this;
         }

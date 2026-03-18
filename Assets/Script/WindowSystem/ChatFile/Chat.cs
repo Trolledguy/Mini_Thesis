@@ -136,26 +136,16 @@ public class Chat : WindowUI
         m_spawnPositionY = 0;
         allBubble.Clear();
     }
-    private void AddNewImage(User user = null)
+    private void AddNewImage(User user = null) //TODO : Rework
     {  
+        Debug.Log("Add Image Call : Bypassing");
+        return;
         //Setup image
         Sprite spriteImg = user.userChatInfo.GetCurrentImage();
         //Instantiate chat
         GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
         ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
-        Button button = bubbleInfo.AddComponent<Button>();
-        button.onClick.AddListener(delegate()
-        {
-            Debug.Log("Image Clicked");
-            CatProfile catProfile = WindowManager.instance.catProfilePrefab;
-            GameObject obj = Instantiate(catProfile.gameObject);
-            obj.transform.SetParent(WindowManager.instance.windowCanvas.transform);
-            obj.transform.localScale = Vector3.one;
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-            catProfile = obj.GetComponent<CatProfile>();
-            catProfile.SetCatProfile(user.userRequestedCat, user);
-        });
+
         bubbleInfo.SetImage(spriteImg);
         //SetPosition
         float newBubbleHight = bubbleInfo.GetBubbleSize().y;

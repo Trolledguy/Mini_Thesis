@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     [Header("Camera Settings")]
     [SerializeField] public Camera playerCamera;
     private bool isZooming = false;
+    
 
     void Awake()
     {

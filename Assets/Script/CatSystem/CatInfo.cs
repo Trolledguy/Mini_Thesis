@@ -9,8 +9,10 @@ public class CatInfo : ScriptableObject
     public string breed;
     public int age;
 
-    [Header("Cat ID")] // Unique identifier for the cat
+    [Header("Cat Infomation")] // Unique identifier for the cat
     public string catID;
+    public Identity catIdentity;
+
 
     [Header("Cat Appearance")]
     public Sprite catImage;

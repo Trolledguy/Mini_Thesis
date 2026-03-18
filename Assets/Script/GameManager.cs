@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Player Settings")]
     public Player player;
     private PlayerViable playerViable;
+    public Cat selectCat;
     private float currentTime;
 
     private int feedCounter = 0;
@@ -15,16 +16,27 @@ public class GameManager : MonoBehaviour
     private int incurrectCase = 0;
     private int currentDayEarned = 0;
 
+
+    private User _User;
+    public string currentUserID
+    {
+        get
+        {
+            return _User.userID;
+        }
+        set
+        {
+            _User = UserManager.intensce.GetUserByID(value);
+        }
+    }
+
     private void Start() //Used Start after Awake because PlayerViable might need to be initialized in gamemanager first.
     {
-        if (Instance == null)
+        if (Instance != this)
         {
             Instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
 
 
         playerViable = player.playerViable;
@@ -33,6 +45,8 @@ public class GameManager : MonoBehaviour
 
         currentTime = playerViable.timeRemainingPerDay;
         
+        CatBoard catBoard = FindAnyObjectByType<CatBoard>();
+        catBoard.OnNewDay();
         UIManager.Instance.UpdateDayText(playerViable.currentDay);
         UIManager.Instance.SetBlackScreen(1f, false);
     }
@@ -62,14 +76,21 @@ public class GameManager : MonoBehaviour
         chat.gameObject.SetActive(false);
     }
 
-    public void UpdateScore(bool isCorrect)
+    public void UpdateScore(Cat cat,User user)
     {
-        if (isCorrect)
+        if(cat.catInfo.catIdentity == user.userIdentity)
+        {
             currectCase++;
+        }
         else
+        {
             incurrectCase++;
-        DebugBox.instance.AddDebugText($"Answer is {(isCorrect ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
+        }
+
+        DebugBox.UpdateScore(currectCase);
+        DebugBox.AddDebugText($"Answer is {(cat.catInfo.catIdentity == user.userIdentity ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
     }
+    
     public void AddDayEarned(int _amount)
     {
         currentDayEarned += _amount;
