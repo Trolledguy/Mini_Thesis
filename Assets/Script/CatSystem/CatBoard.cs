@@ -3,14 +3,15 @@ using UnityEngine.UI;
 
 public class CatBoard : MonoBehaviour
 {
-    public int catInDay;
+    private int catInDay;
     public Collider coli;
 
     public Canvas catCanvas;
 
 
-    public void OnNewDay()
-    {
+    public void OnNewDay(int catAmount)
+    {   
+        catInDay = catAmount;
         SpawnCatProfile(catInDay);
     }
     private void SpawnCatProfile(int _Amount)

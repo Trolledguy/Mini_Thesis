@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -37,8 +38,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-
-
         playerViable = player.playerViable;
         if(playerViable == null)
             Debug.LogError("PlayerViable is not initialized in GameManager.");
@@ -46,9 +45,17 @@ public class GameManager : MonoBehaviour
         currentTime = playerViable.timeRemainingPerDay;
         
         CatBoard catBoard = FindAnyObjectByType<CatBoard>();
-        catBoard.OnNewDay();
+        int catA = playerViable.GetFeedRequired();
+        catBoard.OnNewDay(catA);
         UIManager.Instance.UpdateDayText(playerViable.currentDay);
         UIManager.Instance.SetBlackScreen(1f, false);
+
+        WindowUI[] allApp = WindowManager.instance.allApps;
+
+        foreach (WindowUI window in allApp)
+        {
+            window.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -68,6 +75,10 @@ public class GameManager : MonoBehaviour
         ResetFeedCounter();
         UIManager.Instance.UpdateDayText(playerViable.currentDay);
         UIManager.Instance.SetBlackScreen(1f, false);
+
+        CatBoard catBoard = FindAnyObjectByType<CatBoard>();
+        int catA = playerViable.GetFeedRequired();
+        catBoard.OnNewDay(catA);
         
         catbook.ResetFeed();
         
@@ -78,6 +89,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(Cat cat,User user)
     {
+        if (_User == null)
+        {
+            Debug.Log("current User is null : bypassing");
+            return;
+        }
+
         if(cat.catInfo.catIdentity == user.userIdentity)
         {
             currectCase++;
@@ -86,6 +103,8 @@ public class GameManager : MonoBehaviour
         {
             incurrectCase++;
         }
+
+        _User = null;
 
         DebugBox.UpdateScore(currectCase);
         DebugBox.AddDebugText($"Answer is {(cat.catInfo.catIdentity == user.userIdentity ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");

@@ -27,6 +27,8 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     {
         Debug.Log("Design cat Fade : " + catNameText.text);
         Cat cat = GameManager.Instance.selectCat;
+        Debug.Log(cat);
+        Debug.Log(user);
         GameManager.Instance.UpdateScore(cat , user);
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
@@ -35,6 +37,8 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         //TODO : Add past Chat
         Player.onDesignEvent.Invoke(); // Trigger the design event to consume energy
         Destroy(gameObject);
+        InputManager.Instance.selectCatProfile = null;
+        InputManager.Instance.isInspecting = false;
     }
 
 
@@ -49,6 +53,7 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     {
         gameObject.SetActive(false);
         SetOrigin(position, zRotation);
+        ResetPosition();
 
         currentCat = CatManager.instance.GetCatByID(catInfo.catID);
         catNameText.text = catInfo.catName; 
@@ -68,6 +73,7 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     {
         transform.localPosition = spawnPosition;
         transform.localEulerAngles = spawnRotation;
+        transform.localScale = Vector3.one * 0.5f;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -82,8 +88,11 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         catch(NullReferenceException) { Debug.Log("No Current User"); }
 
         transform.position = PlayerCamera.Instance.playerCamera.transform.position + new Vector3(-0.5f,0,0);
+        transform.localScale = Vector3.one;
         transform.LookAt(PlayerCamera.Instance.playerCamera.transform);
-        //GameManager.Instance.selectCat = CatManager.instance.GetCatByID(currentCat.catInfo.catID);
+        RectTransform rectT = GetComponent<RectTransform>();
+        rectT.SetAsLastSibling();
+        GameManager.Instance.selectCat = CatManager.instance.GetCatByID(currentCat.catInfo.catID);
         
         InputManager.Instance.selectCatProfile = this;
         InputManager.Instance.isInspecting = true;

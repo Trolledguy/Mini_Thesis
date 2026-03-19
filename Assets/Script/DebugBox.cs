@@ -15,7 +15,7 @@ public class DebugBox : MonoBehaviour
 
     public static void UpdateScore(int amount)
     {
-        instance.scoreText.text = amount.ToString();
+        instance.scoreText.text = "Score : " + amount.ToString();
     }
 
     public static void AddDebugText(string text)

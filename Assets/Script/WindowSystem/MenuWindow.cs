@@ -15,6 +15,7 @@ public class MenuWindow : MonoBehaviour
         memuButton.onClick.AddListener(OnMenuButtonClicked);
         nextDayButton.onClick.AddListener(OnNextDayButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
+        menuContent.SetActive(false);
     }
     private void OnMenuButtonClicked()
     {

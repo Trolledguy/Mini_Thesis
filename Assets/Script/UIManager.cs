@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
     }
     private IEnumerator BlackScreenCoroutine(float duration , bool isOpen)
     {
-        Debug.Log($"BlackScreenCoroutine started with duration: {duration} and isOpen: {isOpen}");
         switch(isOpen)
         {
             case true:
@@ -71,5 +70,6 @@ public class UIManager : MonoBehaviour
                 blackScreen.gameObject.SetActive(false);
                 break;
         }
+        
     }
 }

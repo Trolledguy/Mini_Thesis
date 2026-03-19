@@ -195,6 +195,8 @@ public class Catbook : WindowUI
         activeProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(true));
         deactiveProfileButton.onClick.AddListener(() => profilePage.gameObject.SetActive(false));
 
+        profilePage.gameObject.SetActive(false);
+
         //Debug
     }
 

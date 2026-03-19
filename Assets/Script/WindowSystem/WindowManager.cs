@@ -2,14 +2,14 @@ using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WindowManager : MonoBehaviour
 {
     public static WindowManager instance;
 
     [Header("Apps List")]
-    [SerializeField]
-    private WindowUI[] allApps; //For regis an app
+    public WindowUI[] allApps; //For regis an app
     
     public Dictionary<WindowAppType,WindowUI> apps = new Dictionary<WindowAppType, WindowUI>();
     public CatProfile catProfilePrefab;
