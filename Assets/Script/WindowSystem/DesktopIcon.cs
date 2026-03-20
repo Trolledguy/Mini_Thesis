@@ -46,7 +46,7 @@ public class DesktopIcon : Button , IDragHandler
             Debug.LogError("No linked window assigned to " + gameObject.name);
         }
     }
-        private void ClampToParentBounds()
+    private void ClampToParentBounds()
     {
         // Calculate the boundaries of the parent
         Vector2 parentSize = WindowManager.instance.sizeReference.rect.size;

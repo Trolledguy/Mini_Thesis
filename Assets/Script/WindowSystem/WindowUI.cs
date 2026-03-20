@@ -16,7 +16,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
     public float windowWidth;
     public float windowHeight;
 
-    bool isfirstTimeOpen = false;
+    bool isOpened = false;
 
     void OnValidate()
     {
@@ -46,16 +46,15 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
     public virtual void ExecuteWindow()
     {
         Debug.Log("Executing Window: " + windowName);
-        if(!isfirstTimeOpen)
-        {
-            isfirstTimeOpen = true;
-        }
+        gameObject.SetActive(!isOpened);
+        isOpened = !isOpened;
+
         
-        this.gameObject.SetActive(true);
     } 
     public virtual void CloseWindow()
     {
         this.gameObject.SetActive(false);
+        isOpened = false;
     }
 
     private void ClampToParentBounds()
