@@ -23,7 +23,6 @@ public class CatManager : MonoBehaviour
             if (!newCatDict.ContainsKey(catInfo.catID))
             {
                 newCatDict.Add(catInfo.catID, cat);
-                Debug.Log("Cat added: " + catInfo.catID);
             }
             else
             {

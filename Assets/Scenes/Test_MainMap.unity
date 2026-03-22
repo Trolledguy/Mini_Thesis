@@ -4268,6 +4268,7 @@ MonoBehaviour:
   windowWidth: 0.32
   windowHeight: 0.44
   contentTranform: {fileID: 609249006}
+  chatblubblePrefab: {fileID: 6966264906181344603, guid: 567f27955f37d8642a414210684974d4, type: 3}
   debugButton: {fileID: 253186520}
   askNextButton: {fileID: 1310364607}
   testText: 'There were a cat and a mouses. '

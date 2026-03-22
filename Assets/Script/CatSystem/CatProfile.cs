@@ -25,7 +25,6 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
 
     private void OnDesign(User user)
     {
-        Debug.Log("Design cat Fade : " + catNameText.text);
         Cat cat = GameManager.Instance.selectCat;
         Debug.Log(cat);
         Debug.Log(user);

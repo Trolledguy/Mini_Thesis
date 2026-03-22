@@ -14,7 +14,7 @@ public class ChatBlubbleTemplate : MonoBehaviour
     //Size of chat bubble
     private float minimumWidth = 30f;
     private float minimumHight = 20f;
-    private float maximumWidth = 115f;
+    private float maximumWidth = 100f;
     
 
     float messageBoxWidth;
@@ -114,7 +114,7 @@ public class ChatBlubbleTemplate : MonoBehaviour
         messageBoxHight = textHeight;
 
         // Set overall bubble size
-        rectTransform.sizeDelta = new Vector2(textWidth + paddingHorizontal - 180f, textHeight + paddingVertical);
+        rectTransform.sizeDelta = new Vector2(textWidth + paddingHorizontal - 180f - 3f, textHeight + paddingVertical);
     }
 
     public Vector2 GetBubbleSize()

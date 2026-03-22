@@ -61,7 +61,6 @@ public class UserChat : ScriptableObject
         foreach(Sprite s in sendImage)
         {
             dic.Add($"IMG{i}",s);
-            Debug.Log($"ADD : IMG{i}");
             i++;
         }
         return dic;

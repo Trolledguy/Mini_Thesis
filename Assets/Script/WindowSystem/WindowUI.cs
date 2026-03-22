@@ -45,7 +45,6 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
     //For Setting up the window
     public virtual void ExecuteWindow()
     {
-        Debug.Log("Executing Window: " + windowName);
         gameObject.SetActive(!isOpened);
         isOpened = !isOpened;
 

@@ -12,6 +12,7 @@ public class Chat : WindowUI
     [Header("Tranform of parent object")]
     [SerializeField]
     private RectTransform contentTranform;
+    [SerializeField]
     private GameObject chatblubblePrefab;
     private List<ChatBlubbleTemplate> allBubble = new List<ChatBlubbleTemplate>();
 
@@ -20,6 +21,7 @@ public class Chat : WindowUI
     [SerializeField] private string testText;
 
 
+    private User currentUser;
     private UserChat currentUserChat;
     private Story currentStory;
 
@@ -28,11 +30,10 @@ public class Chat : WindowUI
 
     List<string> lastTags;
 
-
-    protected override void Start()
+    void Awake()
     {
         this.SettUp();
-        chatblubblePrefab = Resources.Load<GameObject>("Prefab/Chat_Bubble_Template");
+        Debug.Log(chatblubblePrefab);
 
         contentTranform.sizeDelta = new Vector2(0 , 30);
 
@@ -50,81 +51,54 @@ public class Chat : WindowUI
     }
 
 
+
     /// <summary>
     /// User Chat Handler
     /// </summary>
 
     public IEnumerator ContinueChat()
     {
-        try
+
+        currentStory.ChooseChoiceIndex(0); // Automatically choose the first choice for testing purposes, replace with actual choice handling logic
+        Player.chatContinueTrigger.Invoke(10);
+
+        string text = currentStory.Continue();
+
+        AddNewChat(text);
+
+        if(currentStory.canContinue == false)
+            yield break;
+
+        while(currentStory.canContinue)
         {
-            currentStory.ChooseChoiceIndex(0); // Automatically choose the first choice for testing purposes, replace with actual choice handling logic
-            Player.chatContinueTrigger.Invoke(10);
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log("No choices available or error in story progression: " + e.Message);
-            yield break; // Exit the coroutine if there's an error
+            string uText = currentStory.Continue();
+            AddNewChat(uText,currentUser);
         }
         
-        while (currentStory.canContinue)
-        {
-            yield return new WaitForSeconds(1f);
-            string text = currentStory.Continue();
-            List<string> tags = currentStory.currentTags;
-
-            
-            //Check if is image post
-            if(UserChat.IsTagChange(lastTags,tags) && tags.Count > 0)
-            {
-                Debug.Log("Tag Change");
-                lastTags = tags;
-                currentUserChat.HandleTags(lastTags);
-                AddNewImage();
-                
-                continue;
-            }
-
-            AddNewChat(text);
-            yield return null;
-            
-        }
     }
 
     public IEnumerator SetNewChat(string _UID)
     {
         ClearChat();
-
         //Get UserChat
-        User u = UserManager.intensce.GetUserByID(_UID);
-        currentUserChat = u.userChatInfo;
+        currentUser = UserManager.intensce.GetUserByID(_UID);
+        currentUserChat = currentUser.userChatInfo;
         currentUserChat.SetupChat();
         
         currentStory = currentUserChat.userStory;
 
-        
+        if(currentStory.canContinue == false)
+            yield break;
+
         while (currentStory.canContinue)
         {
-            yield return new WaitForSeconds(1f);
-            string text = currentStory.Continue();
-            List<string> tags = currentStory.currentTags;
-
-            
-            //Check if is image post
-            if(UserChat.IsTagChange(lastTags,tags) && tags.Count > 0)
-            {
-                Debug.Log("Tag Change");
-                lastTags = tags;
-                currentUserChat.HandleTags(lastTags);
-                AddNewImage(u);
-                
-                continue;
-            }
-
-            AddNewChat(text,u);
-            yield return null;
-            
+            string uText = currentStory.Continue();
+            if(uText == "" || uText == null)
+                yield break;
+            AddNewChat(uText,currentUser);
         }
+
+        
     }
     public void ClearChat()
     {
@@ -143,6 +117,7 @@ public class Chat : WindowUI
         //Setup image
         Sprite spriteImg = user.userChatInfo.GetCurrentImage();
         //Instantiate chat
+        /*
         GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
         ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
 
@@ -157,13 +132,14 @@ public class Chat : WindowUI
         m_spawnPositionY += newBubbleHight - (newBubbleHight/2f);
         //Add infomation
         allBubble.Add(bubbleInfo);
+        */
 
     }
 
     private void AddNewChat(string _message , User user = null)
     {  
         //Instantiate chat
-        GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
+        GameObject newBubble = Instantiate(chatblubblePrefab.gameObject, contentTranform, false);
         ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
         bubbleInfo.SetMessage(_message);
         //SetPosition
@@ -215,14 +191,8 @@ public class Chat : WindowUI
 
     private void SetNewChatPosistion(RectTransform targetRect ,bool isPlayer)
     {
-        if (isPlayer)
-        {
-            targetRect.anchoredPosition = new Vector2(17.5f, - m_spawnPositionY);
-        }
-        else
-        {
-            targetRect.anchoredPosition = new Vector2(-3.5f, - m_spawnPositionY);
-        }
+        float x = isPlayer ? 17.5f : -17.5f;
+        targetRect.anchoredPosition = new Vector2(x, -m_spawnPositionY);
     }
 
 

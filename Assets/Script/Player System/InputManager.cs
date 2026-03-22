@@ -39,7 +39,6 @@ public class InputManager : MonoBehaviour
 
             if (isOnBoard && isInspecting)
             {
-                Debug.Log("Reset Cat Profile");
                 selectCatProfile.ResetPosition();
                 selectCatProfile = null;
                 isInspecting = false;
@@ -47,7 +46,6 @@ public class InputManager : MonoBehaviour
             }
             else if(isOnBoard && !isInspecting)
             {
-                Debug.Log("Back to chair");
                 Transform point = FindAnyObjectByType<SceneAnchor>().cameraPoint;
                 StartCoroutine(PlayerCamera.Instance.MoveCamera(point,5));
                 isOnBoard = false;
