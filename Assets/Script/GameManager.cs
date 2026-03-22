@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private PlayerViable playerViable;
     public Cat selectCat;
     private float currentTime;
-
+    
     private int feedCounter = 0;
     private int currectCase = 0;
     private int incurrectCase = 0;

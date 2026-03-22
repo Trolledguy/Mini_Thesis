@@ -6,6 +6,7 @@ using TMPro;
 public class Summary : MonoBehaviour
 {
     public static Summary intence;
+    [SerializeField] private TMP_Text day_text;
     [SerializeField] private TMP_Text totalCustomerText;
     [SerializeField] private TMP_Text totalBadChoiceText;
     [SerializeField] private TMP_Text totalGoodChoiceText;
@@ -21,9 +22,10 @@ public class Summary : MonoBehaviour
         nextDayButton.onClick.AddListener(OnNextDayButtonClicked);
     }
 
-    public void DisplaySummary(SummaryViable viable)
+    public void DisplaySummary(SummaryViable viable,int day)
     {
         gameObject.SetActive(true);
+        day_text.text = $"Day{day}";
         totalCustomerText.text = $"Customers: {viable.ct}";
         totalBadChoiceText.text = $"Bad Choices: {viable.bC}";
         totalGoodChoiceText.text = $"Good Choices: {viable.gC}";

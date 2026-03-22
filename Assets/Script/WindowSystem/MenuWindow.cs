@@ -30,11 +30,10 @@ public class MenuWindow : MonoBehaviour
     }
     private void OnNextDayButtonClicked()
     {
-        
         SummaryViable summary = GameManager.Instance.GetSummaryInfo();
-        Summary.intence.DisplaySummary(summary);
+        int day = GameManager.Instance.player.playerViable.currentDay;
+        Summary.intence.DisplaySummary(summary,day);
         menuContent.SetActive(false);
-        Debug.Log("Next Day Button Clicked");
     }
     private void OnExitButtonClicked()
     {
