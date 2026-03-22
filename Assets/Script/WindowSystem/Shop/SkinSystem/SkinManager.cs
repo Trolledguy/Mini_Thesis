@@ -39,7 +39,7 @@ public class SkinManager : MonoBehaviour
             StartCoroutine(ChangeScene(skinTest));
         });
     }
-    public void ChangeUI()
+    public void ChangeUI() //TODO : Change to selectable skin through ID/Name
     {
         UISetInfo test = GetRandomSkin();
         ui.ChangeSkin(test);
