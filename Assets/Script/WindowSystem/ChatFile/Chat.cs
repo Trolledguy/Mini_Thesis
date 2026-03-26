@@ -12,6 +12,12 @@ public class Chat : WindowUI
     [Header("Tranform of parent object")]
     [SerializeField]
     private RectTransform contentTranform;
+    [Header("Profile Picture Object")]
+    [SerializeField]
+    private Image profileContainer;
+    [SerializeField]
+    private Image chatPfp;
+    [Header("Bubble Prefab")]
     [SerializeField]
     private GameObject chatblubblePrefab;
     private List<ChatBlubbleTemplate> allBubble = new List<ChatBlubbleTemplate>();
@@ -25,17 +31,23 @@ public class Chat : WindowUI
     private UserChat currentUserChat;
     private Story currentStory;
 
+
     private float m_spawnPositionY = 0;
 
 
-    List<string> lastTags;
 
     void Awake()
     {
         this.SettUp();
+        if(profileContainer == null || chatPfp == null)
+        {
+            Debug.LogError("Profile Container not found");
+        }
         Debug.Log(chatblubblePrefab);
 
         contentTranform.sizeDelta = new Vector2(0 , 30);
+        profileContainer.gameObject.SetActive(false);
+        chatPfp.gameObject.SetActive(false);
 
         askNextButton.onClick.AddListener(delegate()
         {
@@ -60,7 +72,7 @@ public class Chat : WindowUI
     {
 
         currentStory.ChooseChoiceIndex(0); // Automatically choose the first choice for testing purposes, replace with actual choice handling logic
-        Player.chatContinueTrigger.Invoke(10);
+        Player.consumeEnergyTrigger.Invoke(10);
 
         string text = currentStory.Continue();
 
@@ -84,6 +96,10 @@ public class Chat : WindowUI
         currentUser = UserManager.intensce.GetUserByID(_UID);
         currentUserChat = currentUser.userChatInfo;
         currentUserChat.SetupChat();
+        profileContainer.sprite = currentUser.profilePicture;
+        chatPfp.sprite = currentUser.profilePicture;
+        chatPfp.gameObject.SetActive(true);
+        profileContainer.gameObject.SetActive(true);
         
         currentStory = currentUserChat.userStory;
 
@@ -102,6 +118,9 @@ public class Chat : WindowUI
     }
     public void ClearChat()
     {
+        profileContainer.transform.SetParent(contentTranform);
+        profileContainer.gameObject.SetActive(false);
+        chatPfp.gameObject.SetActive(false);
         foreach(ChatBlubbleTemplate c in allBubble)
         {
             Destroy(c.gameObject);
@@ -109,13 +128,14 @@ public class Chat : WindowUI
         contentTranform.sizeDelta = new Vector2(0 , 30);
         m_spawnPositionY = 0;
         allBubble.Clear();
+        
     }
     private void AddNewImage(User user = null) //TODO : Rework
     {  
         Debug.Log("Add Image Call : Bypassing");
         return;
         //Setup image
-        Sprite spriteImg = user.userChatInfo.GetCurrentImage();
+        //Sprite spriteImg = user.userChatInfo.GetCurrentImage();
         //Instantiate chat
         /*
         GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
@@ -193,6 +213,11 @@ public class Chat : WindowUI
     {
         float x = isPlayer ? 17.5f : -17.5f;
         targetRect.anchoredPosition = new Vector2(x, -m_spawnPositionY);
+
+        float hWidth = targetRect.rect.width / 2;
+        float hHight = targetRect.rect.height / 2;
+        profileContainer.transform.SetParent(targetRect);
+        profileContainer.transform.localPosition = new Vector2((-hWidth) - 10, (-hHight) + 7.5f );
     }
 
 

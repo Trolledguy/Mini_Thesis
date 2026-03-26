@@ -102,6 +102,7 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
 
         rectTransform = this.gameObject.GetComponent<RectTransform>();
         background = GetComponent<Image>();
+        
     }
     
 

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [Tooltip("Reference to Viable Setting Scriptable Object")]
     public ViableSetting viableSetting;
 
-    public static ChatEventTracker chatContinueTrigger;
+    public static ChatEventTracker consumeEnergyTrigger;
     public static UnityEvent onDesignEvent = new UnityEvent();
     private void Awake()
     {
@@ -24,13 +24,13 @@ public class Player : MonoBehaviour
             return;
         }
         playerViable.playerEnegy -= _amount;
-        chatContinueTrigger.InvokeTracked(_amount);
+        consumeEnergyTrigger.InvokeTracked(_amount);
     }
     
     private void SetupEvent()
     {
-        chatContinueTrigger = new ChatEventTracker();
-        chatContinueTrigger.AddListener(
+        consumeEnergyTrigger = new ChatEventTracker();
+        consumeEnergyTrigger.AddListener(
             delegate(int energyCost) 
             {
                 ConsumeEnergy(energyCost);

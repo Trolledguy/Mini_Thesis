@@ -26,8 +26,6 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     private void OnDesign(User user)
     {
         Cat cat = GameManager.Instance.selectCat;
-        Debug.Log(cat);
-        Debug.Log(user);
         GameManager.Instance.UpdateScore(cat , user);
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();

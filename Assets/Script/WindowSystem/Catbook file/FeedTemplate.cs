@@ -53,6 +53,7 @@ public class FeedTemplate : MonoBehaviour
 
         string uID = post.postInfo.postAuthor.userID;
         _sender.onCallEvent.Invoke(uID);
+        Player.consumeEnergyTrigger.Invoke(10);
     }
 
     
