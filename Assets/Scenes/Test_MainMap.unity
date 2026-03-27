@@ -867,7 +867,7 @@ GameObject:
   - component: {fileID: 121810701}
   - component: {fileID: 121810700}
   m_Layer: 5
-  m_Name: Test Button (1)
+  m_Name: Forword B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,14 +882,14 @@ RectTransform:
   m_GameObject: {fileID: 121810698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.754303, y: 0.754303, z: 0.754303}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1316691625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.31100014, y: 0.12599996}
+  m_AnchoredPosition: {x: -0.3597, y: 0.2636}
   m_SizeDelta: {x: 0.05, y: 0.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &121810700
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.5254902, b: 0.88304466, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3904,6 +3904,7 @@ MonoBehaviour:
   desktopIcon: {fileID: 1974391783}
   closeButton: {fileID: 82504108}
   rectTransform: {fileID: 898577067}
+  background: {fileID: 898577069}
   windowName: CatShop
   windowCode: 2
   windowWidth: 1.27
@@ -4118,7 +4119,7 @@ GameObject:
   - component: {fileID: 931375598}
   - component: {fileID: 931375597}
   m_Layer: 5
-  m_Name: Test Button (2)
+  m_Name: Back B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4133,14 +4134,14 @@ RectTransform:
   m_GameObject: {fileID: 931375595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75251, y: 0.75251, z: 0.75251}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1316691625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.43000016, y: 0.12599996}
+  m_AnchoredPosition: {x: -0.4006, y: 0.2644}
   m_SizeDelta: {x: 0.05, y: 0.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931375597
@@ -4200,7 +4201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5254902, g: 1, b: 0.5422537, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4415,6 +4416,7 @@ MonoBehaviour:
   desktopIcon: {fileID: 521502653}
   closeButton: {fileID: 1453110122}
   rectTransform: {fileID: 953483599}
+  background: {fileID: 953483601}
   windowName: Chat Cat
   windowCode: 1
   windowWidth: 0.32
@@ -6140,6 +6142,7 @@ MonoBehaviour:
   desktopIcon: {fileID: 1557385880}
   closeButton: {fileID: 1688022819}
   rectTransform: {fileID: 1316691625}
+  background: {fileID: 1316691626}
   windowName: CatBook
   windowCode: 0
   windowWidth: 1
@@ -7719,14 +7722,14 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 779746892}
-  - {fileID: 1316691625}
+  - {fileID: 953483599}
   - {fileID: 898577067}
   - {fileID: 29150620}
   - {fileID: 140540030}
   - {fileID: 583128093}
   - {fileID: 946373482}
   - {fileID: 1378665974}
-  - {fileID: 953483599}
+  - {fileID: 1316691625}
   - {fileID: 826436128}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

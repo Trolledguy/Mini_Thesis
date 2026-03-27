@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83366e5f87318b4eb4a92487ad4ed12, type: 3}
-  m_Name: New UISkinInfo
+  m_Name: UIHallowWeen
   m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
   id: HW
   backGround: {fileID: 21300000, guid: cc71cbd6891c42740addc1a2fff4306c, type: 3}
@@ -31,7 +31,7 @@ MonoBehaviour:
     closeIcon: {fileID: 21300000, guid: 6f0dc8b6fee79cd408bb8daa8a39450c, type: 3}
   feedBackground: {fileID: 21300000, guid: 66d6262458a7cf74dac3a96af6bba9fd, type: 3}
   likeButton: {fileID: 21300000, guid: fbb72b5d599804f47a14fac82fef55a9, type: 3}
-  catProfileBg: {fileID: 21300000, guid: f7fe5191595861b4abb188259331f2d1, type: 3}
+  catProfileBg: {fileID: 21300000, guid: d9e393e7eaa2f444e859519ef748f47c, type: 3}
   appProveButton: {fileID: 21300000, guid: 3572537b32afb2f489ceea25daf8ad1d, type: 3}
   denyButton: {fileID: 21300000, guid: a49c60b65f1e6e842b180cc30eded596, type: 3}
   chatBorder: {fileID: 21300000, guid: 22a03b6be6e0d504fbaecdd1c158374a, type: 3}

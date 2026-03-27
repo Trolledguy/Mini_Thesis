@@ -216,6 +216,7 @@ public class Chat : WindowUI
 
         float hWidth = targetRect.rect.width / 2;
         float hHight = targetRect.rect.height / 2;
+        if(isPlayer) return;
         profileContainer.transform.SetParent(targetRect);
         profileContainer.transform.localPosition = new Vector2((-hWidth) - 10, (-hHight) + 7.5f );
     }

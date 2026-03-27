@@ -28,7 +28,7 @@ public class UIObject : MonoBehaviour
         catProfile.ChangeSkin(uISetInfo);
         EditorUtility.SetDirty(catProfile);
 
-        ChatBlubbleTemplate chatBlubble = (ChatBlubbleTemplate)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/Chat_Bubble_Template.prefab",typeof (ChatBlubbleTemplate));
+        ChatBlubbleTemplate chatBlubble = (ChatBlubbleTemplate)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/ChatBubbleTemplate.prefab",typeof (ChatBlubbleTemplate));
         chatBlubble.chatBorder.sprite = uISetInfo.chatBorder;
         EditorUtility.SetDirty(chatBlubble);
 

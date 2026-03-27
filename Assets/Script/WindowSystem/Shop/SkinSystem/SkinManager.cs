@@ -33,13 +33,32 @@ public class SkinManager : MonoBehaviour
         skinInfos = CreateSkinList();
         testButton.onClick.AddListener(delegate ()
         {
+            ChangeUI();
+            /*
             GameObject[] playerObj = GameObject.FindGameObjectsWithTag("Game Logical");
             
             AssignDontDestroy(playerObj);
             StartCoroutine(ChangeScene(skinTest));
+            */
         });
+        
     }
-    public void ChangeUI() //TODO : Change to selectable skin through ID/Name
+    private void Start()
+    {
+        UISetInfo dfSkin = GetUISkinByID("DF");
+        ui.ChangeSkin(dfSkin);
+    }
+    public void ChangeUI(string id) 
+    {
+        if (!skinInfos.ContainsKey(id))
+        {
+            Debug.LogError("Skin ID Not Found");
+            return;
+        }
+        UISetInfo test = GetUISkinByID(id);
+        ui.ChangeSkin(test);
+    }
+    public void ChangeUI() 
     {
         UISetInfo test = GetRandomSkin();
         ui.ChangeSkin(test);
@@ -100,8 +119,11 @@ public class SkinManager : MonoBehaviour
     private UISetInfo GetRandomSkin()
     {
         List<UISetInfo> uIs = new List<UISetInfo>(skinInfos.Values);
-        if(uIs.Count < 0)
+        if(uIs.Count < 1)
+        {
+            Debug.LogError("No UI Loaded");
             return null;
+        }
         
         int r = Random.Range(0,uIs.Count);
         return uIs[r];

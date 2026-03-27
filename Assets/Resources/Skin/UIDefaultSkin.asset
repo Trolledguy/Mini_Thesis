@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83366e5f87318b4eb4a92487ad4ed12, type: 3}
+  m_Name: UIDefaultSkin
+  m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
+  id: DF
+  backGround: {fileID: 21300000, guid: 70d23c3cb7b7b984189acdf5bc900b0c, type: 3}
+  menuButton: {fileID: 21300000, guid: 09d12cd1655cf94438ba749972034f07, type: 3}
+  menuBackground: {fileID: 21300000, guid: 5b585a37ac384a347ab13c6716e05c0e, type: 3}
+  windowSkins:
+  - type: 0
+    window: {fileID: 21300000, guid: 20bd48c9b2c6ebe45967882666ebb7fe, type: 3}
+    desktopIcon: {fileID: 21300000, guid: 54c09790b6fbab34c8bc36067d2ab286, type: 3}
+    closeIcon: {fileID: 21300000, guid: fe3b5aa95dc2af943b33e45986294e45, type: 3}
+  - type: 1
+    window: {fileID: 21300000, guid: b4db2bc7a51c63847a5cdadfdca61010, type: 3}
+    desktopIcon: {fileID: 21300000, guid: 9058ffd8cc59a724792f39f64936bc96, type: 3}
+    closeIcon: {fileID: 21300000, guid: 92db59a74dd76eb4abaa97e04afb0eb0, type: 3}
+  - type: 2
+    window: {fileID: 21300000, guid: 32deac1413f9f4a4c97dc924c015bad2, type: 3}
+    desktopIcon: {fileID: 21300000, guid: 847e7c9ce88f9374dab32acef2159a23, type: 3}
+    closeIcon: {fileID: 21300000, guid: 92db59a74dd76eb4abaa97e04afb0eb0, type: 3}
+  feedBackground: {fileID: 21300000, guid: 829d7e6fb36496c419633b8f9c39baf2, type: 3}
+  likeButton: {fileID: 21300000, guid: 53612b9448488df428c6dfd39cb66d8a, type: 3}
+  catProfileBg: {fileID: 21300000, guid: b940e717213a3724ca8fb239ef7805a9, type: 3}
+  appProveButton: {fileID: 21300000, guid: 74773ee82ebfd2e44af1c034efdea8b3, type: 3}
+  denyButton: {fileID: 21300000, guid: 33d1f5c0d5c9dce488b2075a4c13f365, type: 3}
+  chatBorder: {fileID: 21300000, guid: defe643640b12d44387e06f639b0500e, type: 3}
+  itemframe: {fileID: 21300000, guid: 81e14c1f7acd3cc4bacb6662735b3ccc, type: 3}
+  deskTopB: {fileID: 21300000, guid: f33be775010a3624c8ffda0e6f730a53, type: 3}
+  roomB: {fileID: 21300000, guid: 0bb66318343599b4b9755781a9280476, type: 3}
+  catB: {fileID: 21300000, guid: a956967b7ad264847b91c0b12afa1c03, type: 3}
+  foodB: {fileID: 21300000, guid: 0bb66318343599b4b9755781a9280476, type: 3}

@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     public void StartNewDay()
     {
         currentDayEarned = 0;
-        currentTime = 0;
+        currentTime = playerViable.timeRemainingPerDay;
         playerViable.currentDay++;
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
