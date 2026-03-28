@@ -14,4 +14,12 @@ public abstract class Item : ScriptableObject
 
     [Tooltip("Icon / preview image for the item.")]
     public Sprite icon;
+
+    private bool isbuy = false;
+
+    public bool IsBuy
+    {
+        get{return isbuy;}
+        set{isbuy = value;}
+    }
 }

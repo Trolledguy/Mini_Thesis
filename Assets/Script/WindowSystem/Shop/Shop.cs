@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Shop : WindowUI
@@ -9,6 +11,8 @@ public class Shop : WindowUI
     public string resourcesPath = ""; // e.g. "Shop" or "Shop/Items"
     [Tooltip("Prefab For Item")]
     public ShopItemFrame framePrefab;
+    [Header("")]
+    public BuyConfirm buyConfirmDisplay;
 
     [Header("Parent object for spawn content")]
     public RectTransform contentParent;
@@ -18,6 +22,8 @@ public class Shop : WindowUI
     public Button roomDeco;
     public Button catDeco;
     public Button food;
+
+
 
     [Header("Item Lists")]
     private List<Item> showItem = new List<Item>();
@@ -33,6 +39,9 @@ public class Shop : WindowUI
     [Tooltip("Food Items")]
     public List<Item> f_Item = new List<Item>();
 
+
+    public static UnityEvent buyEvent = new UnityEvent();
+
     
 
     protected override void Start()
@@ -41,7 +50,27 @@ public class Shop : WindowUI
         Setup();
     }
 
-    public void Setup()
+    public void Buy(ShopItemFrame frame,Item item)
+    {
+        buyConfirmDisplay.Set(item);
+        buyEvent.AddListener(delegate()
+        { 
+            ItemBuy(frame,item);
+        });
+    }
+
+    private void ItemBuy(ShopItemFrame frame,Item buyItem)
+    {
+        Debug.Log($"Item buy : {buyItem.name}");
+        //Make Food Item Take Effect
+        if(buyItem.category == ItemCategory.Food) return;
+        buyItem.IsBuy = true;
+        frame.soldPic.gameObject.SetActive(true);
+        //EditorUtility.SetDirty(buyItem); //Use it later when final
+    }
+
+
+    private void Setup()
     {
         if(framePrefab == null)
             framePrefab = Resources.Load<ShopItemFrame>("Prefab/ItemFrame");
@@ -119,7 +148,7 @@ public class Shop : WindowUI
         desktopDeco.image.sprite = uISetInfo.deskTopB;
         roomDeco.image.sprite = uISetInfo.roomB;
         catDeco.image.sprite = uISetInfo.catB;
-        //food.image.sprite = uISetInfo.foodB;
     }
+    
 
 }

@@ -33,7 +33,7 @@ public class UIObject : MonoBehaviour
         EditorUtility.SetDirty(chatBlubble);
 
         ShopItemFrame itemFrame = (ShopItemFrame)AssetDatabase.LoadAssetAtPath("Assets/Resources/Prefab/ItemFrame.prefab",typeof (ShopItemFrame));
-        itemFrame.bg.sprite = uISetInfo.itemframe;
+        itemFrame.background.sprite = uISetInfo.itemframe;
         EditorUtility.SetDirty(itemFrame);
 
         Debug.Log("Skin Changed");

@@ -7,21 +7,24 @@ public class ShopItemFrame : MonoBehaviour
 {
     private Button interactButton;
     [Header("Component needed")]
-    public Image bg;
-    public Image sp; //May Change to 3D model later
+    public Image background;
+    public Image showItem; //May Change to 3D model later
+    public Image soldPic;
     public TMP_Text valueText;
+    private Item item;
+
 
 
     void Awake()
     {
-        this.Setup();
+        Setup();
     }
     
     private void Setup()
     {
         try
         {
-            bg = GetComponent<Image>();
+            background = GetComponent<Image>();
             interactButton = GetComponent<Button>();
             valueText.GetComponentInChildren<TMP_Text>();
         }
@@ -32,10 +35,14 @@ public class ShopItemFrame : MonoBehaviour
             if(valueText == null)
             Debug.LogError($"{gameObject.name} missing Text componet");
         }
+        
+
 
         interactButton.onClick.AddListener(delegate ()
         {
-            Debug.Log("Buy Pressed");
+            if(item.IsBuy == true) return;
+            Shop shop = WindowManager.instance.AccessApp(WindowAppType.CatShop).GetComponent<Shop>();
+            shop.Buy(this,item);
         });
 
 
@@ -44,7 +51,14 @@ public class ShopItemFrame : MonoBehaviour
     public void SetFrame(Item _item)
     {
         string valueInput = $"{_item.value} Coin";
-        sp.sprite = _item.icon;
+        showItem.sprite = _item.icon;
         valueText.text = valueInput;
+        item = _item;
+        soldPic.gameObject.SetActive(item.IsBuy);
+        if (_item.IsBuy)
+        {
+            valueText.gameObject.SetActive(false);
+            soldPic.gameObject.SetActive(true);
+        }
     }
 }
