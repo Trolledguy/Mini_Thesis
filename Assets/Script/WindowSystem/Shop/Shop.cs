@@ -64,8 +64,8 @@ public class Shop : WindowUI
         Debug.Log($"Item buy : {buyItem.name}");
         //Make Food Item Take Effect
         if(buyItem.category == ItemCategory.Food) return;
-        buyItem.IsBuy = true;
-        frame.soldPic.gameObject.SetActive(true);
+        buyItem.isbuy = true;
+        frame.ActivateSoldPic();
         //EditorUtility.SetDirty(buyItem); //Use it later when final
     }
 

@@ -15,11 +15,13 @@ public abstract class Item : ScriptableObject
     [Tooltip("Icon / preview image for the item.")]
     public Sprite icon;
 
-    private bool isbuy = false;
+    public bool isbuy = false;
 
-    public bool IsBuy
+#if UNITY_EDITOR
+    void OnValidate()
     {
-        get{return isbuy;}
-        set{isbuy = value;}
+        if(!Application.isPlaying)
+           isbuy = false;   
     }
+#endif
 }

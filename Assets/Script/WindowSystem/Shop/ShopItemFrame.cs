@@ -40,12 +40,17 @@ public class ShopItemFrame : MonoBehaviour
 
         interactButton.onClick.AddListener(delegate ()
         {
-            if(item.IsBuy == true) return;
+            if(item.isbuy == true) return;
             Shop shop = WindowManager.instance.AccessApp(WindowAppType.CatShop).GetComponent<Shop>();
             shop.Buy(this,item);
         });
 
 
+    }
+
+    public void ActivateSoldPic()
+    {
+        soldPic.gameObject.SetActive(true);
     }
 
     public void SetFrame(Item _item)
@@ -54,8 +59,8 @@ public class ShopItemFrame : MonoBehaviour
         showItem.sprite = _item.icon;
         valueText.text = valueInput;
         item = _item;
-        soldPic.gameObject.SetActive(item.IsBuy);
-        if (_item.IsBuy)
+        soldPic.gameObject.SetActive(item.isbuy);
+        if (_item.isbuy)
         {
             valueText.gameObject.SetActive(false);
             soldPic.gameObject.SetActive(true);
