@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text dayText;
 
     public static FeedTemplate feedTemplatePrefab;
+    public static CommentTemplate commentTemplatePrefab;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class UIManager : MonoBehaviour
         }
 
         feedTemplatePrefab = Resources.Load<FeedTemplate>("Prefab/Feed_Template");
-
+        commentTemplatePrefab = Resources.Load<CommentTemplate>("Prefab/CommentTemplate");
     }
     public void UpdateDayText(int day)
     {

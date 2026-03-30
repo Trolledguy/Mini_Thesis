@@ -17,9 +17,10 @@ public class CatBoard : MonoBehaviour
     private void SpawnCatProfile(int _Amount)
     {
         CatProfile catProfileprefab = WindowManager.instance.catProfilePrefab;
+        RectTransform catprogileRect = catProfileprefab.GetComponent<RectTransform>();
         RectTransform rectT = catCanvas.GetComponent<RectTransform>();
-        float rW = rectT.rect.width / 2;
-        float rH = rectT.rect.height / 2;
+        float rW = rectT.rect.width / 2 - catprogileRect.rect.width / 2;
+        float rH = rectT.rect.height / 2 - catprogileRect.rect.height / 2;
         for (int i = 0 ; i < _Amount; i++)
         {
             //Spawn and Set position
@@ -39,8 +40,5 @@ public class CatBoard : MonoBehaviour
     {
         catInDay = _amount;
     }
-    private void Setup()
-    {
-        
-    }
+
 }

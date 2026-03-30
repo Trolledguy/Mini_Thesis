@@ -15,6 +15,7 @@ public class PostManager : MonoBehaviour
     private Dictionary<string, Post> CreatePostDictionary()
     {
         PostInfo[] postList = Resources.LoadAll<PostInfo>("Posts");
+        Comment[] commentList = Resources.LoadAll<Comment>("Posts");
         Dictionary<string, Post> newpostDict = new Dictionary<string, Post>();
 
         foreach (PostInfo postInfo in postList)
@@ -25,6 +26,13 @@ public class PostManager : MonoBehaviour
             Post post = new Post(postInfo);
             if (!newpostDict.ContainsKey(postInfo.postID))
             {
+                foreach (Comment comment in commentList)
+                {
+                    if (comment.post == postInfo)
+                    {
+                        post.comments.Add(comment);
+                    }
+                }
                 newpostDict.Add(postInfo.postID, post);
             }
             else
