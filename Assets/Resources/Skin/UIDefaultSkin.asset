@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UIDefaultSkin
   m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
   id: DF
-  backGround: {fileID: 21300000, guid: 70d23c3cb7b7b984189acdf5bc900b0c, type: 3}
+  backGround: {fileID: 21300000, guid: 5b585a37ac384a347ab13c6716e05c0e, type: 3}
   menuButton: {fileID: 21300000, guid: 09d12cd1655cf94438ba749972034f07, type: 3}
   menuBackground: {fileID: 21300000, guid: 5b585a37ac384a347ab13c6716e05c0e, type: 3}
   windowSkins:

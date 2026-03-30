@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Ink.Runtime;
+using TMPro;
 
 
 public class Chat : WindowUI
 {
     [Header("Tranform of parent object")]
-    [SerializeField]
-    private RectTransform contentTranform;
-    [Header("Profile Picture Object")]
-    [SerializeField]
-    private Image profileContainer;
-    [SerializeField]
-    private Image chatPfp;
+    [SerializeField] private RectTransform contentTranform;
+
+    [Header("Profile Object")]
+    [SerializeField] private Image profileContainer;
+    [SerializeField] private Image chatPfp;
+    [SerializeField] private TMP_Text chatName;
+
     [Header("Bubble Prefab")]
-    [SerializeField]
-    private GameObject chatblubblePrefab;
+    [SerializeField] private GameObject chatblubblePrefab;
+
     private List<ChatBlubbleTemplate> allBubble = new List<ChatBlubbleTemplate>();
 
     [SerializeField] private Button debugButton;
@@ -25,10 +26,8 @@ public class Chat : WindowUI
     [SerializeField] private string testText;
 
     [Header("Sound")]
-    [SerializeField]
-    private AudioClip chatSound;
-    [SerializeField]
-    private AudioClip chatResetSound;
+    [SerializeField] private AudioClip chatSound; 
+    [SerializeField] private AudioClip chatResetSound;
 
 
     private User currentUser;
@@ -90,21 +89,26 @@ public class Chat : WindowUI
             yield return new WaitForSeconds(1f);
             string uText = currentStory.Continue();
             AddNewChat(uText,currentUser);
+            profileContainer.gameObject.SetActive(true);
         }
         
     }
+    
 
     public IEnumerator SetNewChat(string _UID)
     {
+        profileContainer.gameObject.SetActive(false);
+        chatPfp.gameObject.SetActive(false);
         ClearChat();
         //Get UserChat
         currentUser = UserManager.intensce.GetUserByID(_UID);
+        chatName.text = currentUser.userName;
         currentUserChat = currentUser.userChatInfo;
         currentUserChat.SetupChat();
         profileContainer.sprite = currentUser.profilePicture;
         chatPfp.sprite = currentUser.profilePicture;
         chatPfp.gameObject.SetActive(true);
-        profileContainer.gameObject.SetActive(true);
+        
         
         currentStory = currentUserChat.userStory;
 
@@ -118,7 +122,7 @@ public class Chat : WindowUI
             if(uText == "" || uText == null)
                 yield break;
             AddNewChat(uText,currentUser);
-            
+            profileContainer.gameObject.SetActive(true);
         }
 
         
@@ -135,6 +139,7 @@ public class Chat : WindowUI
         contentTranform.sizeDelta = new Vector2(0 , 30);
         m_spawnPositionY = 0;
         allBubble.Clear();
+        this.gameObject.SetActive(true);
         StartCoroutine(Sound.PlaySoundAtPoint(chatResetSound, this.transform.position));
         
     }
@@ -166,6 +171,8 @@ public class Chat : WindowUI
 
     private void AddNewChat(string _message , User user = null)
     {  
+        if(this.gameObject.activeSelf == false)
+            gameObject.SetActive(true);
         //Instantiate chat
         GameObject newBubble = Instantiate(chatblubblePrefab.gameObject, contentTranform, false);
         ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
