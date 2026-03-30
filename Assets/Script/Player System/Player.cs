@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class Player : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class Player : MonoBehaviour
     [Header("Viable Setting Reference")]
     [Tooltip("Reference to Viable Setting Scriptable Object")]
     public ViableSetting viableSetting;
+    [Header("Audio Mixer")]
+    public AudioMixer audioMixer;
+
 
     public static ChatEventTracker consumeEnergyTrigger;
     public static UnityEvent onDesignEvent = new UnityEvent();

@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using System.Linq;
 using Ink.Runtime;
-using UnityEngine.Events;
-using Unity.VisualScripting;
+
 
 public class Chat : WindowUI
 {
@@ -25,6 +23,12 @@ public class Chat : WindowUI
     [SerializeField] private Button debugButton;
     [SerializeField] private Button askNextButton;
     [SerializeField] private string testText;
+
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip chatSound;
+    [SerializeField]
+    private AudioClip chatResetSound;
 
 
     private User currentUser;
@@ -83,6 +87,7 @@ public class Chat : WindowUI
 
         while(currentStory.canContinue)
         {
+            yield return new WaitForSeconds(1f);
             string uText = currentStory.Continue();
             AddNewChat(uText,currentUser);
         }
@@ -108,10 +113,12 @@ public class Chat : WindowUI
 
         while (currentStory.canContinue)
         {
+            yield return new WaitForSeconds(1f);
             string uText = currentStory.Continue();
             if(uText == "" || uText == null)
                 yield break;
             AddNewChat(uText,currentUser);
+            
         }
 
         
@@ -128,6 +135,7 @@ public class Chat : WindowUI
         contentTranform.sizeDelta = new Vector2(0 , 30);
         m_spawnPositionY = 0;
         allBubble.Clear();
+        StartCoroutine(Sound.PlaySoundAtPoint(chatResetSound, this.transform.position));
         
     }
     private void AddNewImage(User user = null) //TODO : Rework
@@ -172,10 +180,12 @@ public class Chat : WindowUI
         m_spawnPositionY += newBubbleHight - (newBubbleHight/2);
         //Add infomation
         allBubble.Add(bubbleInfo);
-        
+
+        StartCoroutine(Sound.PlaySoundAtPoint(chatSound, this.transform.position));
 
 
     }
+
 
 
 

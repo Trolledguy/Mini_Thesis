@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
     private bool isUsingComputer = false;
     private bool isOnBoard = false;
     public bool isInspecting = false;
+    [Header("Sound")]
+    public AudioClip clickSound;
 
     public CatProfile selectCatProfile;
 
@@ -57,6 +59,7 @@ public class InputManager : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0))
         {
+            StartCoroutine(Sound.PlaySoundAtPoint(clickSound, this.transform.position));
             if(isOnBoard) return;
             Ray ray = PlayerCamera.Instance.playerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray,out RaycastHit hitInfo,20))
