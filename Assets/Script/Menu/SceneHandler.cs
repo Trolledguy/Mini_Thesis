@@ -41,8 +41,8 @@ public class SceneHandler : MonoBehaviour
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene("Test_MainMenu", LoadSceneMode.Single);
-        loadedScenes.Add("Test_MainMenu");
+        SceneManager.LoadScene("Test_MainMap", LoadSceneMode.Single);
+        loadedScenes.Add("Test_MainMap");
     }
     public void UnloadMainMenuScene()
     {

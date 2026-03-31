@@ -1,7 +1,4 @@
 using UnityEngine;
-using Ink;
-using Ink.UnityIntegration;
-using NUnit.Framework;
 using UnityEngine.UI;
 
 public class Catbook : WindowUI

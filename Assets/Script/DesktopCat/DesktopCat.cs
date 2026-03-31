@@ -67,6 +67,7 @@ public class DesktopCat : MonoBehaviour
         destinationMarker.AddComponent<RectTransform>();
         destinationMarker.transform.SetParent(windowTranform);
         destinationMarker.transform.localPosition = new Vector2(destination.x, destination.y);
+
         
         while (isMoving)
         {
@@ -87,11 +88,13 @@ public class DesktopCat : MonoBehaviour
     }
     private void FilpSprite(Vector2 direction)
     {
-        if (direction.x > 0)
+        Vector2 catPos = rectTransform.localPosition;
+        Vector2 target = direction - catPos;
+        if (target.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1); // Face right
         }
-        else if (direction.x < 0)
+        else if (target.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1); // Face left
         }

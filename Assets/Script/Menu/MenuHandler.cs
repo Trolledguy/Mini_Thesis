@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +16,7 @@ public class MenuHandler : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private float musicVolume = 1f;
-    [SerializeField] private Dropdown displayModeDropdown;
+    [SerializeField] private TMP_Dropdown displayModeDropdown;
     [SerializeField] private Slider brightnessSlider;
 
 
