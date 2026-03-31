@@ -37,8 +37,7 @@ public class MenuWindow : MonoBehaviour
     }
     private void OnExitButtonClicked()
     {
-        Debug.Log("Exit Button Clicked");
         //SaveGame
-        //SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Test_MainMenu", LoadSceneMode.Single);
     }
 }
