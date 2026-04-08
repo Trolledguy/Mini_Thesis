@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Peter Giffin
+  m_text: KlaInwZa007
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7afdcd037de46d942a3e5b6e2e0fa217, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10b7838ead63bf74aa5fbb0935d0846b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChatHistory
   profileImage: {fileID: 3332918925294016397}
   userName: {fileID: 7943390055443805843}
-  chat: {fileID: 11400000, guid: 62c3e7e211dd8134fb996b31a32ce1b3, type: 2}
+  containUser: {fileID: 11400000, guid: c021876f5271d824b9f9fef279408bd5, type: 2}
   objRtranform: {fileID: 8699398212979542242}
   button: {fileID: 4133000670971611310}
 --- !u!114 &4133000670971611310

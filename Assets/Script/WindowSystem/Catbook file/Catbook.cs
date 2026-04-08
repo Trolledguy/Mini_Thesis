@@ -102,6 +102,17 @@ public class Catbook : WindowUI
     {
         ClearFeed();
         SpawnFeeds(2);
+        ClearHistory();
+    }
+
+    private void ClearHistory()
+    {
+        historyRect.sizeDelta = new Vector2(0,2);
+        foreach (ChatHistory history in chatHistories)
+        {
+            Destroy(history.gameObject);
+        }
+        chatHistories.Clear();
     }
 
 

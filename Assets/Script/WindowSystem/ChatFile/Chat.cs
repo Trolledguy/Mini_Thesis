@@ -203,7 +203,7 @@ public class Chat : WindowUI
     public void SetChatHistory(string uID)
     {
         this.gameObject.SetActive(true);
-        StartCoroutine(SetnewChatHistory(uID,0.5f));   
+        StartCoroutine(SetnewChatHistory(uID,0f));   
     }
 
     private void AddNewChat(string _message , User user = null)
