@@ -1,25 +1,26 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Catbook : WindowUI
 {
     [Header("Catbook Specific Settings")]
-    [SerializeField]
-    private RectTransform contentRect; // The RectTransform of the content area where feeds will be spawned
-    [SerializeField]
-    private RectTransform[] feedsposition = new RectTransform[2]; //positions to spawn feeds into
+    [SerializeField] private RectTransform contentRect;
+    [SerializeField] private RectTransform historyRect;
+    [SerializeField] private RectTransform[] feedsposition = new RectTransform[2]; //positions to spawn feeds into
     private PostStatus currentPostStatus; // To keep track of the current post status for feed management
     [Header("Page Settings")]
     public ProfilePage profilePage;
 
-    [SerializeField]    private Button activeProfileButton;
-    [SerializeField]    private Button deactiveProfileButton;
+    [SerializeField] private Button activeProfileButton;
+    [SerializeField] private Button deactiveProfileButton;
 
     //For Testing Purposes
     //
 
     [Header("Feed Positions")]
     private Feed[] feeds = new Feed[3]; // Array to hold references to the spawned feeds
+    private List<ChatHistory> chatHistories = new List<ChatHistory>();
 
 
     protected override void Start()
@@ -34,6 +35,29 @@ public class Catbook : WindowUI
             contentRect.anchoredPosition = Vector2.zero;
             UpdateFeed(PostStatus.Unscrollable);
         }
+    }
+    public void AddHistory(User _user)
+    {
+        ChatHistory history = UIManager.chatHistoryTemplatePrefab;
+        GameObject hisObj = Instantiate(history.gameObject,historyRect);
+        history.SetHistory(_user);
+        history.name = "H1" + chatHistories.Count;
+        chatHistories.Add(hisObj.GetComponent<ChatHistory>());
+
+        //Set position
+        historyRect.sizeDelta += new Vector2(0,30 + 2);
+        int index = chatHistories.Count;
+        float offset = 19f;
+        float pos = (historyRect.rect.height / 2) - (history.objRtranform.rect.height / 2) - (offset * index); 
+        
+        foreach(ChatHistory chatHistory in chatHistories)
+        {
+            RectTransform cTranform = chatHistory.GetComponent<RectTransform>();
+            cTranform.localPosition = new Vector2(0 + 50.16451f ,pos); 
+            pos -= 32;
+        }
+        
+        
     }
 
     public void UpdateFeed(PostStatus postStatus) //Call after approving or denying a cat and ContentRect Y > 190, to update the feed based on the post status

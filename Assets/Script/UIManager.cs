@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     public static FeedTemplate feedTemplatePrefab;
     public static CommentTemplate commentTemplatePrefab;
+    public static ChatHistory chatHistoryTemplatePrefab;
 
     private void Awake()
     {
@@ -23,8 +24,9 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        feedTemplatePrefab = Resources.Load<FeedTemplate>("Prefab/Feed_Template");
+        feedTemplatePrefab = Resources.Load<FeedTemplate>("Prefab/FeedTemplate");
         commentTemplatePrefab = Resources.Load<CommentTemplate>("Prefab/CommentTemplate");
+        chatHistoryTemplatePrefab = Resources.Load<ChatHistory>("Prefab/ChatHistoryTemplate");
     }
     public void UpdateDayText(int day)
     {

@@ -29,6 +29,7 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         GameManager.Instance.UpdateScore(cat , user);
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
+        catbook.AddHistory(user);
         catbook.UpdateFeed(PostStatus.Scrollable);
         chat.ClearChat(); 
         //TODO : Add past Chat
@@ -77,10 +78,10 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     {
         try
         {
-        string uID = GameManager.Instance.currentUserID;
-        User cUser = UserManager.intensce.GetUserByID(uID);
-        approveButton.onClick.AddListener(() => OnDesign(cUser));
-        denyButton.onClick.AddListener(() => OnDesign(cUser));
+            string uID = GameManager.Instance.currentUserID;
+            User cUser = UserManager.intensce.GetUserByID(uID);
+            approveButton.onClick.AddListener(() => OnDesign(cUser));
+            denyButton.onClick.AddListener(() => OnDesign(cUser));
         }
         catch(NullReferenceException) { Debug.Log("No Current User"); }
 

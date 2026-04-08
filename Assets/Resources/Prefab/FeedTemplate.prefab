@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 6737004711682147991}
   - component: {fileID: 7817152311961904973}
   m_Layer: 5
-  m_Name: Feed_Template
+  m_Name: FeedTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c788929c18c750e47afb48f41155bb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FeedTemplate
-  background: {fileID: 8489045978639486798}
+  feedBackground: {fileID: 8489045978639486798}
   profilePicture: {fileID: 5296327404640153222}
   userNameText: {fileID: 8940324744715576438}
   postTimeText: {fileID: 2842803651385773206}

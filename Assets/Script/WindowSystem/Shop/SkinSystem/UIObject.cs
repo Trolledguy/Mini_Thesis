@@ -19,18 +19,18 @@ public class UIObject : MonoBehaviour
         chat.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.CatChat));
         shop.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.CatShop), uISetInfo);
         
-        FeedTemplate feedTemplate = Resources.Load<FeedTemplate>("Prefab/Feed_Template.prefab");
-        feedTemplate.background.sprite = uISetInfo.feedBackground;
+        FeedTemplate feedTemplate = Resources.Load<FeedTemplate>("Prefab/FeedTemplate");
+        feedTemplate.feedBackground.sprite = uISetInfo.feedBackground;
         feedTemplate.likeButton.image.sprite = uISetInfo.likeButton;
         
 
-        CatProfile catProfile = Resources.Load<CatProfile>("Prefab/Cat_Profile.prefab");
+        CatProfile catProfile = Resources.Load<CatProfile>("Prefab/Cat_Profile");
         catProfile.ChangeSkin(uISetInfo);
 
-        ChatBlubbleTemplate chatBlubble = Resources.Load<ChatBlubbleTemplate>("Prefab/ChatBubbleTemplate.prefab");
+        ChatBlubbleTemplate chatBlubble = Resources.Load<ChatBlubbleTemplate>("Prefab/ChatBubbleTemplate");
         chatBlubble.chatBorder.sprite = uISetInfo.chatBorder;
 
-        ShopItemFrame itemFrame = Resources.Load<ShopItemFrame>("Prefab/ItemFrame.prefab");
+        ShopItemFrame itemFrame = Resources.Load<ShopItemFrame>("Prefab/ItemFrame");
         itemFrame.background.sprite = uISetInfo.itemframe;
 
         Debug.Log("Skin Changed");

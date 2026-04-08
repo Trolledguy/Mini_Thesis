@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class FeedTemplate : MonoBehaviour
 {
     [Header("Feed UI Elements")]
-    public Image background;
+    public Image feedBackground;
     public Image profilePicture;
     public TMP_Text userNameText;
     public TMP_Text postTimeText;
@@ -29,7 +29,7 @@ public class FeedTemplate : MonoBehaviour
 
     public void SetUpTemplate(Post post)
     {
-        if(background == null)
+        if(feedBackground == null)
             Debug.LogWarning("Can't Access background");
 
         profilePicture.sprite = post.postInfo.postAuthor.profilePicture;

@@ -71,10 +71,10 @@ public class Chat : WindowUI
     /// User Chat Handler
     /// </summary>
 
-    public IEnumerator ContinueChat()
+    public IEnumerator ContinueChat(float time = 1f)
     {
 
-        currentStory.ChooseChoiceIndex(0); // Automatically choose the first choice for testing purposes, replace with actual choice handling logic
+        currentStory.ChooseChoiceIndex(0);
         Player.consumeEnergyTrigger.Invoke(10);
 
         string text = currentStory.Continue();
@@ -86,7 +86,7 @@ public class Chat : WindowUI
 
         while(currentStory.canContinue)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(time);
             string uText = currentStory.Continue();
             AddNewChat(uText,currentUser);
             profileContainer.gameObject.SetActive(true);
@@ -95,7 +95,7 @@ public class Chat : WindowUI
     }
     
 
-    public IEnumerator SetNewChat(string _UID)
+    public IEnumerator SetNewChat(string _UID , float time = 1f)
     {
         profileContainer.gameObject.SetActive(false);
         chatPfp.gameObject.SetActive(false);
@@ -117,7 +117,7 @@ public class Chat : WindowUI
 
         while (currentStory.canContinue)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(time);
             string uText = currentStory.Continue();
             if(uText == "" || uText == null)
                 yield break;
@@ -126,6 +126,61 @@ public class Chat : WindowUI
         }
 
         
+    }
+    private IEnumerator SetnewChatHistory(string _UID , float time = 0f)
+    {
+        profileContainer.gameObject.SetActive(false);
+        chatPfp.gameObject.SetActive(false);
+        ClearChat();
+        //Get UserChat
+        User thisUser = UserManager.intensce.GetUserByID(_UID);
+        chatName.text = thisUser.userName;
+        currentUserChat = thisUser.userChatInfo;
+        currentUserChat.SetupChat();
+        profileContainer.sprite = thisUser.profilePicture;
+        chatPfp.sprite = thisUser.profilePicture;
+        chatPfp.gameObject.SetActive(true);
+        
+        
+        currentStory = currentUserChat.userStory;
+
+        if(!currentStory.canContinue)
+        {
+            while(currentStory.currentChoices.Count > 0)
+            {
+                currentStory.ChooseChoiceIndex(0);
+                string pText = currentStory.Continue();
+                AddNewChat(pText);
+            }
+        }
+        while (currentStory.canContinue)
+        {
+            yield return new WaitForSeconds(time);
+            string uText = currentStory.Continue();
+            if(uText == "" || uText == null)
+            {
+                if(currentStory.currentChoices.Count > 0)
+                    ContinueHistory(currentStory);
+                continue;
+            }
+                
+            AddNewChat(uText,thisUser);
+            profileContainer.gameObject.SetActive(true);
+            if(currentStory.currentChoices.Count > 0)
+                ContinueHistory(currentStory);
+
+        }
+
+        
+    }
+    private void ContinueHistory(Story story)
+    {
+        while (story.currentChoices.Count > 0)
+        {
+            story.ChooseChoiceIndex(0);
+            string pText = currentStory.Continue();
+            AddNewChat(pText);
+        }
     }
     public void ClearChat()
     {
@@ -139,34 +194,16 @@ public class Chat : WindowUI
         contentTranform.sizeDelta = new Vector2(0 , 30);
         m_spawnPositionY = 0;
         allBubble.Clear();
+        currentUser = null;
+        currentStory = null;
         this.gameObject.SetActive(true);
         StartCoroutine(Sound.PlaySoundAtPoint(chatResetSound, this.transform.position));
         
     }
-    private void AddNewImage(User user = null) //TODO : Rework
-    {  
-        Debug.Log("Add Image Call : Bypassing");
-        return;
-        //Setup image
-        //Sprite spriteImg = user.userChatInfo.GetCurrentImage();
-        //Instantiate chat
-        /*
-        GameObject newBubble = Instantiate(chatblubblePrefab, contentTranform, false);
-        ChatBlubbleTemplate bubbleInfo = newBubble.GetComponent<ChatBlubbleTemplate>();
-
-        bubbleInfo.SetImage(spriteImg);
-        //SetPosition
-        float newBubbleHight = bubbleInfo.GetBubbleSize().y;
-            
-        float b_expandSize = newBubbleHight + 30 + (newBubbleHight/2);
-        ExtentContentZone(b_expandSize);
-        
-        SetNewChatPosistion(bubbleInfo.rectTransform, user == null);
-        m_spawnPositionY += newBubbleHight - (newBubbleHight/2f);
-        //Add infomation
-        allBubble.Add(bubbleInfo);
-        */
-
+    public void SetChatHistory(string uID)
+    {
+        this.gameObject.SetActive(true);
+        StartCoroutine(SetnewChatHistory(uID,0.5f));   
     }
 
     private void AddNewChat(string _message , User user = null)
