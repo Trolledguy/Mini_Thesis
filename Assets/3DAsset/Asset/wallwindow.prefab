@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.920174
+      value: 2.1448998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.575249
+      value: 2.209519
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7752734
+      value: -2.4550002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_LocalRotation.y
@@ -49,15 +49,60 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+      propertyPath: m_ProbeAnchor
+      value: 
+      objectReference: {fileID: 6735802028112056957}
+    - target: {fileID: -7511558181221131132, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4107be4042dbc8842aeaabb39b39b2ed, type: 2}
+    - target: {fileID: -7511558181221131132, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c50e8cc50f0ae8418318374df1ebadc, type: 2}
     - target: {fileID: 919132149155446097, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
       propertyPath: m_Name
       value: wallwindow
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8440958265876026926}
   m_SourcePrefab: {fileID: 100100000, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+--- !u!1 &6210939893616068807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+  m_PrefabInstance: {fileID: 6552976312838190486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8440958265876026926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210939893616068807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ae654dfa47f984cbc998881dfe4f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProbeInitiator
+--- !u!4 &6735802028112056957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: afb021e30aaa0a04496fdd6466fe96c1, type: 3}
+  m_PrefabInstance: {fileID: 6552976312838190486}
+  m_PrefabAsset: {fileID: 0}

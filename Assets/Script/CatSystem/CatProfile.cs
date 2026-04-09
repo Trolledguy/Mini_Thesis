@@ -21,8 +21,6 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     public Image bg;
     private Cat currentCat;
 
-    
-
     private void OnDesign(User user)
     {
         Cat cat = GameManager.Instance.selectCat;
@@ -32,7 +30,6 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         catbook.AddHistory(user);
         catbook.UpdateFeed(PostStatus.Scrollable);
         chat.ClearChat(); 
-        //TODO : Add past Chat
         Player.onDesignEvent.Invoke(); // Trigger the design event to consume energy
         Destroy(gameObject);
         InputManager.Instance.selectCatProfile = null;

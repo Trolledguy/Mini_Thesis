@@ -71,7 +71,7 @@ public class MenuHandler : MonoBehaviour
     }
     private void OnBackButtonClicked()
     {
-        SceneHandler.Instance.UnloadSettingScene();
+        SceneHandler.Instance.UnloadScene("Test_Setting");
     }
     private void OnExitButtonClicked()
     {

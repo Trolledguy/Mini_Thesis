@@ -61,9 +61,21 @@ PrefabInstance:
       value: -69.645
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c203df73430420d498c546790b261aee, type: 3}
+      propertyPath: m_ProbeAnchor
+      value: 
+      objectReference: {fileID: 3082248513668082094}
+    - target: {fileID: -7511558181221131132, guid: c203df73430420d498c546790b261aee, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c203df73430420d498c546790b261aee, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 099741a0068dce043a278bdc0ef32813, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c203df73430420d498c546790b261aee, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c50e8cc50f0ae8418318374df1ebadc, type: 2}
     - target: {fileID: 919132149155446097, guid: c203df73430420d498c546790b261aee, type: 3}
       propertyPath: m_Name
       value: broom
@@ -75,5 +87,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c203df73430420d498c546790b261aee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2387292836424763861}
   m_SourcePrefab: {fileID: 100100000, guid: c203df73430420d498c546790b261aee, type: 3}
+--- !u!1 &2417738236527457044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c203df73430420d498c546790b261aee, type: 3}
+  m_PrefabInstance: {fileID: 3264232096898747973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2387292836424763861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417738236527457044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ae654dfa47f984cbc998881dfe4f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProbeInitiator
+--- !u!4 &3082248513668082094 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c203df73430420d498c546790b261aee, type: 3}
+  m_PrefabInstance: {fileID: 3264232096898747973}
+  m_PrefabAsset: {fileID: 0}

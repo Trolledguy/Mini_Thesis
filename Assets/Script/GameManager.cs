@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("PlayerViable is not initialized in GameManager.");
 
         currentTime = playerViable.timeRemainingPerDay;
-        
+
         CatBoard catBoard = FindAnyObjectByType<CatBoard>();
         int catA = playerViable.GetFeedRequired();
         catBoard.OnNewDay(catA);

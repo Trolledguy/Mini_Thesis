@@ -33,20 +33,15 @@ public class SceneHandler : MonoBehaviour
         loadedScenes.Add("Test_Setting");
     }
 
-    public void UnloadSettingScene()
+    public void UnloadScene(string name)
     {
-        SceneManager.UnloadSceneAsync("Test_Setting");
-        loadedScenes.Remove("Test_Setting");
+        SceneManager.UnloadSceneAsync(name);
+        loadedScenes.Remove(name);
     }
 
     public void LoadMainScene()
     {
-        SceneManager.LoadScene("Test_MainMap", LoadSceneMode.Single);
-        loadedScenes.Add("Test_MainMap");
-    }
-    public void UnloadMainMenuScene()
-    {
-        SceneManager.UnloadSceneAsync("Test_MainMenu");
-        loadedScenes.Remove("Test_MainMenu");
+        SceneManager.LoadScene("MainMap", LoadSceneMode.Single);
+        loadedScenes.Add("MainMap");
     }
 }
