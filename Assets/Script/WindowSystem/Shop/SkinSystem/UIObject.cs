@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIObject : MonoBehaviour
 {
-    [Header("List of UI Object")]
+    [Header("Background Object")]
     public Image backGround;
 
     public void ChangeSkin(UISetInfo uISetInfo)
@@ -32,6 +32,12 @@ public class UIObject : MonoBehaviour
 
         ShopItemFrame itemFrame = Resources.Load<ShopItemFrame>("Prefab/ItemFrame");
         itemFrame.background.sprite = uISetInfo.itemframe;
+
+        ChatHistory chatHistory = Resources.Load<ChatHistory>("Prefab/ChatHistoryTemplate");
+        //chatHistory.backgroundImage
+
+        CommentTemplate commentTemplate = Resources.Load<CommentTemplate>("Prefab/CommentTemplate");
+        //Change skin for comment Template
 
         Debug.Log("Skin Changed");
     }

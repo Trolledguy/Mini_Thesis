@@ -8,7 +8,6 @@ public class ChatEventTracker : UnityEvent<int>
     public void InvokeTracked(int value)
     {
         HasBeenInvoke = true;
-        //Invoke(value);
     }
     public void ResetInvoke()
     {

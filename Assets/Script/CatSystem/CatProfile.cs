@@ -30,7 +30,10 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         catbook.AddHistory(user);
         catbook.UpdateFeed(PostStatus.Scrollable);
         chat.ClearChat(); 
-        Player.onDesignEvent.Invoke(); // Trigger the design event to consume energy
+        Player.onDesignEvent.Invoke();
+        
+        CatBoard catBoard = FindAnyObjectByType<CatBoard>();
+        catBoard.RemoveCatProfile(this);
         Destroy(gameObject);
         InputManager.Instance.selectCatProfile = null;
         InputManager.Instance.isInspecting = false;

@@ -40,15 +40,16 @@ public class Catbook : WindowUI
     {
         ChatHistory history = UIManager.chatHistoryTemplatePrefab;
         GameObject hisObj = Instantiate(history.gameObject,historyRect);
-        history.SetHistory(_user);
-        history.name = "H1" + chatHistories.Count;
+        ChatHistory deploy = hisObj.GetComponent<ChatHistory>();
+        deploy.SetHistory(_user);
+        deploy.name = "H1" + chatHistories.Count;
         chatHistories.Add(hisObj.GetComponent<ChatHistory>());
 
         //Set position
         historyRect.sizeDelta += new Vector2(0,30 + 2);
         int index = chatHistories.Count;
         float offset = 19f;
-        float pos = (historyRect.rect.height / 2) - (history.objRtranform.rect.height / 2) - (offset * index); 
+        float pos = (historyRect.rect.height / 2) - (deploy.objRtranform.rect.height / 2) - (offset * index); 
         
         foreach(ChatHistory chatHistory in chatHistories)
         {

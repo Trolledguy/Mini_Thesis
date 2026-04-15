@@ -21,4 +21,4 @@ MonoBehaviour:
   defaultLikeCount: 17
   likeCount: 17
   postContent: TEwasdawe
-  postImage: {fileID: 0}
+  postImage: {fileID: 21300000, guid: 64480caca268a9a499bcb4954b736015, type: 3}

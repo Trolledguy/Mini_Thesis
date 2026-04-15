@@ -14,6 +14,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private Button applyButton;
 
     [Header("Setting")]
+    [SerializeField] private GameObject setting;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private float musicVolume = 1f;
     [SerializeField] private TMP_Dropdown displayModeDropdown;
@@ -25,7 +26,7 @@ public class MenuHandler : MonoBehaviour
         SetUp();
     }
 
-    private void SetUp()
+    public void SetUp()
     {
         if(Instance != null && Instance != this)
         {
@@ -34,7 +35,6 @@ public class MenuHandler : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
 
         List<string> displayOptions = Screen.resolutions.Length > 0 ? new List<string>() : null;
@@ -59,6 +59,7 @@ public class MenuHandler : MonoBehaviour
         AudioListener.volume = musicVolume;
         RenderSettings.ambientLight = new Color(0f, 0f, 0f, brightnessSlider.value);
         Screen.SetResolution(Screen.resolutions[displayModeDropdown.value].width, Screen.resolutions[displayModeDropdown.value].height, Screen.fullScreen);
+        setting.SetActive(false);
     }
 
     private void OnStartButtonClicked()
@@ -67,11 +68,12 @@ public class MenuHandler : MonoBehaviour
     }
     private void OnSettingButtonClicked()
     {
-        SceneHandler.Instance.LoadSettingScene();        
+        setting.SetActive(true);   
     }
     private void OnBackButtonClicked()
     {
-        SceneHandler.Instance.UnloadScene("Test_Setting");
+        setting.SetActive(false);
+        OnApplyButtonClicked();
     }
     private void OnExitButtonClicked()
     {

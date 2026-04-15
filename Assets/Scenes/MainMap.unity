@@ -1637,7 +1637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.151
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1676,9 +1676,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
+      propertyPath: m_ProbeAnchor
+      value: 
+      objectReference: {fileID: 512350876}
+    - target: {fileID: -7511558181221131132, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4f6c811d72f20b74ba05252890a12e71, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c50e8cc50f0ae8418318374df1ebadc, type: 2}
     - target: {fileID: 919132149155446097, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
       propertyPath: m_Name
       value: wardrobe
@@ -1686,8 +1698,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512350877}
   m_SourcePrefab: {fileID: 100100000, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
+--- !u!1 &244268758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
+  m_PrefabInstance: {fileID: 244268757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &244966691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2037942196695236581, guid: f988b5a042887f143856536bf9ecfea3, type: 3}
@@ -2567,7 +2587,7 @@ GameObject:
   - component: {fileID: 441606816}
   - component: {fileID: 441606815}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2974,6 +2994,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c23e21d3793f52c4e81832c739cb97ee, type: 3}
   m_PrefabInstance: {fileID: 244268757}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &512350877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244268758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ae654dfa47f984cbc998881dfe4f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProbeInitiator
 --- !u!4 &523955669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6735802028112056957, guid: 76d1d59588cb7d944924bb5a70e89cde, type: 3}
@@ -8508,9 +8540,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
+      propertyPath: m_ProbeAnchor
+      value: 
+      objectReference: {fileID: 1422216664}
+    - target: {fileID: -7511558181221131132, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 76426eb100e967145acf8cecf552b3d6, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c50e8cc50f0ae8418318374df1ebadc, type: 2}
     - target: {fileID: 919132149155446097, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
       propertyPath: m_Name
       value: ChestDeawers
@@ -8518,8 +8562,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1710800636}
   m_SourcePrefab: {fileID: 100100000, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
+--- !u!1 &1710800635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e6ac7a9bff500f449a2ff67e433244c0, type: 3}
+  m_PrefabInstance: {fileID: 1710800634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1710800636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710800635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ae654dfa47f984cbc998881dfe4f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProbeInitiator
 --- !u!1 &1714254520
 GameObject:
   m_ObjectHideFlags: 0
@@ -11478,13 +11542,13 @@ RectTransform:
   m_Children:
   - {fileID: 1292706443}
   - {fileID: 99247212}
+  - {fileID: 2090102468}
   - {fileID: 1150832839}
   - {fileID: 611814934}
   - {fileID: 528023536}
   - {fileID: 1300173348}
   - {fileID: 266056131}
   - {fileID: 750237460}
-  - {fileID: 2090102468}
   - {fileID: 1727000424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12037,6 +12101,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1151615546}
     m_Modifications:
+    - target: {fileID: 2752468264857583783, guid: 12197ce56d8261541af6d04a9f0294a1, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 71d34545010f5f840ba78809699fa7f3, type: 2}
     - target: {fileID: 3925335199562382280, guid: 12197ce56d8261541af6d04a9f0294a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.057

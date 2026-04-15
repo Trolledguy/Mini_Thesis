@@ -66,10 +66,6 @@ public class Player : MonoBehaviour
         if (playerViable == null)
         {
             playerViable = new PlayerViable(viableSetting);
-            Debug.Log(playerViable.playerName + " has been created." + 
-            "\n Energy: " + playerViable.playerEnegy +
-            "\n Money: " + playerViable.moneyBalance);
-            return;
         }
         Debug.Log("Player Initialized");
     }

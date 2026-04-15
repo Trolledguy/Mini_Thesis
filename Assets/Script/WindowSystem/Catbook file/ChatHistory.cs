@@ -4,6 +4,7 @@ using TMPro;
 
 public class ChatHistory : MonoBehaviour
 {
+    public Image backgroundImage;
     public Image profileImage;
     public TMP_Text userName;
     public User containUser;
@@ -36,7 +37,5 @@ public class ChatHistory : MonoBehaviour
         profileImage.sprite = user.profilePicture;
         userName.text = user.userName;
         containUser = user;
-
-        
     }
 }

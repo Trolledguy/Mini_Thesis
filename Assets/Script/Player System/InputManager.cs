@@ -84,12 +84,14 @@ public class InputManager : MonoBehaviour
         return isUsingComputer;
     }
 
-
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
+        if(Camera.main == null) return;
         if(!Application.isPlaying) return;
         Gizmos.color = Color.red;
         Ray ray = PlayerCamera.Instance.playerCamera.ScreenPointToRay(Input.mousePosition);
         Gizmos.DrawRay(ray.origin, ray.direction * 20);
     }
+#endif
 }

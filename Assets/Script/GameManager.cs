@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
         }
         set
         {
+            if(value == null || value == "")
+            {
+                Debug.LogError("Set User null");
+                return;
+            }
             _User = UserManager.intensce.GetUserByID(value);
         }
     }

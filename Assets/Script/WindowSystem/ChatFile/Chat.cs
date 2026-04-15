@@ -46,8 +46,6 @@ public class Chat : WindowUI
         {
             Debug.LogError("Profile Container not found");
         }
-        Debug.Log(chatblubblePrefab);
-
         contentTranform.sizeDelta = new Vector2(0 , 30);
         profileContainer.gameObject.SetActive(false);
         chatPfp.gameObject.SetActive(false);

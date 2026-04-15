@@ -21,4 +21,4 @@ MonoBehaviour:
   defaultLikeCount: 11
   likeCount: 11
   postContent: AEAWASD
-  postImage: {fileID: 0}
+  postImage: {fileID: 21300000, guid: b6e14295493d39c43b7a671faf9624cd, type: 3}

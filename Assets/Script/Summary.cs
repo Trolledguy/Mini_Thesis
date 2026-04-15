@@ -24,6 +24,7 @@ public class Summary : MonoBehaviour
 
     public void DisplaySummary(SummaryViable viable,int day)
     {
+        gameObject.transform.SetAsLastSibling();
         gameObject.SetActive(true);
         day_text.text = $"Day{day}";
         totalCustomerText.text = $"Customers: {viable.ct}";

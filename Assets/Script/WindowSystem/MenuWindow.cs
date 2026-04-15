@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,7 +15,10 @@ public class MenuWindow : MonoBehaviour
         memuButton = GetComponent<Button>();
         memuButton.onClick.AddListener(OnMenuButtonClicked);
         nextDayButton.onClick.AddListener(OnNextDayButtonClicked);
-        exitButton.onClick.AddListener(OnExitButtonClicked);
+        exitButton.onClick.AddListener(delegate ()
+        {
+            StartCoroutine(OnExitButtonClicked());
+        });
         menuContent.SetActive(false);
     }
     private void OnMenuButtonClicked()
@@ -35,9 +39,17 @@ public class MenuWindow : MonoBehaviour
         Summary.intence.DisplaySummary(summary,day);
         menuContent.SetActive(false);
     }
-    private void OnExitButtonClicked()
+    private IEnumerator OnExitButtonClicked()
     {
         //SaveGame
-        SceneManager.LoadScene("Test_MainMenu", LoadSceneMode.Single);
+        AudioListener listener = GameObject.FindAnyObjectByType<AudioListener>();
+        listener.enabled = false;
+        Destroy(listener.gameObject);
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync("Test_MainMenu", LoadSceneMode.Single);
+        while (!loadOp.isDone)
+        {
+            yield return null;
+        }
+        MenuHandler.Instance.SetUp();
     }
 }

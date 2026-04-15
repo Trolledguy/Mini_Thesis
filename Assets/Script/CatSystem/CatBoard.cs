@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +8,13 @@ public class CatBoard : MonoBehaviour
     public Collider coli;
 
     public Canvas catCanvas;
+    private List<CatProfile> todayCats = new List<CatProfile>();
 
 
     public void OnNewDay(int catAmount)
     {   
         catInDay = catAmount;
+        ClearCat();
         SpawnCatProfile(catInDay);
     }
     private void SpawnCatProfile(int _Amount)
@@ -33,9 +36,24 @@ public class CatBoard : MonoBehaviour
             CatProfile catProfile = obj.GetComponent<CatProfile>();
             Cat cat = CatManager.instance.GetRandomCat();
             catProfile.SetCatProfile(cat.catInfo, randomPos, rZ);
+            todayCats.Add(catProfile);
         }
     }
-
+    private void ClearCat()
+    {
+        if(todayCats.Count < 1)
+            return;
+        foreach (CatProfile profile in todayCats)
+        {
+            Destroy(profile.gameObject);
+        }
+        todayCats.Clear();
+    }
+    public void RemoveCatProfile(CatProfile profile)
+    {
+        if(todayCats.Contains(profile))
+            todayCats.Remove(profile);
+    }
     public void SetCatAmount(int _amount)
     {
         catInDay = _amount;
