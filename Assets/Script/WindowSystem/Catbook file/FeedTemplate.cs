@@ -40,6 +40,7 @@ public class FeedTemplate : MonoBehaviour
         likeCountText.text = post.postInfo.likeCount.ToString();
         likeButton.onClick.AddListener(() => HandleLikeButton(post));
 
+        Debug.Log("Post comment " + post.comments.Count);
         SpawnComments(post.comments);
         commentSection.gameObject.SetActive(false);
         commentButton.onClick.AddListener(delegate()  
@@ -57,7 +58,7 @@ public class FeedTemplate : MonoBehaviour
     {
         float spawnPos; // Starting Y position for the first comment
         float spacingY = 35f; // Vertical spacing between comments
-        commentSection.sizeDelta = new Vector2(0, spacingY * comments.Count); // Add extra height for spacing
+        commentSection.sizeDelta = new Vector2(0, spacingY * comments.Count); 
         spawnPos = (spacingY * comments.Count) / 2f - 22.5f;
         foreach(Comment comment in comments)
         {

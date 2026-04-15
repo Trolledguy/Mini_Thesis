@@ -41,6 +41,7 @@ public class User : ScriptableObject
     public void SetupProfile()
     {
         PostInfo[] _inPost = Resources.LoadAll<PostInfo>("Posts");
+        Comment[] comments = Resources.LoadAll<Comment>("Posts");
         List<Post> outPost = new List<Post>();
         foreach(PostInfo p in _inPost)
         {
@@ -49,6 +50,13 @@ public class User : ScriptableObject
                 if(p.postAuthor == this)
                 {
                     Post post = new Post(p);
+                    foreach (Comment comment in comments)
+                    {
+                        if (comment.post == p)
+                        {
+                            post.comments.Add(comment);
+                        }
+                    }
                     outPost.Add(post);
                 }
             }

@@ -22,7 +22,6 @@ public class PostManager : MonoBehaviour
         {
             if(postInfo.postTag == PostTag.Profile)
                 continue;
-
             Post post = new Post(postInfo);
             if (!newpostDict.ContainsKey(postInfo.postID))
             {

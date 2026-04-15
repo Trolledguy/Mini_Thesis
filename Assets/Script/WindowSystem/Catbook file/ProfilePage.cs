@@ -21,6 +21,7 @@ public class ProfilePage : MonoBehaviour
         }
         contentParent.sizeDelta = new Vector2(contentParent.sizeDelta.x, 0);
 
+        //Set profile
         Post[] posts = user.GetProfilePost();
         List<FeedTemplate> newFeeds = new List<FeedTemplate>();
         int feedCount = 0;
