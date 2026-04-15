@@ -15,9 +15,13 @@ public class UISetInfo : ScriptableObject
     [Header("Catbook Asset")]
     public Sprite feedBackground;
     public Sprite likeButton;
+    public Sprite commentButton;
     public Sprite catProfileBg;
     public Sprite appProveButton;
     public Sprite denyButton;
+    public Sprite chatHistoryBG;
+    public Sprite chatHistoryTemplate;
+    public Sprite commentSkin;
 
     [Header("Chat Asset")]
     public Sprite chatBorder;

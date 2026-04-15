@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Catbook : WindowUI
 {
+    [Header("Image comp for Skin Change")]
+    [SerializeField] private Image chatBackground;
     [Header("Catbook Specific Settings")]
     [SerializeField] private RectTransform contentRect;
     [SerializeField] private RectTransform historyRect;
@@ -182,6 +184,11 @@ public class Catbook : WindowUI
                 Debug.LogError("Invalid post status.");
                 break;
         }
+    }
+    public override void ChangeSkin(WindowSkin skinInfo, UISetInfo uISetInfo = null)
+    {
+        base.ChangeSkin(skinInfo, uISetInfo);
+        chatBackground.sprite = uISetInfo.chatHistoryBG;
     }
 
     private void SetFeedPosition(Feed feed, int index)

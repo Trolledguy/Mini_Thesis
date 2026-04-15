@@ -31,9 +31,13 @@ MonoBehaviour:
     closeIcon: {fileID: 21300000, guid: 92db59a74dd76eb4abaa97e04afb0eb0, type: 3}
   feedBackground: {fileID: 21300000, guid: 829d7e6fb36496c419633b8f9c39baf2, type: 3}
   likeButton: {fileID: 21300000, guid: 53612b9448488df428c6dfd39cb66d8a, type: 3}
+  commentButton: {fileID: 21300000, guid: f0da4bd50be211443aeca997ab1f7f97, type: 3}
   catProfileBg: {fileID: 21300000, guid: b940e717213a3724ca8fb239ef7805a9, type: 3}
   appProveButton: {fileID: 21300000, guid: 74773ee82ebfd2e44af1c034efdea8b3, type: 3}
   denyButton: {fileID: 21300000, guid: 33d1f5c0d5c9dce488b2075a4c13f365, type: 3}
+  chatHistoryBG: {fileID: 21300000, guid: a088c05a711fa9846b31e44030d008cd, type: 3}
+  chatHistoryTemplate: {fileID: 21300000, guid: 81823a88c2f03ce4aba4efdad31dde66, type: 3}
+  commentSkin: {fileID: 21300000, guid: be4d83e8e73dc5c408e9adffb45df538, type: 3}
   chatBorder: {fileID: 21300000, guid: defe643640b12d44387e06f639b0500e, type: 3}
   itemframe: {fileID: 21300000, guid: 81e14c1f7acd3cc4bacb6662735b3ccc, type: 3}
   deskTopB: {fileID: 21300000, guid: f33be775010a3624c8ffda0e6f730a53, type: 3}

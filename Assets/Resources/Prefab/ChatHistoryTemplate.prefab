@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68838dc0a750d146849d6ae7309bb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatHistory
-  backgroundImage: {fileID: 0}
+  backgroundImage: {fileID: 1241062322151652870}
   profileImage: {fileID: 3332918925294016397}
   userName: {fileID: 7943390055443805843}
   containUser: {fileID: 11400000, guid: c021876f5271d824b9f9fef279408bd5, type: 2}

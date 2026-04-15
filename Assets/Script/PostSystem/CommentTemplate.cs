@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class CommentTemplate : MonoBehaviour
 {
+    public Image background;
+    [Header("Setting")]
     public Image profileSprite;
     public TMP_Text userName;
     public TMP_Text commentText;

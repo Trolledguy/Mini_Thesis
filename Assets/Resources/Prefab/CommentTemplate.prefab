@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec870c163d490f4fa041e1aa61b146b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CommentTemplate
+  background: {fileID: 3591113074685436382}
   profileSprite: {fileID: 3246086034977385856}
   userName: {fileID: 8679385891872113837}
   commentText: {fileID: 4310805294246549386}

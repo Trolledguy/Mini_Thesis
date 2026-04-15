@@ -8,7 +8,9 @@ public abstract class WindowUI : MonoBehaviour , IDragHandler
     [SerializeField] private DesktopIcon desktopIcon; 
     [SerializeField] private Button closeButton;
     [SerializeField] private RectTransform rectTransform;
-    public Image background;
+
+    [SerializeField] private Image background;
+    
 
     [Header("Window Settings")]
     public string windowName;
