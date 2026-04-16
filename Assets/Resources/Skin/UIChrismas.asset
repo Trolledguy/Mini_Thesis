@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83366e5f87318b4eb4a92487ad4ed12, type: 3}
+  m_Name: UIChrismas
+  m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
+  id: 
+  backGround: {fileID: 0}
+  menuButton: {fileID: 0}
+  menuBackground: {fileID: 0}
+  windowSkins: []
+  feedBackground: {fileID: 0}
+  likeButton: {fileID: 0}
+  commentButton: {fileID: 0}
+  catProfileBg: {fileID: 0}
+  appProveButton: {fileID: 0}
+  denyButton: {fileID: 0}
+  chatHistoryBG: {fileID: 0}
+  chatHistoryTemplate: {fileID: 0}
+  commentSkin: {fileID: 0}
+  chatBorder: {fileID: 0}
+  itemframe: {fileID: 0}
+  deskTopB: {fileID: 0}
+  roomB: {fileID: 0}
+  catB: {fileID: 0}
+  foodB: {fileID: 0}
