@@ -85,7 +85,7 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         }
         catch(NullReferenceException) { Debug.Log("No Current User"); }
 
-        transform.position = PlayerCamera.Instance.playerCamera.transform.position + new Vector3(-0.5f,0,0);
+        transform.position = PlayerCamera.Instance.playerCamera.transform.position + new Vector3(0f,0,-0.5f);
         transform.localScale = Vector3.one;
         transform.LookAt(PlayerCamera.Instance.playerCamera.transform);
         RectTransform rectT = GetComponent<RectTransform>();

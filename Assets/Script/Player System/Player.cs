@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Audio;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
     public ViableSetting viableSetting;
     [Header("Audio Mixer")]
     public AudioMixer audioMixer;
+    [Header("Viable visualize")]
+    public TMP_Text coin;
+    public TMP_Text enegy;
 
 
     public static ChatEventTracker consumeEnergyTrigger;
@@ -28,6 +32,7 @@ public class Player : MonoBehaviour
             return;
         }
         playerViable.playerEnegy -= _amount;
+        enegy.text = playerViable.playerEnegy.ToString();
         consumeEnergyTrigger.InvokeTracked(_amount);
     }
     
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
         {
             playerViable = new PlayerViable(viableSetting);
         }
+        enegy.text = playerViable.playerEnegy.ToString();
         Debug.Log("Player Initialized");
     }
 }

@@ -51,7 +51,8 @@ public class InputManager : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Sound.PlaySoundAtPoint(clickSound, this.transform.position));
-            if(isOnBoard || isUsingComputer) return;
+            if(PlayerCamera.Instance.isCameraZooming()) return;
+            if(isOnBoard || isUsingComputer ) return;
             Ray ray = PlayerCamera.Instance.playerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray,out RaycastHit hitInfo,20))
             {

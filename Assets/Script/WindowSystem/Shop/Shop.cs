@@ -11,7 +11,7 @@ public class Shop : WindowUI
     public string resourcesPath = ""; // e.g. "Shop" or "Shop/Items"
     [Tooltip("Prefab For Item")]
     public ShopItemFrame framePrefab;
-    [Header("")]
+    [Header("Buy confirm")]
     public BuyConfirm buyConfirmDisplay;
 
     [Header("Parent object for spawn content")]
@@ -62,6 +62,11 @@ public class Shop : WindowUI
     private void ItemBuy(ShopItemFrame frame,Item buyItem)
     {
         Debug.Log($"Item buy : {buyItem.name}");
+        if(GameManager.Instance.player.playerViable.moneyBalance < buyItem.value)
+        {
+            DebugBox.AddDebugText("Insuffient money");
+            return;
+        }
         //Make Food Item Take Effect
         if(buyItem.category == ItemCategory.Food) return;
         buyItem.isbuy = true;

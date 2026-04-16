@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         if(cat.catInfo.catIdentity == user.userIdentity)
         {
             currectCase++;
+            AddDayEarned(20);
         }
         else
         {
