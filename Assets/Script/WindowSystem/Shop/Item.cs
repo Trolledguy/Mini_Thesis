@@ -17,6 +17,8 @@ public abstract class Item : ScriptableObject
 
     public bool isbuy = false;
 
+    public abstract void UseItem();
+
 #if UNITY_EDITOR
     void OnValidate()
     {

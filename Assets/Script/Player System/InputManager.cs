@@ -5,7 +5,6 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get; private set; }
 
     [Header("Input State")]
-    public float turnSpeed;
     private bool isUsingComputer = false;
     private bool isOnBoard = false;
     public bool isInspecting = false;
@@ -24,14 +23,6 @@ public class InputManager : MonoBehaviour
     {
         if(!isUsingComputer && !isOnBoard)
         {
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                StartCoroutine(PlayerCamera.Instance.MoveCamera(MoveDirection.Left, turnSpeed));
-            }
-            else if(Input.GetKeyDown(KeyCode.D))
-            {
-                StartCoroutine(PlayerCamera.Instance.MoveCamera(MoveDirection.Right, turnSpeed));
-            }
         }
         
         if(Input.GetKeyDown(KeyCode.E))
@@ -60,7 +51,7 @@ public class InputManager : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Sound.PlaySoundAtPoint(clickSound, this.transform.position));
-            if(isOnBoard) return;
+            if(isOnBoard || isUsingComputer) return;
             Ray ray = PlayerCamera.Instance.playerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray,out RaycastHit hitInfo,20))
             {
@@ -77,6 +68,7 @@ public class InputManager : MonoBehaviour
     public static void SetInput(bool _input)
     {
         Instance.isUsingComputer = _input;
+        Instance.isOnBoard = false;
     }
 
     public bool IsUsingComputer()

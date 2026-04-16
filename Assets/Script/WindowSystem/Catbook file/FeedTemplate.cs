@@ -40,7 +40,6 @@ public class FeedTemplate : MonoBehaviour
         likeCountText.text = post.postInfo.likeCount.ToString();
         likeButton.onClick.AddListener(() => HandleLikeButton(post));
 
-        Debug.Log("Post comment " + post.comments.Count);
         SpawnComments(post.comments);
         commentSection.gameObject.SetActive(false);
         commentButton.onClick.AddListener(delegate()  

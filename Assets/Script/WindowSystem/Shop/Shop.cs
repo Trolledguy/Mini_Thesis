@@ -66,6 +66,7 @@ public class Shop : WindowUI
         if(buyItem.category == ItemCategory.Food) return;
         buyItem.isbuy = true;
         frame.ActivateSoldPic();
+        buyItem.UseItem();
         //EditorUtility.SetDirty(buyItem); //Use it later when final
     }
 
@@ -108,10 +109,15 @@ public class Shop : WindowUI
         {
             SetShop(d_Item);
         });
+        roomDeco.onClick.AddListener(delegate ()
+        {
+            SetShop(r_Item);
+        });
     }
 
     private void SetShop(List<Item> input)
     {
+        ClearShop();
         Vector3 rowTop = new Vector3(-155f,41.5f,0);
         Vector3 rowBot = new Vector3(-155f,-38.5f,0);
         int count = 0;
@@ -129,9 +135,19 @@ public class Shop : WindowUI
                 rowBot += new Vector3(80,0,0);
                 count++;
             }
-            
+
         }
     } 
+    private void ClearShop()
+    {
+        ShopItemFrame[] activeFrame = contentParent.GetComponentsInChildren<ShopItemFrame>(true);
+        if(activeFrame.Length < 1)
+            return;
+        foreach (ShopItemFrame activeObj in activeFrame)
+        {
+            Destroy(activeObj.gameObject);
+        }
+    }
 
     private void SpawnFrame(Item _item ,Vector3 _position)
     {

@@ -47,13 +47,10 @@ public class WindowManager : MonoBehaviour
 
     private void Setup()
     {
-        if (instance == null)
+        if (instance != this)
         {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
+            DontDestroyOnLoad(this);
         }
 
         sizeReference = GetComponent<RectTransform>();

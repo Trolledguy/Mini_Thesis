@@ -16,10 +16,7 @@ public class SkinManager : MonoBehaviour
     public Dictionary<string,UISetInfo> skinInfos = new Dictionary<string, UISetInfo>();
 
 
-    //Test Zone
-    [Header("Test Zone")]
-    public Button testButton;
-    public SceneSkinInfo skinTest; 
+
 
     void Awake()
     {
@@ -31,16 +28,6 @@ public class SkinManager : MonoBehaviour
         }
 
         skinInfos = CreateSkinList();
-        testButton.onClick.AddListener(delegate ()
-        {
-            ChangeUI();
-            /*
-            GameObject[] playerObj = GameObject.FindGameObjectsWithTag("Game Logical");
-            
-            AssignDontDestroy(playerObj);
-            StartCoroutine(ChangeScene(skinTest));
-            */
-        });
         
     }
     private void Start()
@@ -73,9 +60,16 @@ public class SkinManager : MonoBehaviour
         }
         
     }
-
-    public IEnumerator ChangeScene(SceneSkinInfo info)
+    public void ToggleChangeScene(SceneSkinInfo skin)
     {
+        StartCoroutine(ChangeScene(skin));
+    }
+
+    private IEnumerator ChangeScene(SceneSkinInfo info)
+    {
+        GameObject[] playerObj = GameObject.FindGameObjectsWithTag("Game Logical");
+        AssignDontDestroy(playerObj);
+
         InputManager.Instance.gameObject.SetActive(false);
         
         AsyncOperation op = SceneManager.LoadSceneAsync(info.nameID,LoadSceneMode.Single);

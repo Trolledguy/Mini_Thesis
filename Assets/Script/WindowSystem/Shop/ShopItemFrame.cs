@@ -50,7 +50,7 @@ public class ShopItemFrame : MonoBehaviour
 
     public void ActivateSoldPic()
     {
-        soldPic.gameObject.SetActive(true);
+        this.soldPic.gameObject.SetActive(true);
     }
 
     public void SetFrame(Item _item)

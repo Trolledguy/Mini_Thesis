@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b363e2eef3cac4d8d2545ee54b3265, type: 3}
+  m_Name: NewShopItem
+  m_EditorClassIdentifier: Assembly-CSharp::SceneItem
+  itemName: Halloween Scene
+  value: 30
+  category: 1
+  icon: {fileID: 21300000, guid: 0642dc44d4380a64a94827586c0c43b6, type: 3}
+  isbuy: 0
+  skinInfo: {fileID: 11400000, guid: 739a1557bb17be24db4f92f1273463bd, type: 2}
