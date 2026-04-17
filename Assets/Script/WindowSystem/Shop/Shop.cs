@@ -61,7 +61,6 @@ public class Shop : WindowUI
 
     private void ItemBuy(ShopItemFrame frame,Item buyItem)
     {
-        Debug.Log($"Item buy : {buyItem.name}");
         if(GameManager.Instance.player.playerViable.moneyBalance < buyItem.value)
         {
             DebugBox.AddDebugText("Insuffient money");

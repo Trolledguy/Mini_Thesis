@@ -12,23 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83366e5f87318b4eb4a92487ad4ed12, type: 3}
   m_Name: UIChrismas
   m_EditorClassIdentifier: Assembly-CSharp::UISetInfo
-  id: 
-  backGround: {fileID: 0}
-  menuButton: {fileID: 0}
-  menuBackground: {fileID: 0}
-  windowSkins: []
-  feedBackground: {fileID: 0}
-  likeButton: {fileID: 0}
-  commentButton: {fileID: 0}
-  catProfileBg: {fileID: 0}
-  appProveButton: {fileID: 0}
-  denyButton: {fileID: 0}
-  chatHistoryBG: {fileID: 0}
-  chatHistoryTemplate: {fileID: 0}
-  commentSkin: {fileID: 0}
-  chatBorder: {fileID: 0}
-  itemframe: {fileID: 0}
-  deskTopB: {fileID: 0}
-  roomB: {fileID: 0}
-  catB: {fileID: 0}
-  foodB: {fileID: 0}
+  id: CM
+  backGround: {fileID: 21300000, guid: 3db044d834a01a84184c681b3e03c044, type: 3}
+  menuButton: {fileID: 21300000, guid: c98ca00825bd61a4798a409c9e46ae5b, type: 3}
+  menuBackground: {fileID: 21300000, guid: 7109f8f7a6104ad40ab442f4bfbbc9af, type: 3}
+  windowSkins:
+  - type: 0
+    window: {fileID: 21300000, guid: 94009fb901fddc04692607caabdb7028, type: 3}
+    desktopIcon: {fileID: 21300000, guid: ac13f733dd5bf964c906964f4c3a37c0, type: 3}
+    closeIcon: {fileID: 21300000, guid: 88b476eb8b68aab4baa5d9ebfaede827, type: 3}
+  - type: 1
+    window: {fileID: 21300000, guid: 4919210cbd2d22e40b5d9c8b317a028d, type: 3}
+    desktopIcon: {fileID: 21300000, guid: de12cce90aa77aa4a9e12a00e39700bd, type: 3}
+    closeIcon: {fileID: 21300000, guid: 88b476eb8b68aab4baa5d9ebfaede827, type: 3}
+  - type: 2
+    window: {fileID: 21300000, guid: 06ecc13de95a8a546bac1a48aab3660b, type: 3}
+    desktopIcon: {fileID: 21300000, guid: 3fde0bbce432f914d96bc5ca1e7a0110, type: 3}
+    closeIcon: {fileID: 21300000, guid: 88b476eb8b68aab4baa5d9ebfaede827, type: 3}
+  feedBackground: {fileID: 21300000, guid: 2dd7cba655ca9c44bb4edbbd48b04a7f, type: 3}
+  likeButton: {fileID: 21300000, guid: dc1f900e644ada245bfb2c88781488f2, type: 3}
+  commentButton: {fileID: 21300000, guid: 6c59357b2c6c2ea459ccd22e46c2a0a4, type: 3}
+  catProfileBg: {fileID: 21300000, guid: f0b8788be2f75c24183380ad7a5cfdf7, type: 3}
+  appProveButton: {fileID: 21300000, guid: a9f450e247bad374aace153dbfad217e, type: 3}
+  denyButton: {fileID: 21300000, guid: b2896761dd6484e4598fee0298922759, type: 3}
+  chatHistoryBG: {fileID: 21300000, guid: cfb71cd0197a0a6449f831db539fcc15, type: 3}
+  chatHistoryTemplate: {fileID: 21300000, guid: 2405fce8519105d46ac89fbf9125a695, type: 3}
+  commentSkin: {fileID: 21300000, guid: e99281b48230b7f4793893eba6de3017, type: 3}
+  chatBorder: {fileID: 21300000, guid: fd3e2c89c372cd643b3d01cf8603cd7d, type: 3}
+  itemframe: {fileID: 21300000, guid: fc770ac9023dbd7458a4d9a35bb85ce6, type: 3}
+  deskTopB: {fileID: 21300000, guid: 55f9b4efdbd66fd4abdb136fbb27dd95, type: 3}
+  roomB: {fileID: 21300000, guid: d358ba734f96dac4d9a5193f43e05fdd, type: 3}
+  catB: {fileID: 21300000, guid: 04e724bc5a47c8842bd14d9236052682, type: 3}
+  foodB: {fileID: 21300000, guid: 04e724bc5a47c8842bd14d9236052682, type: 3}
+  startgameBackground: {fileID: 21300000, guid: af3cbad04721a7e45823bf5fe654a43f, type: 3}
+  logo: {fileID: 21300000, guid: 7211200397a14da418fe7a53be1e8aba, type: 3}
+  startButt: {fileID: 21300000, guid: 76ef437d84641cc42a05b097deb192f1, type: 3}
+  SettingButt: {fileID: 21300000, guid: 61e01a00610687d438d4b2c5c40ba8c3, type: 3}
+  exitButt: {fileID: 21300000, guid: ae327e9f05a541b4eb013075b472aaf6, type: 3}
+  settingfarBG: {fileID: 21300000, guid: 20c9b069e22062841b639b0e0c421f83, type: 3}
+  settingBg: {fileID: 21300000, guid: f0b8788be2f75c24183380ad7a5cfdf7, type: 3}
+  settingText: {fileID: 21300000, guid: 4707e0508242dd44fad3739eb8119fd4, type: 3}
+  soundText: {fileID: 21300000, guid: 745be1b189a79344caf5bca420fd2e4f, type: 3}
+  volumeText: {fileID: 21300000, guid: 03474a9c6680c9e458cbdf7a3a040af2, type: 3}
+  graphicText: {fileID: 21300000, guid: f3e870c403952ad44a6868ec8d0c53f4, type: 3}
+  brightnessText: {fileID: 21300000, guid: 06b27ad8bdf8fe24bb484a387ecfd656, type: 3}
+  confirm: {fileID: 21300000, guid: a9f450e247bad374aace153dbfad217e, type: 3}
+  back: {fileID: 21300000, guid: f9c5e8bdd5394c14b86c0631451b61f2, type: 3}
+  fill: {fileID: 21300000, guid: f1c56b12e848b74418482ee3116691af, type: 3}
+  handle: {fileID: 21300000, guid: f9c5e8bdd5394c14b86c0631451b61f2, type: 3}
+  msideBack: {fileID: 21300000, guid: bf83c6ec5fd47ab40b922d3104fc17d2, type: 3}
+  mHandler: {fileID: 21300000, guid: a0e0eaa887edc2f4abe01112105ebe3d, type: 3}

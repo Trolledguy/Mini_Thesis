@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Chrismas Scene
   value: 30
   category: 1
-  icon: {fileID: 21300000, guid: 0642dc44d4380a64a94827586c0c43b6, type: 3}
+  icon: {fileID: 21300000, guid: f68f4d012c7f3854583c5db8e9e54c37, type: 3}
   isbuy: 0
-  skinInfo: {fileID: 0}
+  skinInfo: {fileID: 11400000, guid: fcf50ecd2005203478d863db2ce0706e, type: 2}

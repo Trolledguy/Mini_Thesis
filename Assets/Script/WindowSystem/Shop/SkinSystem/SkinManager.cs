@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +16,7 @@ public class SkinManager : MonoBehaviour
     public UIObject ui;
     public Dictionary<string,UISetInfo> skinInfos = new Dictionary<string, UISetInfo>();
 
+    public CurrentSkin currentSkin = new CurrentSkin();
 
 
 
@@ -26,7 +28,7 @@ public class SkinManager : MonoBehaviour
             intence = this;
             DontDestroyOnLoad(gameObject);   
         }
-
+        
         skinInfos = CreateSkinList();
         
     }
@@ -63,10 +65,18 @@ public class SkinManager : MonoBehaviour
     public void ToggleChangeScene(SceneSkinInfo skin)
     {
         StartCoroutine(ChangeScene(skin));
+        currentSkin.currentSceneSkin = skin.nameID;
     }
 
     private IEnumerator ChangeScene(SceneSkinInfo info)
     {
+        if(info.nameID == "Mainmap")
+        {
+            StartCoroutine(MenuWindow.OnExitButtonClicked());
+            Destroy(WindowManager.instance.gameObject);
+            SceneManager.LoadScene(info.nameID);
+            yield break;
+        }
         GameObject[] playerObj = GameObject.FindGameObjectsWithTag("Game Logical");
         AssignDontDestroy(playerObj);
 
@@ -119,7 +129,7 @@ public class SkinManager : MonoBehaviour
             return null;
         }
         
-        int r = Random.Range(0,uIs.Count);
+        int r = UnityEngine.Random.Range(0,uIs.Count);
         return uIs[r];
     }
     private Dictionary<string,UISetInfo> CreateSkinList()
@@ -137,4 +147,11 @@ public class SkinManager : MonoBehaviour
         return res;
     }
 
+}
+
+[Serializable]
+public class CurrentSkin
+{
+    public string currentUiSkin;
+    public string currentSceneSkin;
 }

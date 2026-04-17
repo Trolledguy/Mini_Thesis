@@ -26,12 +26,39 @@ public class UISetInfo : ScriptableObject
     [Header("Chat Asset")]
     public Sprite chatBorder;
 
-    [Header("ShopAsset")]
+    [Header("Shop Asset")]
     public Sprite itemframe;
     public Sprite deskTopB;
     public Sprite roomB;
     public Sprite catB;
     public Sprite foodB;
+
+    [Header("Menu Asset")]
+    public Sprite startgameBackground;
+    public Sprite logo;
+    public Sprite startButt;
+    public Sprite SettingButt;
+    public Sprite exitButt;
+
+    [Header("Setting Element")]
+    public Sprite settingfarBG;
+    public Sprite settingBg;
+    public Sprite settingText;
+    public Sprite soundText;
+    public Sprite volumeText;
+    public Sprite graphicText;
+    public Sprite brightnessText;
+    public Sprite confirm;
+    
+    [Header("Slider Asset")]
+    public Sprite back;
+    public Sprite fill;
+    public Sprite handle;
+    [Header("Main slider Asset")]
+    public Sprite msideBack;
+    public Sprite mHandler;
+    
+
 
     public WindowSkin GetSkinByType(WindowAppType appType)
     {

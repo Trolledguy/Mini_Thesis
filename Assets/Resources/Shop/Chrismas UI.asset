@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Chrismas UI
   value: 10
   category: 0
-  icon: {fileID: 408102788, guid: 0676fe154002cbf439604998cad3317f, type: 3}
+  icon: {fileID: 21300000, guid: 9e45422bf9fb882499a31b02c31fc85a, type: 3}
   isbuy: 0
-  uISet: {fileID: 0}
+  uISet: {fileID: 11400000, guid: 53d704657c69b5040ae71a979048b1bd, type: 2}

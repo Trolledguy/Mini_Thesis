@@ -9,6 +9,9 @@ TagManager:
   - Cam Position
   - UI Position
   - Cat Board
+  - ItemSoldImage
+  - WindowBackground
+  - Slider Background
   layers:
   - Default
   - TransparentFX

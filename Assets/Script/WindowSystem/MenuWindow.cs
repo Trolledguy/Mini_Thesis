@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -39,13 +40,17 @@ public class MenuWindow : MonoBehaviour
         Summary.intence.DisplaySummary(summary,day);
         menuContent.SetActive(false);
     }
-    private IEnumerator OnExitButtonClicked()
+    public static IEnumerator OnExitButtonClicked()
     {
         //SaveGame
+        CurrentSkin skinInfo = SkinManager.intence.currentSkin;
+        string info = JsonUtility.ToJson(skinInfo);
+        string filePath = Path.Combine(Application.persistentDataPath,"Savefile");
+        File.WriteAllText(filePath,info);
         AudioListener listener = GameObject.FindAnyObjectByType<AudioListener>();
         listener.enabled = false;
         Destroy(listener.gameObject);
-        AsyncOperation loadOp = SceneManager.LoadSceneAsync("Test_MainMenu", LoadSceneMode.Single);
+        AsyncOperation loadOp = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
         while (!loadOp.isDone)
         {
             yield return null;

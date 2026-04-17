@@ -44,3 +44,21 @@ MonoBehaviour:
   roomB: {fileID: 21300000, guid: 0bb66318343599b4b9755781a9280476, type: 3}
   catB: {fileID: 21300000, guid: a956967b7ad264847b91c0b12afa1c03, type: 3}
   foodB: {fileID: 21300000, guid: 0bb66318343599b4b9755781a9280476, type: 3}
+  startgameBackground: {fileID: 21300000, guid: 3abaeeb8609564a439fa2ebbf527bd2c, type: 3}
+  logo: {fileID: 21300000, guid: 5edf60f29f2426c4cb7a140668f57481, type: 3}
+  startButt: {fileID: 21300000, guid: 84b8459313aaac94e805460c588ff405, type: 3}
+  SettingButt: {fileID: 21300000, guid: d978ac1e716b0b34fb5877fa5560b106, type: 3}
+  exitButt: {fileID: 21300000, guid: 1a50b82bc66b8444dbee367137915455, type: 3}
+  settingfarBG: {fileID: 21300000, guid: 5786f6f04cbdc3a4abe59ec2bc68852f, type: 3}
+  settingBg: {fileID: 21300000, guid: acac59fee0ac22946803bd9787908d80, type: 3}
+  settingText: {fileID: 21300000, guid: 4707e0508242dd44fad3739eb8119fd4, type: 3}
+  soundText: {fileID: 21300000, guid: 745be1b189a79344caf5bca420fd2e4f, type: 3}
+  volumeText: {fileID: 21300000, guid: 03474a9c6680c9e458cbdf7a3a040af2, type: 3}
+  graphicText: {fileID: 21300000, guid: f3e870c403952ad44a6868ec8d0c53f4, type: 3}
+  brightnessText: {fileID: 21300000, guid: 06b27ad8bdf8fe24bb484a387ecfd656, type: 3}
+  confirm: {fileID: 21300000, guid: eb23562789d1d2e4e90524a05d66caef, type: 3}
+  back: {fileID: 21300000, guid: 0f957c094b5e37844af37f6fb1568c8b, type: 3}
+  fill: {fileID: 21300000, guid: ec643cc9d3decd84698e1b1450165017, type: 3}
+  handle: {fileID: 21300000, guid: 5cf8c57d6f7f4fb4282f6af01b79296c, type: 3}
+  msideBack: {fileID: 21300000, guid: aeb1ca7033cc40c4e905e5f9e33327c1, type: 3}
+  mHandler: {fileID: 21300000, guid: 77521f67a4c19db4c9d0e7f0ab5dc423, type: 3}
