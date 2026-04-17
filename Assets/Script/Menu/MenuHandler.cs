@@ -58,7 +58,6 @@ public class MenuHandler : MonoBehaviour
         musicVolume = musicVolumeSlider.value;
         AudioListener.volume = musicVolume;
         RenderSettings.ambientLight = new Color(0f, 0f, 0f, brightnessSlider.value);
-        Screen.SetResolution(Screen.resolutions[displayModeDropdown.value].width, Screen.resolutions[displayModeDropdown.value].height, Screen.fullScreen);
         setting.SetActive(false);
     }
 
