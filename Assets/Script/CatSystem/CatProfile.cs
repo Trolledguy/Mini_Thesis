@@ -56,7 +56,7 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
         currentCat = CatManager.instance.GetCatByID(catInfo.catID);
         catNameText.text = catInfo.catName; 
         breedText.text = catInfo.breed;
-        ageText.text = $"Age: {catInfo.age}";
+        ageText.text = $"{catInfo.sex}";
         descriptionText.text = catInfo.description;
         catImageRenderer.sprite = catInfo.catImage;
         this.gameObject.SetActive(true);

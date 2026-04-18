@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109dc321466b00845a75940066dacf94, type: 3}
   m_Name: New Cat Info
   m_EditorClassIdentifier: Assembly-CSharp::CatInfo
-  catName: Test Cat 1
-  breed: Orange
-  age: 1
+  catName: Chaecoal
+  breed: Thai cat
+  sex: 
   catID: CAT001
+  catIdentity: 0
   catImage: {fileID: 21300000, guid: 0f81284b7ed879f4a8c6bd4f7091ba1f, type: 3}
-  description: He's a fit fat orange cat.
+  description: A friendly, gentle, and people-oriented 6 year old cat. He used to
+    be a stray but was later adopted by someone in the neighborhood. Unfortunately,
+    his current owner is facing a serious illness and is now urgently searching for
+    a warm and loving new home for him before she passes away.
   backgroundStory: He's came from nowhere. And he's fat.

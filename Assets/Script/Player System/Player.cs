@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
         InitializePlayer();
         SetupEvent();
     }
+    public void SetEnegy(int index)
+    {
+        playerViable.playerEnegy = index;
+        enegy.text = index.ToString();
+    }
 
     private void ConsumeEnergy(int _amount)
     {

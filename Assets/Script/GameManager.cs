@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         currentDayEarned = 0;
         currentTime = playerViable.timeRemainingPerDay;
         playerViable.currentDay++;
+        player.SetEnegy(100);
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
         catbook.gameObject.SetActive(true); //Set Active to get info and prevent error
