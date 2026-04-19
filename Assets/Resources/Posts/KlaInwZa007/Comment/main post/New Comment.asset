@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Comment
   m_EditorClassIdentifier: Assembly-CSharp::Comment
   post: {fileID: 11400000, guid: 983a2fe331aaa174782563a756c634fc, type: 2}
-  profileSprite: {fileID: 21300000, guid: 180feec7473c24645bd932b26617e0b2, type: 3}
+  profileSprite: {fileID: 21300000, guid: 0f81284b7ed879f4a8c6bd4f7091ba1f, type: 3}
   userName: Nong - PP
   commentText: Just someone who doesn't have any cat. LOL

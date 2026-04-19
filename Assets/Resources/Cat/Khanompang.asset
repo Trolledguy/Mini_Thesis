@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109dc321466b00845a75940066dacf94, type: 3}
+  m_Name: Khanompang
+  m_EditorClassIdentifier: Assembly-CSharp::CatInfo
+  catName: Khanompang
+  breed: Thai Cat (6M)
+  sex: Male
+  catID: CAT006
+  catIdentity: 4
+  catImage: {fileID: 21300000, guid: b92bfd85256c6f74e9ff4490e3703bbc, type: 3}
+  description: Calm and non-aggressive; lives near a local bakery but the shop owner
+    frequently chases him away.
+  backgroundStory: He's came from nowhere. And he's fat.

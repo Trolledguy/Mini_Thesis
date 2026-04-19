@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Comment 1
   m_EditorClassIdentifier: Assembly-CSharp::Comment
   post: {fileID: 11400000, guid: ad26e7447083cb44b836d29df8453c87, type: 2}
-  profileSprite: {fileID: 21300000, guid: 7afdcd037de46d942a3e5b6e2e0fa217, type: 3}
+  profileSprite: {fileID: 21300000, guid: cae07b634a97f1d458e5e275e1c1f156, type: 3}
   userName: KlalnwZa007
   commentText: No. I just rented them temporarily. I didn't intent to get attached,but...

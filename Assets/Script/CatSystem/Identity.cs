@@ -1,8 +1,8 @@
 public enum Identity
 {
-    Friendly,
-    LessFriendly,
-    Neutral,
+    Argressive,
     LessArgressive,
-    Argressive
+    Neutral,
+    LessFriendly,
+    Friendly
 }

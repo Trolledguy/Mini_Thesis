@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(cat.catInfo.catIdentity == user.userIdentity)
+        if(user.userIdentity >= Identity.Neutral) 
         {
             currectCase++;
             AddDayEarned(20);
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         _User = null;
 
         DebugBox.UpdateScore(currectCase);
-        DebugBox.AddDebugText($"Answer is {(cat.catInfo.catIdentity == user.userIdentity ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
+        DebugBox.AddDebugText($"Answer is {(user.userIdentity >= cat.catInfo.catIdentity ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
     }
     
     public void AddDayEarned(int _amount)

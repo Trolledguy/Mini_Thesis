@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22bdd05056bc0b4d97bd8ccd1e874aa, type: 3}
+  m_Name: New Comment
+  m_EditorClassIdentifier: Assembly-CSharp::Comment
+  post: {fileID: 11400000, guid: 6a153d4d42f60b04886e993d272c01b1, type: 2}
+  profileSprite: {fileID: 21300000, guid: cae07b634a97f1d458e5e275e1c1f156, type: 3}
+  userName: SHI NO BU
+  commentText: Why not just quit then?
