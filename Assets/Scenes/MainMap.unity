@@ -3442,7 +3442,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.104, y: -0.311}
-  m_SizeDelta: {x: 0.100000024, y: 0.100000024}
+  m_SizeDelta: {x: 0.13, y: 0.100000024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528023537
 MonoBehaviour:
@@ -3571,7 +3571,7 @@ Animator:
   m_GameObject: {fileID: 528023535}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9eed3594c2268c4095eeb8d94a6a746, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3603,7 +3603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -652543279, guid: 0676fe154002cbf439604998cad3317f, type: 3}
+  m_Sprite: {fileID: -459893133, guid: 3aa940067f0c9084fb8ffd57ebf9a41d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3645,7 +3645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e919ca9d0aadc5642a38bb3654e9a9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DesktopCat
-  rectTransform: {fileID: 0}
+  rectTransform: {fileID: 528023536}
   nevigator: {fileID: 528023543}
   animator: {fileID: 528023540}
   rb: {fileID: 528023539}
@@ -12400,10 +12400,10 @@ RectTransform:
   - {fileID: 99247212}
   - {fileID: 1150832839}
   - {fileID: 611814934}
-  - {fileID: 528023536}
   - {fileID: 1300173348}
   - {fileID: 266056131}
   - {fileID: 750237460}
+  - {fileID: 528023536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

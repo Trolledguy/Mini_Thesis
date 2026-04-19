@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Nevigator))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Button))]
 [RequireComponent(typeof(Rigidbody2D),typeof(Collider2D))]
-public class DesktopCat : MonoBehaviour
+public class DesktopCat : MonoBehaviour , IPointerClickHandler
 {
     [Header("Components")]
     [SerializeField] private RectTransform rectTransform;
@@ -68,6 +69,8 @@ public class DesktopCat : MonoBehaviour
         destinationMarker.transform.SetParent(windowTranform);
         destinationMarker.transform.localPosition = new Vector2(destination.x, destination.y);
 
+        animator.SetBool("Ismove",isMoving);
+
         
         while (isMoving)
         {
@@ -77,6 +80,7 @@ public class DesktopCat : MonoBehaviour
             if (Vector2.Distance(rectTransform.localPosition, destinationMarker.transform.localPosition) < 0.1f)
             {
                 isMoving = false;
+                animator.SetBool("Ismove",isMoving);
                 Destroy(destinationMarker);
                 yield break;
             }
@@ -100,6 +104,12 @@ public class DesktopCat : MonoBehaviour
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Cat Click!!");
+        animator.SetTrigger("Click");
+    }
+
     private void Setup()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -109,11 +119,12 @@ public class DesktopCat : MonoBehaviour
         colli = GetComponent<Collider2D>();
         button = GetComponent<Button>();
     }
-
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         if(Application.isPlaying && destinationMarker != null)
             Gizmos.DrawLine(transform.position, destinationMarker.transform.position);
     }
+#endif
 }
