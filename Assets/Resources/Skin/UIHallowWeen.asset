@@ -16,6 +16,8 @@ MonoBehaviour:
   backGround: {fileID: 21300000, guid: cc71cbd6891c42740addc1a2fff4306c, type: 3}
   menuButton: {fileID: 21300000, guid: d59a0c818f87eb044bed2443b1ab3054, type: 3}
   menuBackground: {fileID: 21300000, guid: 88b77184879154c439d5862c78f78440, type: 3}
+  nextdayButt: {fileID: 21300000, guid: c63be2e7cfc91f045a82bdbf2b6ddb62, type: 3}
+  mainmenuButt: {fileID: 21300000, guid: 5731d68f9196d3a42bb1c213f7f7f4ef, type: 3}
   windowSkins:
   - type: 0
     window: {fileID: 21300000, guid: 0559c14d44c7db74f82895071084bbc7, type: 3}
@@ -44,3 +46,21 @@ MonoBehaviour:
   roomB: {fileID: 21300000, guid: b40cfe18ce92fbf4d8083284985aaea8, type: 3}
   catB: {fileID: 21300000, guid: 1dd92e00e7046f744a5003332e61a340, type: 3}
   foodB: {fileID: 21300000, guid: 6d05450a753e08f458bc3cc9061ad74d, type: 3}
+  startgameBackground: {fileID: 21300000, guid: 2c58a991625d2204194c12d307728584, type: 3}
+  logo: {fileID: 21300000, guid: 7678270824d0e2743bb3734d14addbb7, type: 3}
+  startButt: {fileID: 21300000, guid: 900a61f34a227cc439602159022da0d1, type: 3}
+  SettingButt: {fileID: 21300000, guid: 366b68f259556ce428dc32ab373fc14a, type: 3}
+  exitButt: {fileID: 21300000, guid: a6d55ad1496f7e24eaaaef2a07b8c95a, type: 3}
+  settingfarBG: {fileID: 21300000, guid: 2c58a991625d2204194c12d307728584, type: 3}
+  settingBg: {fileID: 21300000, guid: 78ab1d88883d6974bb484df8c8e22756, type: 3}
+  settingText: {fileID: 21300000, guid: 4707e0508242dd44fad3739eb8119fd4, type: 3}
+  soundText: {fileID: 21300000, guid: b9b3edc983b7d614bab8635491981fd2, type: 3}
+  volumeText: {fileID: 21300000, guid: 03474a9c6680c9e458cbdf7a3a040af2, type: 3}
+  graphicText: {fileID: 21300000, guid: f3e870c403952ad44a6868ec8d0c53f4, type: 3}
+  brightnessText: {fileID: 21300000, guid: 06b27ad8bdf8fe24bb484a387ecfd656, type: 3}
+  confirm: {fileID: 21300000, guid: 3572537b32afb2f489ceea25daf8ad1d, type: 3}
+  back: {fileID: 21300000, guid: 7d1e1e9db63fac44db60c53eedba4a7d, type: 3}
+  fill: {fileID: 21300000, guid: ffe5b67015f296a40b6a9b282442bdfb, type: 3}
+  handle: {fileID: 21300000, guid: e1af35315b6a7074f9d3593986686178, type: 3}
+  msideBack: {fileID: 21300000, guid: 0a8c878de6e28c049ac82d40e1df9ded, type: 3}
+  mHandler: {fileID: 21300000, guid: f6a8b56aef917564d81aa06b0648dace, type: 3}

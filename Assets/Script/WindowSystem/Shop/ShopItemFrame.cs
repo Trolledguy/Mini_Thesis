@@ -40,7 +40,6 @@ public class ShopItemFrame : MonoBehaviour
 
         interactButton.onClick.AddListener(delegate ()
         {
-            if(item.isbuy == true) return;
             Shop shop = WindowManager.instance.AccessApp(WindowAppType.CatShop).GetComponent<Shop>();
             shop.Buy(this,item);
         });

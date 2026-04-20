@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -28,12 +30,10 @@ public class MenuHandler : MonoBehaviour
 
     public void SetUp()
     {
-        if(Instance != null && Instance != this)
+        if(Instance != this)
         {
-            Destroy(this.gameObject);
-        }
-        else
-        {
+            if(Instance != null)
+                Destroy(Instance.gameObject);
             Instance = this;
         }
 
@@ -51,6 +51,14 @@ public class MenuHandler : MonoBehaviour
         backButton.onClick.AddListener(OnBackButtonClicked);
         applyButton.onClick.AddListener(OnApplyButtonClicked);
 
+        // Get user's local screen resolution and set it
+        int dpWidth = Display.main.systemWidth;
+        int dpHeight = Display.main.systemHeight;
+
+        Screen.SetResolution(dpWidth, dpHeight, true);
+
+
+        
     }
     
     private void OnApplyButtonClicked()
@@ -63,6 +71,8 @@ public class MenuHandler : MonoBehaviour
 
     private void OnStartButtonClicked()
     {
+        if(PlayerCamera.Instance != null)
+            Destroy(PlayerCamera.Instance.gameObject);
         SceneHandler.Instance.LoadMainScene();
     }
     private void OnSettingButtonClicked()
@@ -77,5 +87,8 @@ public class MenuHandler : MonoBehaviour
     private void OnExitButtonClicked()
     {
         Application.Quit();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }

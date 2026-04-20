@@ -53,6 +53,7 @@ public class Shop : WindowUI
     public void Buy(ShopItemFrame frame,Item item)
     {
         buyConfirmDisplay.Set(item);
+        buyEvent.RemoveAllListeners();
         buyEvent.AddListener(delegate()
         { 
             ItemBuy(frame,item);
@@ -61,17 +62,23 @@ public class Shop : WindowUI
 
     private void ItemBuy(ShopItemFrame frame,Item buyItem)
     {
+        if(buyItem.isbuy) 
+        {
+            buyItem.UseItem();
+            return;
+        }
         if(GameManager.Instance.player.playerViable.moneyBalance < buyItem.value)
         {
             DebugBox.AddDebugText("Insuffient money");
             return;
         }
         //Make Food Item Take Effect
+        GameManager.Instance.player.AddCoin(-buyItem.value);
+        buyItem.UseItem();
         if(buyItem.category == ItemCategory.Food) return;
         buyItem.isbuy = true;
         frame.ActivateSoldPic();
-        buyItem.UseItem();
-        //EditorUtility.SetDirty(buyItem); //Use it later when final
+        //EditorUtility.SetDirty(buyItem);
     }
 
 

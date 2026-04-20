@@ -56,6 +56,11 @@ public class Player : MonoBehaviour
             ConsumeEnergy(viableSetting.energyCostPerChatContinue);
         });
     }
+    public void AddCoin(int amount)
+    {
+        playerViable.moneyBalance += amount;
+        coin.text = playerViable.moneyBalance.ToString();
+    }
 
     private void InitializePlayer()
     {

@@ -21,10 +21,10 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
     public Image bg;
     private Cat currentCat;
 
-    private void OnDesign(User user)
+    private void OnDesign(bool isSend,User user)
     {
         Cat cat = GameManager.Instance.selectCat;
-        GameManager.Instance.UpdateScore(cat , user);
+        GameManager.Instance.UpdateScore(isSend , user);
         Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
         Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
         catbook.AddHistory(user);
@@ -76,12 +76,13 @@ public class CatProfile : MonoBehaviour , IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(!InputManager.Instance.IsOnBoard()) return;
         try
         {
             string uID = GameManager.Instance.currentUserID;
             User cUser = UserManager.intensce.GetUserByID(uID);
-            approveButton.onClick.AddListener(() => OnDesign(cUser));
-            denyButton.onClick.AddListener(() => OnDesign(cUser));
+            approveButton.onClick.AddListener(() => OnDesign(true,cUser));
+            denyButton.onClick.AddListener(() => OnDesign(false,cUser));
         }
         catch(NullReferenceException) { Debug.Log("No Current User"); }
 

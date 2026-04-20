@@ -49,6 +49,7 @@ public class WindowManager : MonoBehaviour
     {
         if (instance != this)
         {
+            if(instance != null) Destroy(instance.gameObject);
             instance = this;
             DontDestroyOnLoad(this);
         }

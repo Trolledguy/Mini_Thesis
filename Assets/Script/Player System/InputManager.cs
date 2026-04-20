@@ -77,6 +77,11 @@ public class InputManager : MonoBehaviour
         return isUsingComputer;
     }
 
+    public bool IsOnBoard()
+    {
+        return isOnBoard;
+    }
+
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {

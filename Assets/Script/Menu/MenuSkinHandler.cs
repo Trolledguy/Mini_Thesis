@@ -44,9 +44,13 @@ public class MenuSkinHandler : MonoBehaviour
 
     public void ChangeMenuSkin(UISetInfo info)
     {
+        if(info == null) info = SkinManager.intence.GetUISkinByID("DF");
+
+        Debug.Log(info);
         //MainMenu
         background.sprite = info.startgameBackground;
         logo.sprite = info.logo;
+        logo.SetNativeSize();
         startButt.sprite = info.startButt;
         SettingButt.sprite = info.SettingButt;
         exitButt.sprite = info.exitButt;

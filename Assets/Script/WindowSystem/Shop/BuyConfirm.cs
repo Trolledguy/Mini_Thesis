@@ -24,10 +24,12 @@ public class BuyConfirm : MonoBehaviour
 
         gameObject.SetActive(true);
 
-
+        approve.onClick.RemoveAllListeners();
+        deny.onClick.RemoveAllListeners();
         approve.onClick.AddListener(delegate ()
         {
             Shop.buyEvent.Invoke();
+            Debug.Log("Approve Pressed");
             gameObject.SetActive(false);
         });
 

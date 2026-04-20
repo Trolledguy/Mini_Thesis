@@ -355,10 +355,10 @@ TextureImporter:
       name: Cat Test_11
       rect:
         serializedVersion: 2
-        x: 1533
-        y: 514
-        width: 511
-        height: 511
+        x: 1702
+        y: 624
+        width: 171
+        height: 239
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

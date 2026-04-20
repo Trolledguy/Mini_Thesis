@@ -21,7 +21,6 @@ public class SceneHandler : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
 
         }
 

@@ -103,9 +103,10 @@ public class Catbook : WindowUI
     }
     public void ResetFeed()
     {
+        ClearHistory();
+        if(currentPostStatus == PostStatus.Scrollable) return;
         ClearFeed();
         SpawnFeeds(2);
-        ClearHistory();
     }
 
     private void ClearHistory()
@@ -121,14 +122,13 @@ public class Catbook : WindowUI
 
     private void ClearFeed()
     {
-        for(int i =0;i < feeds.Length;i++)
-        {
-            if(feeds[i] == null)
-            {
-                continue;
-            }
-            Destroy(feeds[i].gameObject);
+        for(int i = 0; i < feeds.Length; i += 1)
+        {   
+            Debug.Log(i);
+            if(feeds[i] != null)
+                Destroy(feeds[i].gameObject);
             feeds[i] = null;
+            Debug.Log("Destryo" + i);
         }
     }
 
@@ -146,7 +146,6 @@ public class Catbook : WindowUI
             Post postData = PostManager.instance.GetRandomPost();
             feed.SetUpFeed(postData , feedTemplate);
 
-            //Todo Fix this part, need to set feed position based on post status, and also need to set content parent height based on post status
             if(currentPostStatus == PostStatus.Unscrollable && feeds[2] == null)
             {
                 SetContentParentHight(PostStatus.Unscrollable);
@@ -193,10 +192,13 @@ public class Catbook : WindowUI
 
     private void SetFeedPosition(Feed feed, int index)
     {
+        bool isObjActive = gameObject.activeSelf;
+        gameObject.SetActive(true);
         feed.transform.SetParent(feedsposition[index]);
         feed.transform.localPosition = Vector3.zero;
         feed.transform.localScale = Vector3.one;
         feeds[index] = feed;
+        gameObject.SetActive(isObjActive);
     }
     private void SetFeedPosition(Feed feed)
     {

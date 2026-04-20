@@ -106,7 +106,6 @@ public class DesktopCat : MonoBehaviour , IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Cat Click!!");
         animator.SetTrigger("Click");
     }
 

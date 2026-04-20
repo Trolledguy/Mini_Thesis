@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -24,7 +25,7 @@ public class SkinManager : MonoBehaviour
     {
         if(intence != this)
         {
-            Destroy(intence);
+            if(intence != null) Destroy(intence.gameObject);
             intence = this;
             DontDestroyOnLoad(gameObject);   
         }
@@ -34,8 +35,16 @@ public class SkinManager : MonoBehaviour
     }
     private void Start()
     {
-        UISetInfo dfSkin = GetUISkinByID("DF");
-        ui.ChangeSkin(dfSkin);
+        string path = Path.Combine(Application.persistentDataPath,"Savefile");
+        Debug.Log(path);
+        CurrentSkin data = new CurrentSkin();
+        if (File.Exists(path)) 
+        {
+            string json = File.ReadAllText(path);
+            data = JsonUtility.FromJson<CurrentSkin>(json);
+            if(data.currentUiSkin != null && data.currentUiSkin != "")
+                ChangeUI(data.currentUiSkin);
+        }
     }
     public void ChangeUI(string id) 
     {
@@ -57,7 +66,6 @@ public class SkinManager : MonoBehaviour
     {
         foreach(GameObject i in objs)
         {
-            Debug.Log($"Name : {i.name}");
             DontDestroyOnLoad(i);
         }
         
@@ -72,8 +80,12 @@ public class SkinManager : MonoBehaviour
     {
         if(info.nameID == "Mainmap")
         {
-            StartCoroutine(MenuWindow.OnExitButtonClicked());
-            Destroy(WindowManager.instance.gameObject);
+            GameObject[] dObj = GameObject.FindGameObjectsWithTag("Game Logical");
+            foreach (GameObject gameObject in dObj)
+            {
+                Destroy(gameObject);
+            }
+            Destroy(PlayerCamera.Instance.gameObject);
             SceneManager.LoadScene(info.nameID);
             yield break;
         }
@@ -86,7 +98,6 @@ public class SkinManager : MonoBehaviour
 
         while (!op.isDone)
         {
-            Debug.Log("Loading");
             yield return null;
         }
 
@@ -111,10 +122,13 @@ public class SkinManager : MonoBehaviour
         wd.transform.position = sceneAnchor.uiPoint.position;
         wd.transform.localEulerAngles = Vector3.zero;
 
+        CatBoard catBoard = FindAnyObjectByType<CatBoard>();
+        catBoard.transform.position = sceneAnchor.boardPosition.position + new Vector3(0,0,0.1f);
+
         InputManager.Instance.gameObject.SetActive(true);
         InputManager.SetInput(true);
         playerCamera.SetZoom(false);
-        yield return null;
+        yield break;
     }
     public UISetInfo GetUISkinByID(string _id)
     {

@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         chat.gameObject.SetActive(false);
     }
 
-    public void UpdateScore(Cat cat,User user)
+    public void UpdateScore(bool _isSend,User user)
     {
         if (_User == null)
         {
@@ -101,12 +101,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(user.userIdentity >= Identity.Neutral) 
+        if(_isSend && user.userIdentity >= Identity.Neutral || !_isSend && user.userIdentity < Identity.Neutral) 
         {
             currectCase++;
             AddDayEarned(20);
         }
-        else
+        else 
         {
             incurrectCase++;
         }
@@ -114,13 +114,13 @@ public class GameManager : MonoBehaviour
         _User = null;
 
         DebugBox.UpdateScore(currectCase);
-        DebugBox.AddDebugText($"Answer is {(user.userIdentity >= cat.catInfo.catIdentity ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
+        DebugBox.AddDebugText($"Answer is {(user.userIdentity >= Identity.Neutral ? "Correct" : "Incorrect")}. \n Current Score: {currectCase} Correct, {incurrectCase} Incorrect.");
     }
     
     public void AddDayEarned(int _amount)
     {
         currentDayEarned += _amount;
-        playerViable.moneyBalance += _amount;
+        player.AddCoin(_amount);
     }
     public SummaryViable GetSummaryInfo()
     {

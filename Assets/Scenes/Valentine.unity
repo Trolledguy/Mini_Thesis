@@ -523,7 +523,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 577534127106881398, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.057
+      value: -0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 577534127106881398, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.461
       objectReference: {fileID: 0}
     - target: {fileID: 577534127106881398, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
       propertyPath: m_LocalPosition.z
@@ -676,6 +680,8 @@ PrefabInstance:
     - {fileID: 8879101800393155014, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
     - {fileID: 2669820427739684798, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
     - {fileID: 4932718743650947749, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
+    - {fileID: 107090708594259721, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
+    - {fileID: 4092209785133438613, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8977655aea65f844aa82dcc5e95f4681, type: 3}
@@ -1629,6 +1635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneAnchor
   cameraPoint: {fileID: 328855520}
   uiPoint: {fileID: 328855519}
+  boardPosition: {fileID: 1536759047}
   boardCamPoint: {fileID: 1536759046}
 --- !u!4 &863845675
 Transform:
@@ -3355,6 +3362,11 @@ PrefabInstance:
 --- !u!4 &1536759046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 983984041458434523, guid: d0c5b129ace41d14eb9288bd26b77b12, type: 3}
+  m_PrefabInstance: {fileID: 1536759045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1536759047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7721043968894851912, guid: d0c5b129ace41d14eb9288bd26b77b12, type: 3}
   m_PrefabInstance: {fileID: 1536759045}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1550787351

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05b363e2eef3cac4d8d2545ee54b3265, type: 3}
-  m_Name: Chrismas Scene
+  m_Name: Default Scene
   m_EditorClassIdentifier: Assembly-CSharp::SceneItem
-  itemName: Chrismas Scene
+  itemName: Default Scene
   value: 30
   category: 1
-  icon: {fileID: 21300000, guid: f68f4d012c7f3854583c5db8e9e54c37, type: 3}
+  icon: {fileID: 1659465670, guid: 0676fe154002cbf439604998cad3317f, type: 3}
   isbuy: 0
-  skinInfo: {fileID: 11400000, guid: c4c9fdbb4ad102148876cb7642b163d1, type: 2}
+  skinInfo: {fileID: 11400000, guid: fcf50ecd2005203478d863db2ce0706e, type: 2}

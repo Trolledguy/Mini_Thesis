@@ -17,12 +17,14 @@ public class UIObject : MonoBehaviour
             Catbook catbook = WindowManager.instance.AccessApp(WindowAppType.Catbook).GetComponent<Catbook>();
             Chat chat = WindowManager.instance.AccessApp(WindowAppType.CatChat).GetComponent<Chat>();
             Shop shop = WindowManager.instance.AccessApp(WindowAppType.CatShop).GetComponent<Shop>();
+            MenuWindow menuWindow = FindAnyObjectByType<MenuWindow>();
 
             computerBackGround.sprite = uISetInfo.backGround;
 
             catbook.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.Catbook),uISetInfo);
             chat.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.CatChat));
             shop.ChangeSkin(uISetInfo.GetSkinByType(WindowAppType.CatShop), uISetInfo);
+            menuWindow.ChangeSkin(uISetInfo);
             
             FeedTemplate feedTemplate = Resources.Load<FeedTemplate>("Prefab/FeedTemplate");
             feedTemplate.feedBackground.sprite = uISetInfo.feedBackground;
@@ -80,6 +82,7 @@ public class UIObject : MonoBehaviour
         else
         {
             MenuSkinHandler skinHandler = FindAnyObjectByType<MenuSkinHandler>();
+            skinHandler.ChangeMenuSkin(uISetInfo);
         }
         SkinManager.intence.currentSkin.currentUiSkin = uISetInfo.id;
         Debug.Log("Skin Changed");

@@ -12,7 +12,10 @@ public class DebugBox : MonoBehaviour
     {
         instance = this;
     }
-
+    private void ClearBox()
+    {
+        instance.debugText.text = "";
+    }
     public static void UpdateScore(int amount)
     {
         instance.scoreText.text = "Score : " + amount.ToString();
@@ -20,6 +23,7 @@ public class DebugBox : MonoBehaviour
 
     public static void AddDebugText(string text)
     {
+        instance.ClearBox();
         instance.debugText.text += text + "\n";
     }
 }

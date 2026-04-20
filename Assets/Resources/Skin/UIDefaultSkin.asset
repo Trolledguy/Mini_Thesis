@@ -16,9 +16,11 @@ MonoBehaviour:
   backGround: {fileID: 21300000, guid: 5b585a37ac384a347ab13c6716e05c0e, type: 3}
   menuButton: {fileID: 21300000, guid: 09d12cd1655cf94438ba749972034f07, type: 3}
   menuBackground: {fileID: 21300000, guid: 5b585a37ac384a347ab13c6716e05c0e, type: 3}
+  nextdayButt: {fileID: 21300000, guid: c4e96381eb3e53a4499a877e2f22560d, type: 3}
+  mainmenuButt: {fileID: 21300000, guid: 75853239b63dcc14096409d6d9b616c7, type: 3}
   windowSkins:
   - type: 0
-    window: {fileID: 21300000, guid: 20bd48c9b2c6ebe45967882666ebb7fe, type: 3}
+    window: {fileID: 21300000, guid: a5f6ba7d202918d429464f39dc5b4cbb, type: 3}
     desktopIcon: {fileID: 21300000, guid: 54c09790b6fbab34c8bc36067d2ab286, type: 3}
     closeIcon: {fileID: 21300000, guid: fe3b5aa95dc2af943b33e45986294e45, type: 3}
   - type: 1

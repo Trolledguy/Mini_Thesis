@@ -16,5 +16,5 @@ MonoBehaviour:
   value: 10
   category: 0
   icon: {fileID: 21300000, guid: a32e918a6d738dd4fae04c96e34295df, type: 3}
-  isbuy: 0
+  isbuy: 1
   uISet: {fileID: 11400000, guid: 4d9198999d4696747a2128fd8c391245, type: 2}

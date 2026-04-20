@@ -10,6 +10,8 @@ public class UISetInfo : ScriptableObject
     public Sprite backGround;
     public Sprite menuButton;
     public Sprite menuBackground;
+    public Sprite nextdayButt;
+    public Sprite mainmenuButt;
     public WindowSkin[] windowSkins;
     
     [Header("Catbook Asset")]
@@ -58,7 +60,7 @@ public class UISetInfo : ScriptableObject
     public Sprite msideBack;
     public Sprite mHandler;
     
-
+    
 
     public WindowSkin GetSkinByType(WindowAppType appType)
     {
